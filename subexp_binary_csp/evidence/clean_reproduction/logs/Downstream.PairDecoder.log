@@ -1,0 +1,3 @@
+'CSPConsequence.PairDecoder.readPairBlock_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.PairDecoder.decodePairNat_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.PairDecoder.decodePairNat_eq' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,10 @@
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/BruteCSPMachine.lean:21:0: warning: Definition `CSPConsequence.BruteCSP.leafMachine_poly` of class type is semireducible. Most type class instances should be instance-reducible, so consider marking this
+definition with `@[instance_reducible]`. If it is intentionally semireducible, this warning can be disabled with `set_option warn.classDefReducibility false`.
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/BruteCSPMachine.lean:22:0: warning: Definition `CSPConsequence.BruteCSP.enumerate_poly` of class type is semireducible. Most type class instances should be instance-reducible, so consider marking this
+definition with `@[instance_reducible]`. If it is intentionally semireducible, this warning can be disabled with `set_option warn.classDefReducibility false`.
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/BruteCSPMachine.lean:66:0: warning: Definition `CSPConsequence.BruteCSP.machine_poly` of class type is semireducible. Most type class instances should be instance-reducible, so consider marking this
+definition with `@[instance_reducible]`. If it is intentionally semireducible, this warning can be disabled with `set_option warn.classDefReducibility false`.
+'CSPConsequence.BruteCSP.enumerate_poly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.BruteCSP.enumerate_correct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.BruteCSP.machine_poly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.BruteCSP.machine_correct' depends on axioms: [propext, Classical.choice, Quot.sound]

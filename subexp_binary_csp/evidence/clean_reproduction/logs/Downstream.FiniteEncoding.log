@@ -1,0 +1,2 @@
+'CSPConsequence.DomainCodec.encode_bijOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.DomainCodec.sum_encoded' depends on axioms: [propext, Classical.choice, Quot.sound]

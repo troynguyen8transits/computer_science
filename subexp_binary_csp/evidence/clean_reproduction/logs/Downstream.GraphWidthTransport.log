@@ -1,0 +1,3 @@
+'CSPConsequence.GraphWidthTransport.treewidth_iso' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.GraphWidthTransport.family_comparison' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.GraphWidthTransport.exponent_transfer' depends on axioms: [propext, Classical.choice, Quot.sound]

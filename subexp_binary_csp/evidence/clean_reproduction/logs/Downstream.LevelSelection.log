@@ -1,0 +1,4 @@
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/LevelSelection.lean:51:49: warning: exponent 320 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+'CSPConsequence.LevelSelection.search_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.LevelSelection.selected_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.LevelSelection.grouping_fits' depends on axioms: [propext]

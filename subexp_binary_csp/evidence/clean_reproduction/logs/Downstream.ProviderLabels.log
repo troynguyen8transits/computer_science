@@ -1,0 +1,4 @@
+'CSPConsequence.ProviderLabels.crossingPairs_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.ProviderLabels.labelValue_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.ProviderLabels.labelLegal_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.ProviderLabels.factorValue_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]

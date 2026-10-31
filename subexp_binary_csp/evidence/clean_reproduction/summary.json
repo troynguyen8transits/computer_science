@@ -1,0 +1,49 @@
+{
+  "status": "passed",
+  "tested_release_commit": "62d7f485ec59e47cd034f2e4c3b4ddf83dc19742",
+  "completed_at_utc": "2026-10-31T23:39:41.448229+00:00",
+  "upstream_commit": "16a5ce41304fcdaea4e0be7c132e1c361dc26da5",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "lean_version": "4.33.1",
+  "platform": "Darwin arm64",
+  "downstream_modules": 82,
+  "standard_axiom_reports": 269,
+  "dependency_stages": [
+    {
+      "stage": "cache",
+      "exit_code": 0,
+      "elapsed_seconds": 103.5798186250031,
+      "log": "cache.log",
+      "log_sha256": "0c7e881470e37a98174f8703185a0498016c6cfe92966dbbff631f68ab7f7af9",
+      "sources_stable": true,
+      "dependency_manifest_unchanged": true
+    },
+    {
+      "stage": "build",
+      "exit_code": 0,
+      "elapsed_seconds": 3523.580157999997,
+      "log": "build.log",
+      "log_sha256": "17df29c7bca48363149eeda9e218a1b2de240781b87b60302f12ddf4530a9a0c",
+      "sources_stable": true,
+      "dependency_manifest_unchanged": true
+    },
+    {
+      "stage": "replay",
+      "exit_code": 0,
+      "elapsed_seconds": 5107.544091083109,
+      "log": "replay.log",
+      "log_sha256": "c437225eb8dfe08e00ce7ca66937b7da34802eab6cfa3fe72dda4e0b5d0485db",
+      "sources_stable": true,
+      "dependency_manifest_unchanged": true
+    }
+  ],
+  "results_sha256": "1cd4aeb3b9ac669a50abffe200c53f3163955195b4d5d9735a6bb1d7e3d377b5",
+  "reused_installed_compiler": true,
+  "downloaded_official_mathlib_cache": true,
+  "reused_original_investigation_proof_objects": false,
+  "all_supplied_downstream_modules_freshly_compiled": true,
+  "independent_machine_or_human_review": false,
+  "fresh_upstream_module_objects": 633,
+  "compiler_version_output": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "compiler_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554"
+}

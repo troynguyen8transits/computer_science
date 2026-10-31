@@ -1,0 +1,61 @@
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/TotalCounter.lean:62:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/TotalCounter.lean:63:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/TotalCounter.lean:64:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/TotalCounter.lean:65:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/TotalCounter.lean:122:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/TotalCounter.lean:123:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/TotalCounter.lean:135:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+'CSPConsequence.TotalCounter.machine_poly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.TotalCounter.correct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.TotalCounter.fast_branch_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.TotalCounter.native_from_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.TotalCounter.native_total' depends on axioms: [propext, Classical.choice, Quot.sound]

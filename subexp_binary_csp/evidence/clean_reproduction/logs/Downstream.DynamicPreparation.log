@@ -1,0 +1,4 @@
+'CSPConsequence.DynamicPreparation.networkInput_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.DynamicPreparation.groupingInput_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.DynamicPreparation.networkInput_of' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.DynamicPreparation.groupingInput_of' depends on axioms: [propext, Classical.choice, Quot.sound]

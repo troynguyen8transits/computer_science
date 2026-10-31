@@ -1,0 +1,3 @@
+'CSPConsequence.SparseDecisionRuns.check_nonisolated' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.SparseDecisionRuns.from_counter' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.SparseDecisionRuns.small_domain' depends on axioms: [propext, Classical.choice, Quot.sound]

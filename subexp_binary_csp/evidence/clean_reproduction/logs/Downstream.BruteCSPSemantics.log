@@ -1,0 +1,14 @@
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/BruteCSPSemantics.lean:113:46: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/BruteCSPSemantics.lean:132:4: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+'CSPConsequence.BruteCSP.leaf_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.BruteCSP.sum_leaf_eq_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.BruteCSP.count_empty_domain' depends on axioms: [propext, Classical.choice, Quot.sound]

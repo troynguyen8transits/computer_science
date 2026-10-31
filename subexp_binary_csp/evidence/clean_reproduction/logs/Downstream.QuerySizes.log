@@ -1,0 +1,10 @@
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/QuerySizes.lean:15:19: warning: This simp argument is unused:
+  List.map_const
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [size_list, List.sum_replicate, mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'CSPConsequence.QuerySizes.capacity_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.QuerySizes.one_room' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.QuerySizes.two_room' depends on axioms: [propext, Classical.choice, Quot.sound]

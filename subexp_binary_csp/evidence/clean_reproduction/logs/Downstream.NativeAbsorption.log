@@ -1,0 +1,15 @@
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/NativeAbsorption.lean:42:44: warning: Variable name `hT0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hT0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/NativeAbsorption.lean:76:5: warning: Variable name `hT0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hT0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'CSPConsequence.NativeAbsorption.host_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.NativeAbsorption.add_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.NativeAbsorption.host_bound_with_input' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,7 @@
+'CSPConsequence.SparseNormalization.valid_iff' depends on axioms: [propext, Quot.sound]
+'CSPConsequence.SparseNormalization.count_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.SparseNormalization.tupleBit_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.SparseNormalization.edgeAt_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.SparseNormalization.unaryAt_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.SparseNormalization.pairAt_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.SparseNormalization.relationAt_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]

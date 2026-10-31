@@ -1,0 +1,11 @@
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/BoundedSelection.lean:84:33: warning: This simp argument is unused:
+  Nat.min_eq_left hn'
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h, Nat.min_eq_left hn, List.range_succ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'CSPConsequence.BoundedSelection.index_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.BoundedSelection.index_correct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.BoundedSelection.sizeWord_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.BoundedSelection.sizeWord_correct' depends on axioms: [propext, Classical.choice, Quot.sound]

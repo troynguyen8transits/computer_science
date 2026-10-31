@@ -1,0 +1,3 @@
+'CSPConsequence.ProviderParameters.nodeMembers_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.ProviderParameters.nodeValue_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.ProviderParameters.nodeLegal_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]

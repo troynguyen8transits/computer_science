@@ -1,0 +1,3 @@
+'CSPConsequence.OracleElimination.machine_poly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.OracleElimination.runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.OracleElimination.csp_runs' depends on axioms: [propext, Classical.choice, Quot.sound]

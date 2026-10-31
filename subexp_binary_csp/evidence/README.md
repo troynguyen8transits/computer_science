@@ -1,5 +1,7 @@
 # Retained verification evidence
 
+- `clean_reproduction/`: a subsequent successful fresh-checkout build and replay
+  of the public release, with a separate report, fresh receipts, and compiler logs.
 - `verification.json`: final endpoint, compiler/dependency revisions, hashes,
   axiom reports, and the scope of the retained verification.
 - `downstream_checks.json`: the 82 successful downstream source/object/log
@@ -16,6 +18,7 @@ checked with `../verify_evidence.py`; that check cannot revalidate the omitted
 objects or the original before/after source snapshots. For independent proof
 checking, perform the source replay described in `../lean/REPRODUCE.md`.
 
-These receipts record a successful Lean 4.33.1 verification on the original
-host. They do not assert a new compiler replay at repository publication time,
-an independent human review, or a proof of novelty.
+The original receipts record the earlier Lean 4.33.1 verification. The subsequent
+fresh source replay is documented separately in `clean_reproduction/`. Both
+runs used the same host. Neither constitutes independent human review or a
+proof of novelty.

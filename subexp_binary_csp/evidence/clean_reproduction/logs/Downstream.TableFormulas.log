@@ -1,0 +1,3 @@
+'CSPConsequence.BitNetwork.base_interaction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.BitNetwork.fastWeight_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.BitNetwork.fastInteraction_eq' depends on axioms: [propext, Classical.choice, Quot.sound]

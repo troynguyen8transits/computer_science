@@ -1,0 +1,5 @@
+'CSPConsequence.DomainCodec.value_roundtrip' depends on axioms: [propext, Quot.sound]
+'CSPConsequence.DomainCodec.encode_length' depends on axioms: [propext, Quot.sound]
+'CSPConsequence.DomainCodec.decode_encode' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.DomainCodec.encode_legal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.DomainCodec.encode_decode' depends on axioms: [propext, Quot.sound]

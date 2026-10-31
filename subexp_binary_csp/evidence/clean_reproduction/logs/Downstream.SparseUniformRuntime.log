@@ -1,0 +1,2 @@
+'CSPConsequence.SparseUniformRuntime.exponential_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.SparseUniformRuntime.fast_for_host' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,9 @@
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/BitInputRoundtrip.lean:52:43: warning: This simp argument is unused:
+  skip_frame
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [header, rest, encode, readUnits_frame]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'CSPConsequence.BitInputCodec.decode_encode_paramsOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.BitInputCodec.encode_paramsOf_length' depends on axioms: [propext, Quot.sound]

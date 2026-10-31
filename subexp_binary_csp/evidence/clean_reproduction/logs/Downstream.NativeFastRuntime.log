@@ -1,0 +1,12 @@
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/NativeFastRuntime.lean:64:27: warning: exponent 320 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/NativeFastRuntime.lean:106:21: warning: Unused tactic linter: `exact_mod_cast hLE` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/NativeFastRuntime.lean:106:21: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/NativeFastRuntime.lean:114:15: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'CSPConsequence.NativeFastRuntime.for_counter' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.NativeFastRuntime.exists_native' depends on axioms: [propext, Classical.choice, Quot.sound]

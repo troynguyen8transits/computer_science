@@ -1,0 +1,20 @@
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/SparsePreparation.lean:40:4: warning: This simp argument is unused:
+  List.getElem?_range
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [FiniteInput.edgeAt, prepare, vertexList, List.getD_eq_getElem?_getD, a.isLt, b.isLt]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/SparsePreparation.lean:46:4: warning: This simp argument is unused:
+  List.getElem?_range
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [FiniteInput.relationAt, prepare, vertexList, domainList, List.getD_eq_getElem?_getD, a.isLt, b.isLt,
+    x.isLt, y.isLt]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'CSPConsequence.SparsePreparation.prepare_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.SparsePreparation.edgeAt_prepare' depends on axioms: [propext, Quot.sound]
+'CSPConsequence.SparsePreparation.relationAt_prepare' depends on axioms: [propext, Quot.sound]
+'CSPConsequence.SparsePreparation.valid_prepare_iff' depends on axioms: [propext, Quot.sound]
+'CSPConsequence.SparsePreparation.count_prepare' depends on axioms: [propext, Classical.choice, Quot.sound]

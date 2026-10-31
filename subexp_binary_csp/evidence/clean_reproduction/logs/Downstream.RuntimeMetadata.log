@@ -1,0 +1,2 @@
+'CSPConsequence.RuntimeMetadata.metadata' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.RuntimeMetadata.state_bound' depends on axioms: [propext, Classical.choice, Quot.sound]

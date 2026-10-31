@@ -1,0 +1,9 @@
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/DecoderRefinement.lean:23:12: warning: This simp argument is unused:
+  List.idxOf_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h, hv, ih]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'CSPConsequence.DecoderRefinement.readBlock_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.DecoderRefinement.decoder_eq' depends on axioms: [propext, Classical.choice, Quot.sound]

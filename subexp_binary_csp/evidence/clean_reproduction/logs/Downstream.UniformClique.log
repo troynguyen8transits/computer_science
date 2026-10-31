@@ -1,0 +1,5 @@
+'CSPConsequence.UniformClique.arg_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.UniformClique.arg_of' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.UniformClique.solvesCliques' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.UniformClique.grouping_poly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.UniformClique.backend_exists' depends on axioms: [propext, Classical.choice, Quot.sound]

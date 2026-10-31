@@ -1,0 +1,4 @@
+'CSPConsequence.SparseRawBits.decode_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.SparseRawBits.decode_encode' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.SparseRawBits.vertex_le_length' depends on axioms: [propext, Quot.sound]
+'CSPConsequence.SparseRawBits.support_le_length' depends on axioms: [propext, Quot.sound]

@@ -1,0 +1,2 @@
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/CoreRuntime.lean:61:76: warning: exponent 320 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+'CSPConsequence.CoreRuntime.actual' depends on axioms: [propext, Classical.choice, Quot.sound]

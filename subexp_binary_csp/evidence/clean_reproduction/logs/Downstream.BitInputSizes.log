@@ -1,0 +1,3 @@
+'CSPConsequence.BitInputCodec.paramsOf_size' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.BitInputCodec.prepared_size_le_encode' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.BitInputCodec.paramsOf_size_le_encode' depends on axioms: [propext, Classical.choice, Quot.sound]

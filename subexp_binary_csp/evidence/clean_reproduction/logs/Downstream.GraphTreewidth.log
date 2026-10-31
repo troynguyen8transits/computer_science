@@ -1,0 +1,65 @@
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/GraphTreewidth.lean:34:0: warning: automatically included section variable(s) unused in theorem `TensorResearch.SpectralSeparation.density_card`:
+  [Nonempty V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/GraphTreewidth.lean:39:0: warning: automatically included section variable(s) unused in theorem `TensorResearch.SpectralSeparation.indicator_energy`:
+  [Nonempty V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/GraphTreewidth.lean:116:0: warning: automatically included section variable(s) unused in theorem `TensorResearch.SpectralSeparation.neighborPort_injective`:
+  [Fintype V]
+  [Fintype D]
+  [Nonempty V]
+  [Nonempty D]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [Fintype D] [Nonempty V] [Nonempty D] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+'TensorResearch.SpectralSeparation.Family.degree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TensorResearch.SpectralSeparation.Family.separated' depends on axioms: [propext, Classical.choice, Quot.sound]
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/GraphTreewidth.lean:203:0: warning: automatically included section variable(s) unused in theorem `TensorResearch.TreeDecompositionLabels.Decomposition.home_mem`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/GraphTreewidth.lean:207:0: warning: automatically included section variable(s) unused in theorem `TensorResearch.TreeDecompositionLabels.Decomposition.weight_nonnegative`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/GraphTreewidth.lean:213:0: warning: automatically included section variable(s) unused in theorem `TensorResearch.TreeDecompositionLabels.Decomposition.weight_total`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+'TensorResearch.TreeDecompositionLabels.Decomposition.outside_adj' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TensorResearch.TreeDecompositionLabels.Decomposition.centroid_exists' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TensorResearch.TreeDecompositionLabels.Decomposition.centroid_mass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TensorResearch.TreeDecompositionLabels.Decomposition.vertexMass_total' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/GraphTreewidth.lean:382:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+'TensorResearch.ExpanderTreewidth.bag_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TensorResearch.ExpanderTreewidth.Family.unbounded' depends on axioms: [propext, Classical.choice, Quot.sound]

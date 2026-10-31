@@ -1,0 +1,10 @@
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/NumericOverheads.lean:18:19: warning: Variable name `hK` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hK
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'CSPConsequence.NumericOverheads.sqrt_log_upper' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.NumericOverheads.group_search' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.NumericOverheads.inverse_size' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.NumericOverheads.polynomial_factor' depends on axioms: [propext, Classical.choice, Quot.sound]

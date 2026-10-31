@@ -1,0 +1,12 @@
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/GraphWidthNumber.lean:56:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+'CSPConsequence.GraphWidthNumber.one_bag' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.GraphWidthNumber.bag_eq_tw_add_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.GraphWidthNumber.family_linear' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.GraphWidthNumber.tail_unbounded' depends on axioms: [propext, Classical.choice, Quot.sound]

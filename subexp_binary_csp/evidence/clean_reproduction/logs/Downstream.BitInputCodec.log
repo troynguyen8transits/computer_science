@@ -1,0 +1,6 @@
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/BitInputCodec.lean:28:19: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+'CSPConsequence.BitInputCodec.decode_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.BitInputCodec.encode_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.BitInputCodec.splitRows_flatten' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,4 @@
+'CSPConsequence.DegreeGuard.neighbors_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.DegreeGuard.neighbors_length' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.DegreeGuard.check_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.DegreeGuard.check_of' depends on axioms: [propext, Classical.choice, Quot.sound]

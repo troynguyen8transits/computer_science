@@ -47,6 +47,16 @@ or development scratchwork are included.
 
 ## Verification and review status
 
+A [fresh source reproduction](evidence/clean_reproduction/README.md) passed on
+October 31, 2026, using a new clone of the public release and a separate pinned
+upstream checkout. The imported build produced 633 research-module objects,
+and all 82 downstream modules were freshly compiled with 269 standard-axiom
+reports. No Lean source or dependency-version changes were required. The run
+reused the installed Lean 4.33.1 compiler and downloaded the official mathlib
+cache; it did not reuse proof objects from the original investigation. The
+imported build took about 59 minutes and the downstream replay about 85 minutes
+on the original Darwin arm64 host. This is not independent human review.
+
 The retained verification uses Lean 4.33.1, 82 downstream modules, and a selected
 633-module imported backend closure. The final endpoint reports only
 `propext`, `Classical.choice`, and `Quot.sound`. Follow
@@ -57,7 +67,7 @@ For a lightweight integrity check of this release, run:
 python3 subexp_binary_csp/verify_evidence.py
 ```
 
-That command checks supplied files and retained compiler output; it does not
+That command checks supplied files and both sets of compiler receipts; it does not
 invoke Lean, independently validate the imported algorithm, or establish novelty.
 The manuscript is provided for technical assessment. Independent human review,
 exhaustive novelty assessment, and publication acceptance are not claimed.

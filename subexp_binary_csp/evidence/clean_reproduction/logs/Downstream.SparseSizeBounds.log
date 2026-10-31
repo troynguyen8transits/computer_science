@@ -1,0 +1,2 @@
+'CSPConsequence.SparseSizeBounds.encoding_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.SparseSizeBounds.dense_bound' depends on axioms: [propext, Classical.choice, Quot.sound]

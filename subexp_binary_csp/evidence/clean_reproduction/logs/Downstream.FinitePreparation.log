@@ -1,0 +1,3 @@
+'CSPConsequence.FinitePreparation.bitWidth_unary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.FinitePreparation.prepare_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.FinitePreparation.prepare_of' depends on axioms: [propext, Classical.choice, Quot.sound]

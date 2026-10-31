@@ -1,0 +1,4 @@
+'CSPConsequence.EncodedSettings.settings_roundtrip' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.EncodedSettings.words_roundtrip' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.EncodedSettings.sum_settings' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.EncodedSettings.count_as_bits' depends on axioms: [propext, Classical.choice, Quot.sound]

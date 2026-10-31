@@ -1,0 +1,2 @@
+'CSPConsequence.OperationBound.entry_exponent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.OperationBound.grouping_bound' depends on axioms: [propext, Classical.choice, Quot.sound]

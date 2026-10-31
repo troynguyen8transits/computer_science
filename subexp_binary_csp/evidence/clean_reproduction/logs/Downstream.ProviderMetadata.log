@@ -1,0 +1,4 @@
+'CSPConsequence.ProviderMetadata.boundP_unary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.ProviderMetadata.boundB_unary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.ProviderMetadata.procs_keeps' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.ProviderMetadata.len_of' depends on axioms: [propext, Classical.choice, Quot.sound]

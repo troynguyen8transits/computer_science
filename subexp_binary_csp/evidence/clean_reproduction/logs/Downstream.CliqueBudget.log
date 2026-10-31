@@ -1,0 +1,3 @@
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/CliqueBudget.lean:61:34: warning: exponent 320 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+'CSPConsequence.CliqueBudget.coefficient_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.CliqueBudget.actual' depends on axioms: [propext, Classical.choice, Quot.sound]

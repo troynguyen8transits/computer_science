@@ -1,0 +1,3 @@
+'CSPConsequence.ProviderGive.gives' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.ProviderGive.isNetwork' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.ProviderMetadata.procs_keeps' depends on axioms: [propext, Classical.choice, Quot.sound]

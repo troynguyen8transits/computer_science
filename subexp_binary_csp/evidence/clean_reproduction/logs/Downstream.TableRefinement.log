@@ -1,0 +1,6 @@
+'CSPConsequence.TableRefinement.weightValue_of' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.TableRefinement.interactionValue_of' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.TableRefinement.weightMachine_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.TableRefinement.interactionMachine_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.TableRefinement.weightMachine_correct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.TableRefinement.interactionMachine_correct' depends on axioms: [propext, Classical.choice, Quot.sound]

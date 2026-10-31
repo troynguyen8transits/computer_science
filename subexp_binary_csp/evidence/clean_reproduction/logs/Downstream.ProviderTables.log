@@ -1,0 +1,2 @@
+'CSPConsequence.ProviderTables.weightValue_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.ProviderTables.interactionValue_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]

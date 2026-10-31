@@ -1,0 +1,2 @@
+'CSPConsequence.InverseLevels.inverse_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.InverseLevels.inverse_correct' depends on axioms: [propext, Classical.choice, Quot.sound]

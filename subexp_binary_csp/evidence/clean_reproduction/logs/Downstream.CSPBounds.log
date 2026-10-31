@@ -1,0 +1,2 @@
+'CSPConsequence.Instance.sized' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.Instance.balanced_sized' depends on axioms: [propext, Classical.choice, Quot.sound]

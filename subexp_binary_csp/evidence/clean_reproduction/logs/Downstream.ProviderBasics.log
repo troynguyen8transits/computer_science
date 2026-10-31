@@ -1,0 +1,4 @@
+'CSPConsequence.ProviderBasics.readBlock_eq_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.ProviderBasics.readBlock_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.ProviderBasics.decodeNat_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.ProviderBasics.decodeNat_eq' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,2 @@
+'CSPConsequence.SparsePowerAbsorption.domain_to_input' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.SparsePowerAbsorption.rate_sublinear' depends on axioms: [propext, Classical.choice, Quot.sound]

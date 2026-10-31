@@ -1,0 +1,18 @@
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/SparseFields.lean:61:69: warning: This simp argument is unused:
+  List.map_const
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [scopeRows, List.length_flatten, List.map_map, Function.comp_def, List.sum_replicate, mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/SparseFields.lean:63:68: warning: This simp argument is unused:
+  List.map_const
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [pairRows, List.length_flatten, List.map_map, Function.comp_def, List.sum_replicate, mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'CSPConsequence.SparseFields.encode_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.SparseFields.decode_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.SparseFields.numbers_length' depends on axioms: [propext, Quot.sound]
+'CSPConsequence.SparseFields.decode_encode' depends on axioms: [propext, Classical.choice, Quot.sound]

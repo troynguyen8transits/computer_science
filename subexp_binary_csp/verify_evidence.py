@@ -61,6 +61,41 @@ require(final['source_sha256'] == endpoint['final_source_sha256'], 'endpoint sou
 require(final['object_sha256'] == endpoint['final_object_sha256'], 'endpoint receipt')
 require(final['log_sha256'] == endpoint['final_log_sha256'], 'endpoint log')
 require(reports_total == 269, 'expected 269 axiom reports')
+fresh_path = root / 'evidence/clean_reproduction/summary.json'
+if fresh_path.exists():
+    fresh = json.loads(fresh_path.read_text())
+    fresh_root = fresh_path.parent
+    require(fresh['status'] == 'passed', 'fresh reproduction status')
+    require(digest(fresh_root / 'results.json') == fresh['results_sha256'],
+            'fresh reproduction results')
+    results = json.loads((fresh_root / 'results.json').read_text())
+    by_module = {item['module']: item for item in sources['sources']}
+    require(len(results) == 82 and {item['module'] for item in results} == set(by_module),
+            'fresh reproduction source coverage')
+    fresh_reports = 0
+    for item in results:
+        source = by_module[item['module']]
+        require(item['source_sha256'] == source['sha256'] and item['exit_code'] == 0,
+                'fresh receipt: ' + item['module'])
+        log = fresh_root / 'logs' / (item['module'] + '.log')
+        require(digest(log) == item['log_sha256'], 'fresh log: ' + item['module'])
+        output = log.read_text()
+        require(not re.search(r'\bsorryAx\b|declaration uses .sorry.|error:', output),
+                'fresh log failure: ' + item['module'])
+        reports = re.findall(r"'([^']+)' depends on axioms: \[([^\]]*)\]", output)
+        require([list(report) for report in reports] == item['reports'] and bool(reports),
+                'fresh report mismatch: ' + item['module'])
+        for name, dependencies in reports:
+            require({s.strip() for s in dependencies.split(',') if s.strip()}
+                    <= allowed_axioms, 'fresh unexpected axiom: ' + name)
+        fresh_reports += len(reports)
+    require(fresh_reports == fresh['standard_axiom_reports'] == 269,
+            'fresh axiom-report count')
+    for stage in fresh['dependency_stages']:
+        require(stage['exit_code'] == 0
+                and digest(fresh_root / stage['log']) == stage['log_sha256'],
+                'fresh stage: ' + stage['stage'])
+    print('Fresh-reproduction receipts also pass: 82 modules and 269 standard-axiom reports.')
 print(f'Integrity checks passed: {len(release["files"])} release files, '
       f'82 Lean sources, 82 retained logs, {reports_total} standard-axiom reports.')
 print('No Lean compiler was run. Omitted objects and upstream sources were not checked.')

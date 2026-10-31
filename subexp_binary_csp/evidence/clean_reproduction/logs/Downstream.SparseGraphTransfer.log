@@ -1,0 +1,7 @@
+/Users/troynguyen/Documents/Repos2/eclipse-hunt/csp_clean_reproduction/formal-math/eth/Downstream/SparseGraphTransfer.lean:16:29: warning: Try `simp at h` instead of `simpa using h`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+'CSPConsequence.SparseGraphTransfer.degree_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.SparseGraphTransfer.iso_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.SparseGraphTransfer.iso_degree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.SparseGraphTransfer.iso_nonisolated' depends on axioms: [propext, Classical.choice, Quot.sound]

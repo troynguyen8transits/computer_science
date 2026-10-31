@@ -1,0 +1,1816 @@
+[
+  {
+    "module": "Downstream.CSPNetwork",
+    "source_sha256": "312ff97cbd2be8995955dabbb6b8384ea6883e6b0d4e6e79e9feaadebede899d",
+    "object_sha256": "5bf3a168c94ae75052494aa13408c9c1f31384320f85ba63b5711f649f42d7a3",
+    "log_sha256": "e11a30c2fe9af964f11231fac331c664d2d01ac35c425fbff25b85eaa0ebd487",
+    "reports": [
+      [
+        "CSPConsequence.Instance.value_eq_count",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.Instance.shaped",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.Instance.coarsened_count",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.Instance.coarsened_shaped",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.BalancedCSP",
+    "source_sha256": "3130e54043f656549afcbea0decdc92e287b5cf8ff3d8df2ad85bb24e502b162",
+    "object_sha256": "2de12664bd1a4900e17e3099068593fce18d7710f8f17a5b939a07897f3cfab1",
+    "log_sha256": "afe819ae0f311c9f3c133230b3abf59cf2ecacf8798db77d0ca2ccffa5806d51",
+    "reports": [
+      [
+        "CSPConsequence.Instance.balanced_count",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.Instance.balanced_shaped",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.Instance.balanced_total",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.balanced_fiber",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.balanced_volume",
+        "propext, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.CSPBounds",
+    "source_sha256": "878927f5cf87a17871c8ad28e0aca896c5b04bed8d300d911c09a6af1c75bc7d",
+    "object_sha256": "d4f3e5c413c3a0d7e25122448df089c110e451a91f4e85cec3c12e30301e9bdb",
+    "log_sha256": "fc05d996b562f8327b4ebd9df5142dc8dceea5c723f737db5ebae2404f670e57",
+    "reports": [
+      [
+        "CSPConsequence.Instance.sized",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.Instance.balanced_sized",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.DomainCodec",
+    "source_sha256": "f972a5a0d76475796e541e8841947f8d141ab77335072c6d98ae816c542a22fa",
+    "object_sha256": "164900de2c32e50c93a20bacfd1053daf2905218207be48789c5bc32d0f1d490",
+    "log_sha256": "725a850ef1b77902e95b2a7e42d4a8b907100f6de212205c8f98f3a4123cdf4f",
+    "reports": [
+      [
+        "CSPConsequence.DomainCodec.value_roundtrip",
+        "propext, Quot.sound"
+      ],
+      [
+        "CSPConsequence.DomainCodec.encode_length",
+        "propext, Quot.sound"
+      ],
+      [
+        "CSPConsequence.DomainCodec.decode_encode",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.DomainCodec.encode_legal",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.DomainCodec.encode_decode",
+        "propext, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.FiniteEncoding",
+    "source_sha256": "58493930abd80fb8ee3d6f3bbf64d686a9b01a1fa507e88a899cf05e673710a7",
+    "object_sha256": "08b7e29c08c361cce45148701a7904f96e0885173145dab450b3ff1d8a47aa78",
+    "log_sha256": "ce04924d1ab6de483c1a15176f422c784870787435eb47484fc361c04f1ac60b",
+    "reports": [
+      [
+        "CSPConsequence.DomainCodec.encode_bijOn",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.DomainCodec.sum_encoded",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.EncodedSettings",
+    "source_sha256": "90cb261b2fd9af66a6c827c7a829f9977745cae0319999346b7189fe1a3fcbab",
+    "object_sha256": "15f28d08d9bcca12e205aa95fc1e944327a048d6746ce6889db4c72c92580951",
+    "log_sha256": "ea625fc8cebef7ee3ebb162e3557b635cb3d43fea968533c1ca82b1b77013c4a",
+    "reports": [
+      [
+        "CSPConsequence.EncodedSettings.settings_roundtrip",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.EncodedSettings.words_roundtrip",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.EncodedSettings.sum_settings",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.EncodedSettings.count_as_bits",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.EncodedLabels",
+    "source_sha256": "69f5b2f89480418df44da3852304822e828873a1a10c5dde42c21a8b661ad57d",
+    "object_sha256": "ee51ef0abfbb5ff92d48922e6552b9e1606c0969ee0ffa8c1c0b3cc28b078332",
+    "log_sha256": "ba0c0f6d7ebac403e48c1d789aef0b474de2ea7586d5101676ac4fde362362f8",
+    "reports": [
+      [
+        "CSPConsequence.EncodedLabels.labels_eq",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.EncodedLabels.label_sum",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.BitNetwork",
+    "source_sha256": "59b8655a87de1116b97f3ca1488f8f3e7e6352cf12af4afb84c09aea0bb978f7",
+    "object_sha256": "2ccdf6d575b192e0917482f49d025cf0f2761ef102c252cccb66899e536de914",
+    "log_sha256": "62f5ce864d0b9f127a878f6c63050cb07be2bc2f2cca389c209e9500840c0b68",
+    "reports": [
+      [
+        "CSPConsequence.BitNetwork.label_capacity",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.BitNetwork.value_eq_count",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.BitNetwork.factor_lt",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.BitNetworkValidity",
+    "source_sha256": "36a7522708e1cee38f90c3a75404e37d793757305374befe8bd8c36f3f54fe96",
+    "object_sha256": "d5252bd263e2562ee095d82868e948e749001c6adc12c7a9a8f38548f462353d",
+    "log_sha256": "0fdcba472c0445fbafc6f660652fc9d9638654c4d5eba10d78dfe65af0a5a902",
+    "reports": [
+      [
+        "CSPConsequence.BitNetwork.is_valid",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.TableFormulas",
+    "source_sha256": "7989c5f13cd73a3966eca2baf5f3e8ff14abce613eac9c350547611efb246ed7",
+    "object_sha256": "1035197ce00e9da1f9b3604b6eb1ad13fa87aefb853d190a1074dae48470d050",
+    "log_sha256": "5fc8279c06c62ea65e15bf8a3ac79f7885ec3825e38baa7f008532cc3818976c",
+    "reports": [
+      [
+        "CSPConsequence.BitNetwork.base_interaction",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.BitNetwork.fastWeight_eq",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.BitNetwork.fastInteraction_eq",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.FiniteInput",
+    "source_sha256": "a87bdeb99be77906533a33d0e3883dc2a95225db86cb3040fc50b48780e6ea37",
+    "object_sha256": "583862988e4b171ffe230f7113dc482039df17d9036fc543095def68902dcc27",
+    "log_sha256": "62e5020c65dc4926b9b7a6a16e84ef1841ee1f557e306c4239e0f3195dd7d416",
+    "reports": [
+      [
+        "CSPConsequence.FiniteInput.edgeAt_tabulate",
+        "propext"
+      ],
+      [
+        "CSPConsequence.FiniteInput.relationAt_tabulate",
+        "propext"
+      ],
+      [
+        "CSPConsequence.FiniteInput.edgeAt_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.FiniteInput.relationAt_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.ProviderBasics",
+    "source_sha256": "52a454240792f1593de8291605a277b1c89c965d9f15f7e613d7a50d08f5ba4a",
+    "object_sha256": "22420ceae90e620b6556acd33f420b5766bf9d1464e172ddacb26737b62facee",
+    "log_sha256": "531d8e07c0825afbff1f6c1e9f37a97b40e784f984a3ecd77265fac7ff4a0b69",
+    "reports": [
+      [
+        "CSPConsequence.ProviderBasics.readBlock_eq_cut",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.ProviderBasics.readBlock_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.ProviderBasics.decodeNat_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.ProviderBasics.decodeNat_eq",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.ProviderParameters",
+    "source_sha256": "b87136f6feea4785d38261a6cd049f5ceb88452aa65266654782d9a0cedab953",
+    "object_sha256": "a1d0d1baa867b4c5219fe897f8b80d5bb13b023e2532da9052287bc08613c149",
+    "log_sha256": "48ed4d3d8915ebf343712cb06c0c88ba467dd32369be31ffbe573e51572f5454",
+    "reports": [
+      [
+        "CSPConsequence.ProviderParameters.nodeMembers_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.ProviderParameters.nodeValue_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.ProviderParameters.nodeLegal_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.DecoderRefinement",
+    "source_sha256": "a958fde589ceef1ba7e4fee89b9ddfa12e1ce499c4b39c1cc8fb4100478a0589",
+    "object_sha256": "68fb8158b5fd7b9d6e0f0f24298933140550e7403dd191ce204df8358697d7e8",
+    "log_sha256": "c54719923f642febffc6a6bebc09c5a70dd46060d1bf51076c45e60492838942",
+    "reports": [
+      [
+        "CSPConsequence.DecoderRefinement.readBlock_fin",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.DecoderRefinement.decoder_eq",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.NodeRefinement",
+    "source_sha256": "8f56b76518f6efaa9637e2af23a68351903adaebf5fc3e0028de0aa41167842e",
+    "object_sha256": "a1e3e2724466517e726662b071f342d449357799fdfc056c4572ca4d6d680240",
+    "log_sha256": "f3f0d6a7efee947ab21d138264f0ecb9321cf3a6bd37bf040f08d09c864fd38b",
+    "reports": [
+      [
+        "CSPConsequence.NodeRefinement.nodeMembers_of",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.NodeRefinement.nodeValue_of",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.NodeRefinement.nodeLegal_of",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.NodeRefinement.memMachine_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.NodeRefinement.memMachine_correct",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.ProviderTables",
+    "source_sha256": "39d091f3c941076720334b6e0b1f9d3334a469828ba0a547611b8a695d4cf301",
+    "object_sha256": "f7c9d60d18d10e4436a5d8641332ec69802575f715d2d16dfa6619954b4ef180",
+    "log_sha256": "1af8b2de076397f68d93b7c42d369f56fcac5e84d2e1a1d52f0893f1500f69b8",
+    "reports": [
+      [
+        "CSPConsequence.ProviderTables.weightValue_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.ProviderTables.interactionValue_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.PairDecoder",
+    "source_sha256": "05644fba74c50e956e083e53d6f2060a696f2c3edc1525cac8e0a2d5b167389b",
+    "object_sha256": "899e02056b73b2d806481d0c09ffc4812495403e51aa3c66a601e12ab24acdda",
+    "log_sha256": "432569088a7287193f375f1f02cafe39e90b707f8f544aa9f4d0d9be66bbda33",
+    "reports": [
+      [
+        "CSPConsequence.PairDecoder.readPairBlock_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.PairDecoder.decodePairNat_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.PairDecoder.decodePairNat_eq",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.ProviderLabels",
+    "source_sha256": "9d4a0942b32adb43199763f3ad916a083d89f35fdb65682e4c481a4d2bfdfb10",
+    "object_sha256": "7fca3b580166e2dcf392e1bd2c6aeaa58f97fbfed668309d14e546dc5081731e",
+    "log_sha256": "420e2a798467949a3a16c2918798f18897524a10abaeabb54790f1f9d7233298",
+    "reports": [
+      [
+        "CSPConsequence.ProviderLabels.crossingPairs_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.ProviderLabels.labelValue_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.ProviderLabels.labelLegal_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.ProviderLabels.factorValue_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.TableRefinement",
+    "source_sha256": "c37bec34cab584e3efc42bed233986f2fc2a84ea98dcf52b9f1118dbc402d8b1",
+    "object_sha256": "72d82be981fa7622abd31aefc93f146b53c158a3efbf9e23f164c1299109f1b3",
+    "log_sha256": "c34c670ed6b07970598d46a419b67302d0229204bae9438a356382ce7edf5299",
+    "reports": [
+      [
+        "CSPConsequence.TableRefinement.weightValue_of",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.TableRefinement.interactionValue_of",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.TableRefinement.weightMachine_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.TableRefinement.interactionMachine_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.TableRefinement.weightMachine_correct",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.TableRefinement.interactionMachine_correct",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.ProviderMetadata",
+    "source_sha256": "e92d1450c6690964d11343cfb308b810725fcd57b5daba849cb07743fb427c7a",
+    "object_sha256": "537a51d0648f76228c951a320b413aea2ac1a9381268c252fed1de6b760d80f8",
+    "log_sha256": "7b5965d31cf608fb733a8c58fad0199ae6d006109523846153938f552cf519e7",
+    "reports": [
+      [
+        "CSPConsequence.ProviderMetadata.boundP_unary",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.ProviderMetadata.boundB_unary",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.ProviderMetadata.procs_keeps",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.ProviderMetadata.len_of",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.LevelSelection",
+    "source_sha256": "cf78812e57ac44a07a0171cefcf68003bdf141f6e0b269d0a43d541e3cd0de3c",
+    "object_sha256": "4660c267bef84cfe56d9d04345db6e526fd69d0ea9bcff451b84f86966cc3a94",
+    "log_sha256": "71e0bf07038aa532ea66a45e4faac95d56c14741a786140ff41ed08d71aff68b",
+    "reports": [
+      [
+        "CSPConsequence.LevelSelection.search_spec",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.LevelSelection.selected_bounds",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.LevelSelection.grouping_fits",
+        "propext"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.InverseLevels",
+    "source_sha256": "1de8f1162fc51e72e21dd84c5d6b6f74a154265cf5da3661db4acc5db4788181",
+    "object_sha256": "a2409c55341d87630eb460203405f20ccf6cedc8bfe31d614bc6a5e2937d6750",
+    "log_sha256": "b550ff4fb7464699599f57da8885a524c137730264cbbaa5bd05a5da7ab650bb",
+    "reports": [
+      [
+        "CSPConsequence.InverseLevels.inverse_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.InverseLevels.inverse_correct",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.BoundedSelection",
+    "source_sha256": "0ee239ff9277e8820156daa4106e42b43879096d60b876aa4904d916a0dedc0e",
+    "object_sha256": "9a60711e859cc0cadfecffc3f437306f93620c9224258333cab75d511abe31f0",
+    "log_sha256": "451774ff8b03b3ecfc132bd4b9b5be8a314801968391c415be6bfc5b6b97bbf6",
+    "reports": [
+      [
+        "CSPConsequence.BoundedSelection.index_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.BoundedSelection.index_correct",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.BoundedSelection.sizeWord_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.BoundedSelection.sizeWord_correct",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.LabelRefinement",
+    "source_sha256": "2feabbfea15557d00bfa4b332ac85b3bd3fed26e38779c429d7cd296dffe345a",
+    "object_sha256": "5dbca984491e387f65a4e255c655c925d6a0186b3e9d91dbe7cfba2f2091a3a1",
+    "log_sha256": "2f44965f5e656d215c98a10d17a245d3b5302e08654463c7077d064e39f3eb2c",
+    "reports": [
+      [
+        "CSPConsequence.LabelRefinement.crossingPairs_of",
+        "propext, Quot.sound"
+      ],
+      [
+        "CSPConsequence.LabelRefinement.labelValue_of",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.LabelRefinement.labelLegal_of",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.FactorRefinement",
+    "source_sha256": "a0bd9a1a5610536e7b37aaafc2b9c0cfa5332ca0cc905a1948b9ee2fb4319cc3",
+    "object_sha256": "40dc97b307dae6b86ea61daa9c9894d6c33a8fe79cd9d2ed13e29d41a1767208",
+    "log_sha256": "38c04ed2feea8b51994d308d00b286671dfcc752e7923877fa12e7b4dd95c9aa",
+    "reports": [
+      [
+        "CSPConsequence.FactorRefinement.factorValue_of",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.FactorRefinement.factorMachine_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.FactorRefinement.factorMachine_correct",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.QuerySizes",
+    "source_sha256": "eb0274c6f16dc0b489b1f6018889a6b9fbe53fe505124cf93d2a68b0d4a8bab0",
+    "object_sha256": "99b51d55021ad8f312a24dff7ea2b2fac78103044edfe1d45149b71707bcb7eb",
+    "log_sha256": "a05cd9725588116e4280dde164bb11cda75fe00db63cdda4b6717339e44650d2",
+    "reports": [
+      [
+        "CSPConsequence.QuerySizes.capacity_le",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.QuerySizes.one_room",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.QuerySizes.two_room",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.ProviderGive",
+    "source_sha256": "1a81c004025c09bf24732c6dcb428a5a2f6329a43dba4d4599cfda795564c41b",
+    "object_sha256": "1f601b16489b39b2ab531f1813162323b8db212fcebf179a468e8aab9eb92e3f",
+    "log_sha256": "d3a4e3c4f0aa7683174658af93971a242b992527e89c30c5a3625c20f1d5c9ed",
+    "reports": [
+      [
+        "CSPConsequence.ProviderGive.gives",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.ProviderGive.isNetwork",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.ProviderMetadata.procs_keeps",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.DynamicPreparation",
+    "source_sha256": "40dd93cef56cd59df27d5cf3eb82fbac2c1c0f674e4c433a38651951f1481944",
+    "object_sha256": "2c2e452c6be8aba18a490f1573e9b7cdd723f5d290e9a2ef51a4987cbb12d170",
+    "log_sha256": "fca12115db42f826abe3812684567f6dc6d6140eee74e6bf8bb3c87358c93af2",
+    "reports": [
+      [
+        "CSPConsequence.DynamicPreparation.networkInput_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.DynamicPreparation.groupingInput_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.DynamicPreparation.networkInput_of",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.DynamicPreparation.groupingInput_of",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.OracleElimination",
+    "source_sha256": "72c999dd14e5548a6ac5978547db9f940679bde806a79bcd546ad54dd77be3d6",
+    "object_sha256": "ca880bff1e4f3172dd4e8f02db84993fa667fff6da00fc900944fbf902296ffd",
+    "log_sha256": "825780d134e909442b58692f1b4e7420c7ab5890f505568a3e2261ceea6f31c0",
+    "reports": [
+      [
+        "CSPConsequence.OracleElimination.machine_poly",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.OracleElimination.runs",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.OracleElimination.csp_runs",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.UniformClique",
+    "source_sha256": "bb181436ed97761a49ac4dd2c1c234d28dcadde844008c112d13ca87b321b2aa",
+    "object_sha256": "cb02752d3becc5a2c085f460064e63c8fbc4d428b80af8e66cfd8ba6a26fef9c",
+    "log_sha256": "778ff7866fc6a5539b08e13fb1f1066ebe31f3bb95298b33211b6db78aa74024",
+    "reports": [
+      [
+        "CSPConsequence.UniformClique.arg_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.UniformClique.arg_of",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.UniformClique.solvesCliques",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.UniformClique.grouping_poly",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.UniformClique.backend_exists",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.ConcreteSolver",
+    "source_sha256": "6d872118db8bae3cd2ea13a36e82f3222f3ea0cb32ec7a5010c9cb3d36051ac0",
+    "object_sha256": "66c8a444bd508fc2231df0d038c4fe3779ba4b1682e34a91e5303ed1cebe9dd7",
+    "log_sha256": "460f52a86cb639ac40b148415bd43ee43dd98aef6996f31da08903017dc9e397",
+    "reports": [
+      [
+        "CSPConsequence.ConcreteSolver.machine_poly",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.ConcreteSolver.explicit_cost",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.LevelCounter",
+    "source_sha256": "dcd6135323637c30e7877eb7455c7c525b04975f20866719eceac8112b10b774",
+    "object_sha256": "f3bdd5b664cd08e4c10171cfca2a5499af343decc430466bde64f39c97878d65",
+    "log_sha256": "debe95fed586df643e7988381947cf9efaec6fc30aa64c50e47dd8e1325a7341",
+    "reports": [
+      [
+        "CSPConsequence.LevelCounter.parameters_pos",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.LevelCounter.contract",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.CounterExistence",
+    "source_sha256": "87915a90faf9aa6580f6de0a5ea69100c182a88e7c48d3343f4cb6e2f0f08214",
+    "object_sha256": "9878d1abd0f5aa5be307b6f12b43c22536ddee7bc18968dc3ff186cc6c23437d",
+    "log_sha256": "b5a31174ee0394a408254c26ddd4c7faa48b27df5fdfd170496b043b797aecc9",
+    "reports": [
+      [
+        "CSPConsequence.CounterExistence.exists_counter",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.FinitePreparation",
+    "source_sha256": "cd448f0eacde4354dbfcef5ac35ea5e86c88a16dad9d3bd585d49f164d66259b",
+    "object_sha256": "08bc913461be996db4938baf7849cb4773c4d47e80edca8f9a276205ce619b59",
+    "log_sha256": "cf7b8e8e433de30b88e39b1cb63624ca221fecb55b363b5f943b09dd1f2aed17",
+    "reports": [
+      [
+        "CSPConsequence.FinitePreparation.bitWidth_unary",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.FinitePreparation.prepare_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.FinitePreparation.prepare_of",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.BitInputCodec",
+    "source_sha256": "617cf9b5af311faf8400d93687ce76cb7e9657e578e5294f8da2f57b15e037ba",
+    "object_sha256": "b0759cb1a075f82628cf14c693304d773f0873e5f93ad313631a03d9443fa5a8",
+    "log_sha256": "729b7537782184716e48b9e3e3669026199fb57840af5688f610377f45b8ad80",
+    "reports": [
+      [
+        "CSPConsequence.BitInputCodec.decode_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.BitInputCodec.encode_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.BitInputCodec.splitRows_flatten",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.BitInputRoundtrip",
+    "source_sha256": "29ef01bc80d7fe4a5470bdb866d121651926f5ae206284d2713546324c032039",
+    "object_sha256": "c45fd8862849747d39fcc6cd30cbc6dd8e4e169394b155093c96febb6c956ad9",
+    "log_sha256": "113a5ae37b0a90dda8d93d07662736a754ae2b28fe2ed9e8de1891d58be0561b",
+    "reports": [
+      [
+        "CSPConsequence.BitInputCodec.decode_encode_paramsOf",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.BitInputCodec.encode_paramsOf_length",
+        "propext, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.BitInputMachine",
+    "source_sha256": "94d39f608df0ac91bb63b4c168074071c344e212827a6784d849313f86ea06dd",
+    "object_sha256": "91bdbf8e1b3259d84a118ae7347525eb771704eaeb538a6fe129dea7188ce633",
+    "log_sha256": "473efffd7802b76e166ae68ce83447c8a7b6b271b17648858190d475157b5ee1",
+    "reports": [
+      [
+        "CSPConsequence.BitInputMachine.outputBits_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.BitInputMachine.machine_poly",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.BitInputMachine.machine_runs",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.BitInputMachine.exists_native",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.BitInputMachine.exists_native_counter",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.AutomaticCounter",
+    "source_sha256": "44ac74eab8f8841086a50f116d55ef3377dc52a45f815e2d407659e5c3bd34c3",
+    "object_sha256": "029eb15f88234c89f6e68598ee9ddf5c4f987ed46e7949c0d1e655e9c8d0bebc",
+    "log_sha256": "0f74b5a4bde19ded73b8d5f53825ea72323f073f4bfcc2c3ed50ff921c0bba30",
+    "reports": [
+      [
+        "CSPConsequence.AutomaticCounter.wordMachine_poly",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.AutomaticCounter.wordMachine_runs",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.AutomaticCounter.exists_native",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.BitInputSizes",
+    "source_sha256": "e912f1909f63a5ed764b71263c9edee573935698a32eea3bf83c49d8355a4dd4",
+    "object_sha256": "4511599b1a381c3806fa2ab829b9e0bc7fcbbfce73f53e61e9eee6609f7c62e7",
+    "log_sha256": "bd66fd7347d1ca5cac794ef8d3247bf439888e7d53aa39aeea5c63360256c8e9",
+    "reports": [
+      [
+        "CSPConsequence.BitInputCodec.paramsOf_size",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.BitInputCodec.prepared_size_le_encode",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.BitInputCodec.paramsOf_size_le_encode",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.BruteCSPSemantics",
+    "source_sha256": "1f48d0012ac8a4c9aab2b16817434c5802fb180e08672f9fdd214ead96035804",
+    "object_sha256": "d2ead9c5da62b1cd36a45b7936b8a8dda6fc20a71aa6080c5be6870abd3c55a4",
+    "log_sha256": "fa4a61ebb3c317afd2a526701326424c199e62d103029dfd6e58c17ab197346c",
+    "reports": [
+      [
+        "CSPConsequence.BruteCSP.leaf_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.BruteCSP.sum_leaf_eq_count",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.BruteCSP.count_empty_domain",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.BruteCSPMachine",
+    "source_sha256": "60698207b8a2d3de56a2432c5f0f729944377fd493333409b660561bf3c4ab68",
+    "object_sha256": "09e078347850754ff3e86fae3e928955076cc83b7fd5f17d2eb7fb976e066ca8",
+    "log_sha256": "0fa25adba81e9efedf1e3a01b3f245fcdf95bebefbc2f7807d9449b10babc7c6",
+    "reports": [
+      [
+        "CSPConsequence.BruteCSP.enumerate_poly",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.BruteCSP.enumerate_correct",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.BruteCSP.machine_poly",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.BruteCSP.machine_correct",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.NumericOverheads",
+    "source_sha256": "3bc769fd5af1407074998fe98fc14582619e5b22fbe67fc65f66d85655211405",
+    "object_sha256": "1569416d37401a563b1ab185ac2ac371841482dba715a1a84ecce858844aee13",
+    "log_sha256": "38b6713f1dfa4b8090e704f8cfc38d6a2ba2a90552c1c8150dac4ab38405e1e5",
+    "reports": [
+      [
+        "CSPConsequence.NumericOverheads.sqrt_log_upper",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.NumericOverheads.group_search",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.NumericOverheads.inverse_size",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.NumericOverheads.polynomial_factor",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.CostParameters",
+    "source_sha256": "db11b71de8bfc3bb42128e80a945f30b9335bc188ac3685b9fd32b15577e16e0",
+    "object_sha256": "77d1906d92898994c4b058cdceb6b6097527a9859842218ef54efc1aca2d433a",
+    "log_sha256": "ece7af40084c092048e2e7759b1a49efcf39567416a494c9cb3bc38a75ed2dda",
+    "reports": [
+      [
+        "CSPConsequence.CostParameters.total_le",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.CostParameters.scaled_length",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.CostParameters.length_bound",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.CostParameters.bits_bound",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.CostParameters.factor_bound",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.CostParameters.clique_argument_bound",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.SelectedBounds",
+    "source_sha256": "7a05b948c92b2a3e9107794ad3080aba2487e28a63063871a1dc8ccedc4dd07e",
+    "object_sha256": "99a366d4ab488272213843cbb3bec06cb0810a4459ef4e5bfdca2ce2ba620294",
+    "log_sha256": "e04aed8998cb49dd79063b8d0f5b64bd9ff4a91fa4aa6e6de8e3df8315e46534",
+    "reports": [
+      [
+        "CSPConsequence.SelectedBounds.actual",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.LogCost",
+    "source_sha256": "eb4b9d4f3ce9f2dd7def8e7a7992cb786e64fe4abb96e01e2c090e5c93981f66",
+    "object_sha256": "24919c611ffcad6293276d81c2ae6834b8d0e616dde72b7fcba253bc9bd50a1a",
+    "log_sha256": "4f77d6e220d9e16c2e1dc49f4ae76630faeb73d0281a70aea0e49494e5736eb1",
+    "reports": [
+      [
+        "CSPConsequence.LogCost.one_le_scale",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.LogCost.rate_transfer",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.LogCost.leading_term",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.LogCost.polynomial_term",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.LogCost.bound_log",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.LogCost.bound_log_le",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.LogCost.ceil_log",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.CliqueBudget",
+    "source_sha256": "c6473cf78eabe4dff905e4f42c05e91a3a3d7366efb709a037502bb32e215294",
+    "object_sha256": "602c00e776dca75d8bc3a23c0791c8434220bfc1745a1837f84f253ed4920963",
+    "log_sha256": "6edca819f3974435754a2e23bfb7d693d290a6a84729aaef61d924f122b78fc9",
+    "reports": [
+      [
+        "CSPConsequence.CliqueBudget.coefficient_nonneg",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.CliqueBudget.actual",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.NativeAbsorption",
+    "source_sha256": "2e7823578d9f4f579ba58ffcbfc52a58dd8a6f49b82c0ed8ba2f2a5893ca508e",
+    "object_sha256": "05702b024de17c777a27606f6ca6594dd3a91be11245704f135c13f4964e1716",
+    "log_sha256": "d9d33149eb0e4da4a7efd3d7b5f0334720f930dea78f7ecd2001c06b7c9d0edc",
+    "reports": [
+      [
+        "CSPConsequence.NativeAbsorption.host_bound",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.NativeAbsorption.add_exp",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.NativeAbsorption.host_bound_with_input",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.OperationBound",
+    "source_sha256": "1727767c5028b6b1b86762d3e50044c01aeff5fdfc884457ed1fc0477acf5cc7",
+    "object_sha256": "cbf3b8e9f56ddb25a0fa409d5ed991faa894335ba6c44cc47950122c6ef645ce",
+    "log_sha256": "bf6fce67b020c8ffdbb22d9a441c1e41a29e9a37307dabbbf8f97305f4b86ce7",
+    "reports": [
+      [
+        "CSPConsequence.OperationBound.entry_exponent",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.OperationBound.grouping_bound",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.RuntimeMetadata",
+    "source_sha256": "9ee46c71328654c4caccba3f12aa5387bbd4a2dca5873caf2c5b3646c13db52c",
+    "object_sha256": "dc7d436004378efb7c668a098e3a96566b78e3af1ca4b2e7bb27ed3b42596736",
+    "log_sha256": "a5e755ebea2780026b132cb2d67d74a58bce9cdf3ade742b2d847653ff23fd55",
+    "reports": [
+      [
+        "CSPConsequence.RuntimeMetadata.metadata",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.RuntimeMetadata.state_bound",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.CoreRuntime",
+    "source_sha256": "800aa5201a52d7d3e00b4d89ccedffd9b4c9767434d46fe5c738fafb537813f9",
+    "object_sha256": "8cbc6bd006f140c2a262e00b82047c28910b79290d462388ecc5315c7b2e1639",
+    "log_sha256": "aa5fad58e05e6025c43cbfaa9567a9d41b670016408ddc90ede71e2539f1bc24",
+    "reports": [
+      [
+        "CSPConsequence.CoreRuntime.actual",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.DegreeGuard",
+    "source_sha256": "4ae70e2a9e79c46d5f8c01cd4504f5d776e505fc4c3ba9ea1922bcf2fde95142",
+    "object_sha256": "7451aca7bd33b56960e9404e2bdd54c37d7a2f32e63c7f2f213be47eb779ee0e",
+    "log_sha256": "11f5a6c31ea4cfdc0fec7ba77a41bee6d1086ecd9582e74febc32e876b8a909a",
+    "reports": [
+      [
+        "CSPConsequence.DegreeGuard.neighbors_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.DegreeGuard.neighbors_length",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.DegreeGuard.check_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.DegreeGuard.check_of",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.TotalCounter",
+    "source_sha256": "06dfc86edcb8ee93a45aff163baf14d4d9f9ed3685186834908bd3f6d9093053",
+    "object_sha256": "42777a8cf46e992d079246fe9c391e582da6fc42479609e1e584d76f9a2786b7",
+    "log_sha256": "9cf8f1357a2c8c90bd7ebc95d82119e471d06d6510ce10e17ee73f9cfa0b4a82",
+    "reports": [
+      [
+        "CSPConsequence.TotalCounter.machine_poly",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.TotalCounter.correct",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.TotalCounter.fast_branch_runs",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.TotalCounter.native_from_runs",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.TotalCounter.native_total",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.NativeFastRuntime",
+    "source_sha256": "a29c9d5507f786e8a56e6212df697955be77a110d0919b4681cf1dcf81791aaf",
+    "object_sha256": "65a496477e05380680e2173337885a40fda37dbd615239876c68a056a731b124",
+    "log_sha256": "57aa0a7562e11fdadff52952effc7c001d1b344eb92c51a1701c7f7e619d753e",
+    "reports": [
+      [
+        "CSPConsequence.NativeFastRuntime.for_counter",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.NativeFastRuntime.exists_native",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.SublinearRate",
+    "source_sha256": "f777ebbf9a14ab9c2f0c585c6f2172171ce7d3d332eb21d83f34c639204d1e08",
+    "object_sha256": "8c5cc3b887d74f8d9320ad8bcc6998a646ed3dd9b2f0d1310f01e1efaaefa5b2",
+    "log_sha256": "8d95b42650560b2ab0b53a2581e026a60f8e78f53edcd7376dc29cbc09144ce4",
+    "reports": [
+      [
+        "CSPConsequence.SublinearRate.bitWidth_log",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SublinearRate.domain_power",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SublinearRate.sublinear",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.DenseCSPTheorem",
+    "source_sha256": "2995bd63c6b495c24edff213a4356757e51bdf50dbcf8a25f275cb16c8f87739",
+    "object_sha256": "faab3a3d2e88ec37dbb2595b4852c11fc52f5b5d1bb851796b8eda97d9f5ed16",
+    "log_sha256": "017d9a29416c8b8bbbd627e5d6841779422d4d1e54c48680cb9c5d3ad5a542e2",
+    "reports": [
+      [
+        "CSPConsequence.DenseCSPTheorem.exists_counter",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.GraphPinnedExpanderFamily",
+    "source_sha256": "9a86d05570d6a1461e3e422c32dd1010b177d410b259e23f85104dec8dcf7bfc",
+    "object_sha256": "c9c7578bdc74529d68c688862f2e1ebf35c9e370725e74a3f6f7e7c2fae1dc77",
+    "log_sha256": "a21587d46a13594a572de717a6c35473d3a773b2987e43ccecfeff13d71ff5ed",
+    "reports": [
+      [
+        "OAI.IndependentSetsGames.Foundations.PCP.ExpanderFamily.family_certificate",
+        "propext,\n Classical.choice,\n Quot.sound"
+      ],
+      [
+        "OAI.IndependentSetsGames.Foundations.PCP.ExpanderFamily.card_vertex",
+        "propext,\n Classical.choice,\n Quot.sound"
+      ],
+      [
+        "OAI.IndependentSetsGames.Foundations.PCP.ExpanderFamily.growth_gt_one",
+        "propext,\n Classical.choice,\n Quot.sound"
+      ],
+      [
+        "OAI.HyperbolicObstruction.PlanarRecursion.weighted_tree_component_separator",
+        "propext,\n Classical.choice,\n Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.GraphFiniteMassSelection",
+    "source_sha256": "4e4b235c8349af534ebc348a19f21f1be7211c124354b9cbb44f88a68d1dd948",
+    "object_sha256": "fe6f8daa5bf66b79b898138aae6369aff94956b7248f53b2d0683f5794aee59e",
+    "log_sha256": "a4a10e8d25d63ebd7928292ca5491c198e6d52821e8a8cd6356c763bf52c62b8",
+    "reports": [
+      [
+        "TensorResearch.FiniteMassSelection.interval",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.GraphTreewidth",
+    "source_sha256": "8558ebecc2027fba15277c3af262932b4e7a267514810a5bc2fedf1bbadb76eb",
+    "object_sha256": "e7a473703e0b71fa511de8c7659853956ca8aaf04980185e042523c1d549b228",
+    "log_sha256": "f62832abf42eba7aca342de0d7934fde014e6d41ceba2b61dd02f4fcae1580a7",
+    "reports": [
+      [
+        "TensorResearch.SpectralSeparation.Family.degree",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "TensorResearch.SpectralSeparation.Family.separated",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "TensorResearch.TreeDecompositionLabels.Decomposition.outside_adj",
+        "propext,\n Classical.choice,\n Quot.sound"
+      ],
+      [
+        "TensorResearch.TreeDecompositionLabels.Decomposition.centroid_exists",
+        "propext,\n Classical.choice,\n Quot.sound"
+      ],
+      [
+        "TensorResearch.TreeDecompositionLabels.Decomposition.centroid_mass",
+        "propext,\n Classical.choice,\n Quot.sound"
+      ],
+      [
+        "TensorResearch.TreeDecompositionLabels.Decomposition.vertexMass_total",
+        "propext,\n Classical.choice,\n Quot.sound"
+      ],
+      [
+        "TensorResearch.ExpanderTreewidth.bag_lower_bound",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "TensorResearch.ExpanderTreewidth.Family.unbounded",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.GraphFamilyFacts",
+    "source_sha256": "bfcf78eecaed80380f7a9ddf3ca25df4bbcdec75516064fb7ae9657e22e48f93",
+    "object_sha256": "6aea6591af5f07257fe198cd4a9e32fe24232eb5f86093708b5cd697978b5cb3",
+    "log_sha256": "f94aabef38f8d219f691cbfc72e845887d9f316e870fc661f281daf5d655febc",
+    "reports": [
+      [
+        "CSPConsequence.GraphFamily.neighbor_exists",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.GraphFamily.family_neighbor",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.GraphFamily.decomposition_of_reindex",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.GraphFamily.graph_degree",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.GraphFamily.graph_neighbor",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.GraphFamily.graph_bag_width",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.GraphFamily.graph_unbounded",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.GraphWidthNumber",
+    "source_sha256": "1562b6339dff8371b0bccc795428bc368418e9893535c3fce4d4dd6684eb1fa5",
+    "object_sha256": "8851230f1d1030730d3d74dbae2c009226b12aab42d380a046a0bb54e2ccf29c",
+    "log_sha256": "17950a8f06c6006177f438acad3ef97d4579b44d4d855bef8d51717651468434",
+    "reports": [
+      [
+        "CSPConsequence.GraphWidthNumber.one_bag",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.GraphWidthNumber.bag_eq_tw_add_one",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.GraphWidthNumber.family_linear",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.GraphWidthNumber.tail_unbounded",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.GraphWidthTransport",
+    "source_sha256": "e0c063062b560724242f3b51a9b256f2c685799779bd561f08fd5b63db30588f",
+    "object_sha256": "ec2026a54192c79f5c4170e29d4cb7c8662bf2bd7b7835788ac6437ec111c42f",
+    "log_sha256": "69d75f1a35d4dd9b6ea2cafcfa0af97334cab36547c972fea5d7306921490cc1",
+    "reports": [
+      [
+        "CSPConsequence.GraphWidthTransport.treewidth_iso",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.GraphWidthTransport.family_comparison",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.GraphWidthTransport.exponent_transfer",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.ListSlices",
+    "source_sha256": "e09943f04eb8e3f64a5c017f43258ac3a079ecc90b2542447217c98bf8ba1fdb",
+    "object_sha256": "33345e8b04af314dbde070ad1a63c0762c3b5f333ec354114068324aeb797119",
+    "log_sha256": "2f6e54262a2d9fe9af2566caaffb02be3d4d05ffa588d65fe5a568ebde02373b",
+    "reports": [
+      [
+        "CSPConsequence.ListSlices.split_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.ListSlices.split_flatten",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.SparseNormalization",
+    "source_sha256": "5d8726fe8aed6ba578fb3f834e990777d091d6583f76e34c4b04e86c22e2e084",
+    "object_sha256": "87c256364e328dce52e4c7f38880191553cff75855419cf06c9effc04c36ba0a",
+    "log_sha256": "07a59b88c4ebe4ee9765d4acb241a76fa6173f327edcc4ab827ebc882e6f15e5",
+    "reports": [
+      [
+        "CSPConsequence.SparseNormalization.valid_iff",
+        "propext, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseNormalization.count_eq",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseNormalization.tupleBit_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseNormalization.edgeAt_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseNormalization.unaryAt_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseNormalization.pairAt_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseNormalization.relationAt_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.SparseSupport",
+    "source_sha256": "3a5c73af171e6ff3b28acc4c7d2654a66241727aad687774b7265eabda220618",
+    "object_sha256": "13a96583d94adf1379915b800ff8a9d49a6616c2edd535825c720a4cdf588b21",
+    "log_sha256": "ca20d4ccd09a84ed61fdde61428b497709c0d0abe603c06b9cacaa04b638a027",
+    "reports": [
+      [
+        "CSPConsequence.SparseSupport.support_bound",
+        "propext, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseSupport.all_supported_of_nonisolated",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseSupport.exists_supported_iff",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseSupport.support_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.SparseSupportDomain",
+    "source_sha256": "a9f38dad3a07b2bee3760e3965b4a8f95143a3aafae03c87013874f34cfeaf07",
+    "object_sha256": "9840773dfceb7d22080f56e8f43f96be20c8dd07049982567d75990e0fbd967c",
+    "log_sha256": "b00c544e6567f2c6318112f15ce46a53f1cd5073f03e9f2c1be29155b365e429",
+    "reports": [
+      [
+        "CSPConsequence.SparseSupportDomain.exists_relabelled_iff",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseSupportDomain.restricted_count",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseSupportDomain.normalized_count",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.SparseRelabelPreparation",
+    "source_sha256": "4511dd8ae2508d63d9a6b4b9f42941512c14da9a8ff934e82a585ce5540df0ff",
+    "object_sha256": "1b2a6e6be90f433ff7434a57b056a7bf5379156e4a809cea098fa88805600151",
+    "log_sha256": "a9ac3c111169a989f90cb239ee436430fc6a8d479b99aaebe2a9ee99779517cc",
+    "reports": [
+      [
+        "CSPConsequence.SparseRelabelPreparation.prepare_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseRelabelPreparation.prepare_eq_tabulate",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseRelabelPreparation.domain_bound",
+        "propext, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseRelabelPreparation.count_eq",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.SparseGraphTransfer",
+    "source_sha256": "9058202b5bccf41fdfaf8cf975038d62b3fd0bf480ed631b61df0ac113cf4ddf",
+    "object_sha256": "4a11b511034c49c1abcbe268616495fc4eeab654d488268e51dc8ce71011712b",
+    "log_sha256": "6cda6e14279560ac93da06ee5a5c52e3b864dad27d3cc8745f35f7b714c621be",
+    "reports": [
+      [
+        "CSPConsequence.SparseGraphTransfer.degree_eq",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseGraphTransfer.iso_card",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseGraphTransfer.iso_degree",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseGraphTransfer.iso_nonisolated",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.SparseFields",
+    "source_sha256": "1b07594bc75ab4a06e5077e342679742c1daec051e960ea0a0b3bc4c75e37da2",
+    "object_sha256": "b0fc73b158fecafe087bdbad7c44e83cf9ac065fcc3bcd778f940de32cddc4af",
+    "log_sha256": "112c0e9228e04ada6dc898153a74e8b2bc7b2d183f1e55677ffee6fa00fe0bcc",
+    "reports": [
+      [
+        "CSPConsequence.SparseFields.encode_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseFields.decode_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseFields.numbers_length",
+        "propext, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseFields.decode_encode",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.SparseFieldBits",
+    "source_sha256": "751f9310144098bac0d8ff8f65e337706c5bb44ca1710fe766362a142981f1ac",
+    "object_sha256": "061f381073c52701f415a8e9ea0a3ffc92018afaa966903d4ee6926537e8e421",
+    "log_sha256": "f71236cc88bbbda2fd5731590d97bf003d4326fea7ba954d946b628b0be5bf5f",
+    "reports": [
+      [
+        "CSPConsequence.SparseFieldBits.encode_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseFieldBits.decode_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseFieldBits.decode_encode",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseFieldBits.encode_length",
+        "propext, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.SparseRawBits",
+    "source_sha256": "eb97671ac3f3f43937e10897b9fd3a88bcdbbcb5b10cdc48ed1f2a0ac2fc2a8a",
+    "object_sha256": "284c41b1cc0ed1f7a54dc98dd850fce8b12dd4a27c46451f0fee0f68a5cf004c",
+    "log_sha256": "99de01fd5b1ca43fffe05ee2bd26ed488f9e76028af7a7d1ce7d27503e746438",
+    "reports": [
+      [
+        "CSPConsequence.SparseRawBits.decode_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseRawBits.decode_encode",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseRawBits.vertex_le_length",
+        "propext, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseRawBits.support_le_length",
+        "propext, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.SparseSizeBounds",
+    "source_sha256": "aed1c7393a6e2d8a1a14ff1092a3bcf9c6e3a093f0989eeb190dfcc4b54240e4",
+    "object_sha256": "114106fa645c8d6cbfdf2323bf7fec21b02dfa20698c22e546fcc6d14e2ff178",
+    "log_sha256": "e56ba614763c4c32a6312b3db31b25fc73f55b7f6f4865638200bb7ff84b1db1",
+    "reports": [
+      [
+        "CSPConsequence.SparseSizeBounds.encoding_polynomial",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseSizeBounds.dense_bound",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.SparseIsolates",
+    "source_sha256": "7d98eae81d888aebb9f7b74fa74520a2e008bf81994d8fe47b83c202c41a9061",
+    "object_sha256": "a268543940e3802558e3966588f2e0da41d19c0037ac1d7e6e062818a0a6d7a8",
+    "log_sha256": "59ef2773b5c4358e906468f781fb41f3c8a5f1379b622e502a0f17e35412c7f3",
+    "reports": [
+      [
+        "CSPConsequence.SparseIsolates.decision_image_iff",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseIsolates.check_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseIsolates.original_decision_iff",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.SparseDecision",
+    "source_sha256": "d13e1ebb0a1ebc3a5eb7502750b430f4ea65e42a49a54a9017a0f87c1ebc49c3",
+    "object_sha256": "615c7ae43d601cfb4251808b30adf1b95d54448ed899f6b6159632aa84f8c9c6",
+    "log_sha256": "41402d0a8648f861194d1b8ba39b14cfdfae610dde2406764ecfe83fa71ce225",
+    "reports": [
+      [
+        "CSPConsequence.SparseDecision.machine_poly",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseDecision.empty_iff",
+        "propext, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseDecision.count_positive",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseDecision.correct",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.SparseDecisionRuns",
+    "source_sha256": "fe90fd03b8978e7190d38f8eba83be660dacb6793411af0d6ec0774176745eb4",
+    "object_sha256": "37e62bc947ad66a93c35eba48e9db5b0d3be13883472c5f525c88aed8de6247d",
+    "log_sha256": "52f2afb4cd177fe26d5e7d3566b48497e4459f59f43bbd6b93146a7b4847beb6",
+    "reports": [
+      [
+        "CSPConsequence.SparseDecisionRuns.check_nonisolated",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseDecisionRuns.from_counter",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseDecisionRuns.small_domain",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.SparseNativeMachine",
+    "source_sha256": "66eac797ca04345af5a3d2f925826162eb87f2a87a09cb6e3bebdceb82a2598c",
+    "object_sha256": "57cc2ce2c0b013ce184ce8ce7b6e6586dcd1a415e093364018a4b3b87418d4c0",
+    "log_sha256": "c3ac7562a822a9a6921a202307381a6cc7d32454efa698b8e88e3665d626bf7e",
+    "reports": [
+      [
+        "CSPConsequence.SparseNativeMachine.wordMachine_poly",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseNativeMachine.native_from_runs",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseNativeMachine.exists_native",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.SparseFastRuntime",
+    "source_sha256": "25ed6a6afe5145bdda7f151d9d7bd6e94338d1ecbce832e554ac19af7c47e529",
+    "object_sha256": "dd1f0469f493867ba3071a302a0260695d5dc65e6678509e5a413e345d2acd4a",
+    "log_sha256": "9d2a312baa18af068cfcdab1219bf8df69da5535aedf67e3f2888e0af6ce93c7",
+    "reports": [
+      [
+        "CSPConsequence.SparseFastRuntime.fast_for_host",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.SparseSmallRuntime",
+    "source_sha256": "7f7a2729ed9891a7a7bd5ca1ea7ef8b64dae49e0d42b0551455e766688872907",
+    "object_sha256": "9ada5ff2003643e880bd125241fc024172bf71bb86d06b82ab231e20faa295df",
+    "log_sha256": "b46d22ee5b9b6844041a1b13574ae6fac4ae305ad27f05e6470f8ea592e97048",
+    "reports": [
+      [
+        "CSPConsequence.SparseSmallRuntime.small_for_host",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.SparsePowerAbsorption",
+    "source_sha256": "893b42ad57cec5f48ea5a236aa16f50b774a04ca18d3abcd45363de6fa32cba7",
+    "object_sha256": "883eec165da60c7e5c0f97fe6c571893b1379acf552e2b6a7f3de446be0a42cd",
+    "log_sha256": "a34f9950cd82d6fd88cf778fa90074e50ea3d8a635b9e5bfa14576f7019fae3f",
+    "reports": [
+      [
+        "CSPConsequence.SparsePowerAbsorption.domain_to_input",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparsePowerAbsorption.rate_sublinear",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.SparseUniformRuntime",
+    "source_sha256": "f9befd000beb59e182c5e79cd90f869e3b087924c22ff1074026d68ebdf862da",
+    "object_sha256": "545800f2553cda9e2086b1d94c7d53b27b0f85c34344d8521ebc274edea3308f",
+    "log_sha256": "6ed5efee421990fcc5050ac82825b7168a5e3cb08222ae4931ec1f23337b2498",
+    "reports": [
+      [
+        "CSPConsequence.SparseUniformRuntime.exponential_nonneg",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseUniformRuntime.fast_for_host",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.SparseOrdinarySize",
+    "source_sha256": "f08510dfc5b064fa95cf96c8362fc1aa5d60faa56980c7f66e14dd8c0a7b24f9",
+    "object_sha256": "7c95031d1b99c13feca609654b690daa1e4e0a5130e32a3aefc4e17791048605",
+    "log_sha256": "b1422d5b24dccaac8feab2c9bab1401c19cb6a2e6eeadc86bdae3b7cc4a6a001",
+    "reports": [
+      [
+        "CSPConsequence.SparseOrdinarySize.length_bound",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparseOrdinarySize.power_transfer",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.MarxConjecture",
+    "source_sha256": "b9068a7df9421be504af71040b977c84c9478043e71aff091a7641264e7f205c",
+    "object_sha256": "b6be66fc89ccc809f5926bba4171d8d2865d25f83db4176b3ac9c7909811817f",
+    "log_sha256": "fd48c32468351f1e870824c3796327e6ee8162ddc556d4711767f9e541550007",
+    "reports": [
+      [
+        "CSPConsequence.MarxConjecture.tail_unbounded",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.MarxConjecture.counterexample",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.MarxConjecture.not_statement",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  },
+  {
+    "module": "Downstream.SparsePreparation",
+    "source_sha256": "0c49375850392cf94fedcf5232b83af8a59f305e2bacedd13316ea8b6037dc67",
+    "object_sha256": "dccedcdf4ee2d336d92539829d0fec40fb768bf1ca89551652bffb684a48a9ff",
+    "log_sha256": "421566a993dfb715a5a6aca7a7f652ffd9b3aff5be5cb86197416aec2f82622b",
+    "reports": [
+      [
+        "CSPConsequence.SparsePreparation.prepare_polyT",
+        "propext, Classical.choice, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparsePreparation.edgeAt_prepare",
+        "propext, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparsePreparation.relationAt_prepare",
+        "propext, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparsePreparation.valid_prepare_iff",
+        "propext, Quot.sound"
+      ],
+      [
+        "CSPConsequence.SparsePreparation.count_prepare",
+        "propext, Classical.choice, Quot.sound"
+      ]
+    ],
+    "exit_code": 0
+  }
+]

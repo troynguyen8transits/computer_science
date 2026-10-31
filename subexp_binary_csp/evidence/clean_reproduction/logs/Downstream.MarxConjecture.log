@@ -1,0 +1,3 @@
+'CSPConsequence.MarxConjecture.tail_unbounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.MarxConjecture.counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.MarxConjecture.not_statement' depends on axioms: [propext, Classical.choice, Quot.sound]

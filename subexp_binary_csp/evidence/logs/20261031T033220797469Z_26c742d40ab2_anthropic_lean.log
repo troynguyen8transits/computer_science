@@ -1,0 +1,12 @@
+COMMAND: ['/Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/toolchain/lean-4.33.1-darwin_aarch64/bin/lake', 'env', 'lean', '-o', '.lake/build/lib/lean/Downstream/BruteCSPMachine.olean', 'Downstream/BruteCSPMachine.lean']
+CWD: /Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/external/anthropic_formal_math/eth
+Downstream/BruteCSPMachine.lean:21:0: warning: Definition `CSPConsequence.BruteCSP.leafMachine_poly` of class type is semireducible. Most type class instances should be instance-reducible, so consider marking this
+definition with `@[instance_reducible]`. If it is intentionally semireducible, this warning can be disabled with `set_option warn.classDefReducibility false`.
+Downstream/BruteCSPMachine.lean:22:0: warning: Definition `CSPConsequence.BruteCSP.enumerate_poly` of class type is semireducible. Most type class instances should be instance-reducible, so consider marking this
+definition with `@[instance_reducible]`. If it is intentionally semireducible, this warning can be disabled with `set_option warn.classDefReducibility false`.
+Downstream/BruteCSPMachine.lean:66:0: warning: Definition `CSPConsequence.BruteCSP.machine_poly` of class type is semireducible. Most type class instances should be instance-reducible, so consider marking this
+definition with `@[instance_reducible]`. If it is intentionally semireducible, this warning can be disabled with `set_option warn.classDefReducibility false`.
+'CSPConsequence.BruteCSP.enumerate_poly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.BruteCSP.enumerate_correct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.BruteCSP.machine_poly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.BruteCSP.machine_correct' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,5 @@
+COMMAND: ['/Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/toolchain/lean-4.33.1-darwin_aarch64/bin/lake', 'env', 'lean', '-o', '.lake/build/lib/lean/Downstream/BitInputSizes.olean', 'Downstream/BitInputSizes.lean']
+CWD: /Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/external/anthropic_formal_math/eth
+'CSPConsequence.BitInputCodec.paramsOf_size' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.BitInputCodec.prepared_size_le_encode' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.BitInputCodec.paramsOf_size_le_encode' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,9 @@
+COMMAND: ['/Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/toolchain/lean-4.33.1-darwin_aarch64/bin/lake', 'env', 'lean', '-o', '.lake/build/lib/lean/Downstream/LogCost.olean', 'Downstream/LogCost.lean']
+CWD: /Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/external/anthropic_formal_math/eth
+'CSPConsequence.LogCost.one_le_scale' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.LogCost.rate_transfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.LogCost.leading_term' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.LogCost.polynomial_term' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.LogCost.bound_log' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.LogCost.bound_log_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.LogCost.ceil_log' depends on axioms: [propext, Classical.choice, Quot.sound]

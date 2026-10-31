@@ -1,0 +1,19 @@
+COMMAND: ['/Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/toolchain/lean-4.33.1-darwin_aarch64/bin/lake', 'env', 'lean', '-o', '.lake/build/lib/lean/Downstream/SparseRelabelPreparation.olean', 'Downstream/SparseRelabelPreparation.lean']
+CWD: /Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/external/anthropic_formal_math/eth
+Downstream/SparseRelabelPreparation.lean:46:35: warning: This simp argument is unused:
+  List.getElem?_eq_getElem x.isLt
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.getD_eq_getElem?_getD]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Downstream/SparseRelabelPreparation.lean:49:37: warning: Variable name `a` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _a
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'CSPConsequence.SparseRelabelPreparation.prepare_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.SparseRelabelPreparation.prepare_eq_tabulate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.SparseRelabelPreparation.domain_bound' depends on axioms: [propext, Quot.sound]
+'CSPConsequence.SparseRelabelPreparation.count_eq' depends on axioms: [propext, Classical.choice, Quot.sound]

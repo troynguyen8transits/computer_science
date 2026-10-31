@@ -1,0 +1,4 @@
+COMMAND: ['/Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/toolchain/lean-4.33.1-darwin_aarch64/bin/lake', 'env', 'lean', '-o', '.lake/build/lib/lean/Downstream/CoreRuntime.olean', 'Downstream/CoreRuntime.lean']
+CWD: /Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/external/anthropic_formal_math/eth
+Downstream/CoreRuntime.lean:61:76: warning: exponent 320 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+'CSPConsequence.CoreRuntime.actual' depends on axioms: [propext, Classical.choice, Quot.sound]

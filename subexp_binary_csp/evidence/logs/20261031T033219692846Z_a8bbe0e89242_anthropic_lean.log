@@ -1,0 +1,9 @@
+COMMAND: ['/Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/toolchain/lean-4.33.1-darwin_aarch64/bin/lake', 'env', 'lean', '-o', '.lake/build/lib/lean/Downstream/GraphFamilyFacts.olean', 'Downstream/GraphFamilyFacts.lean']
+CWD: /Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/external/anthropic_formal_math/eth
+'CSPConsequence.GraphFamily.neighbor_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.GraphFamily.family_neighbor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.GraphFamily.decomposition_of_reindex' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.GraphFamily.graph_degree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.GraphFamily.graph_neighbor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.GraphFamily.graph_bag_width' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.GraphFamily.graph_unbounded' depends on axioms: [propext, Classical.choice, Quot.sound]

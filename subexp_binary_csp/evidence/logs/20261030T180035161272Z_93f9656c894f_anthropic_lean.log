@@ -1,0 +1,6 @@
+COMMAND: ['/Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/toolchain/lean-4.33.1-darwin_aarch64/bin/lake', 'env', 'lean', '-o', '.lake/build/lib/lean/Downstream/ProviderLabels.olean', 'Downstream/ProviderLabels.lean']
+CWD: /Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/external/anthropic_formal_math/eth
+'CSPConsequence.ProviderLabels.crossingPairs_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.ProviderLabels.labelValue_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.ProviderLabels.labelLegal_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.ProviderLabels.factorValue_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]

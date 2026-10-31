@@ -1,0 +1,25 @@
+COMMAND: ['/Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/toolchain/lean-4.33.1-darwin_aarch64/bin/lake', 'env', 'lean', '-o', '.lake/build/lib/lean/Downstream/SparseFastRuntime.olean', 'Downstream/SparseFastRuntime.lean']
+CWD: /Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/external/anthropic_formal_math/eth
+Downstream/SparseFastRuntime.lean:53:25: warning: exponent 320 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+Downstream/SparseFastRuntime.lean:82:15: warning: Unused tactic linter: `exact_mod_cast hEH` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Downstream/SparseFastRuntime.lean:89:17: warning: Unused tactic linter: `exact_mod_cast hEH` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Downstream/SparseFastRuntime.lean:105:17: warning: Unused tactic linter: `exact_mod_cast hLH` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Downstream/SparseFastRuntime.lean:82:15: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Downstream/SparseFastRuntime.lean:89:17: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Downstream/SparseFastRuntime.lean:105:17: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Downstream/SparseFastRuntime.lean:110:13: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'CSPConsequence.SparseFastRuntime.fast_for_host' depends on axioms: [propext, Classical.choice, Quot.sound]

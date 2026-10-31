@@ -1,0 +1,11 @@
+COMMAND: ['/Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/toolchain/lean-4.33.1-darwin_aarch64/bin/lake', 'env', 'lean', '-o', '.lake/build/lib/lean/Downstream/EncodedLabels.olean', 'Downstream/EncodedLabels.lean']
+CWD: /Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/external/anthropic_formal_math/eth
+Downstream/EncodedLabels.lean:26:18: warning: This simp argument is unused:
+  List.mem_product
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [crossing]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'CSPConsequence.EncodedLabels.labels_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.EncodedLabels.label_sum' depends on axioms: [propext, Classical.choice, Quot.sound]

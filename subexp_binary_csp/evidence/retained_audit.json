@@ -1,0 +1,8 @@
+{
+  "component_checks_passed": true,
+  "component_count": 82,
+  "standard_axiom_reports": 269,
+  "lean_version": "4.33.1",
+  "component_scope_only": true,
+  "external_backend_audit": "audit_anthropic_backend.py"
+}

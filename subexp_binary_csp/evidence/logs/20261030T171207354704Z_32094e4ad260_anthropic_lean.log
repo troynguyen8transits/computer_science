@@ -1,0 +1,9 @@
+COMMAND: ['/Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/toolchain/lean-4.33.1-darwin_aarch64/bin/lake', 'env', 'lean', '-o', '.lake/build/lib/lean/Downstream/NodeRefinement.olean', 'Downstream/NodeRefinement.lean']
+CWD: /Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/external/anthropic_formal_math/eth
+Downstream/NodeRefinement.lean:60:0: warning: Definition `CSPConsequence.NodeRefinement.memMachine_polyT` of class type is semireducible. Most type class instances should be instance-reducible, so consider marking this
+definition with `@[instance_reducible]`. If it is intentionally semireducible, this warning can be disabled with `set_option warn.classDefReducibility false`.
+'CSPConsequence.NodeRefinement.nodeMembers_of' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.NodeRefinement.nodeValue_of' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.NodeRefinement.nodeLegal_of' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.NodeRefinement.memMachine_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.NodeRefinement.memMachine_correct' depends on axioms: [propext, Classical.choice, Quot.sound]

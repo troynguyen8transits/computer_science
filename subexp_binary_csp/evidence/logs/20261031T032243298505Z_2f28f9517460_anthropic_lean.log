@@ -1,0 +1,17 @@
+COMMAND: ['/Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/toolchain/lean-4.33.1-darwin_aarch64/bin/lake', 'env', 'lean', '-o', '.lake/build/lib/lean/Downstream/NativeAbsorption.olean', 'Downstream/NativeAbsorption.lean']
+CWD: /Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/external/anthropic_formal_math/eth
+Downstream/NativeAbsorption.lean:42:44: warning: Variable name `hT0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hT0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Downstream/NativeAbsorption.lean:76:5: warning: Variable name `hT0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hT0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'CSPConsequence.NativeAbsorption.host_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.NativeAbsorption.add_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.NativeAbsorption.host_bound_with_input' depends on axioms: [propext, Classical.choice, Quot.sound]

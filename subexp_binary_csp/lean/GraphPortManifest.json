@@ -1,0 +1,93 @@
+{
+  "status": "All three source ports checked on Lean 4.33.1: actual bounded-degree expander family, weighted separator, and linear bag-size/unbounded-width derivation. Native runtime/conjecture transfer remains separate.",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "old_consolidation": "investigations/eth_expansion_2026-10-26/formal/project/Research/PinnedExpanderFamily.lean",
+  "old_consolidation_sha256": "811182573d8e3cdedb90ac0cd34b6bfcb8fa8bbd347496616335af1f047419aa",
+  "new_mathlib_imports": [
+    "Mathlib.Algebra.Order.BigOperators.Expect",
+    "Mathlib.Algebra.BigOperators.Fin",
+    "Mathlib.Analysis.Real.Sqrt",
+    "Mathlib.Data.Nat.Log",
+    "Mathlib.Combinatorics.SimpleGraph.Acyclic",
+    "Mathlib.Combinatorics.SimpleGraph.DeleteEdges",
+    "Mathlib.Combinatorics.SimpleGraph.Finite",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.Ring",
+    "Mathlib.Tactic.NormNum",
+    "Mathlib.Tactic.Positivity",
+    "Mathlib.Tactic.GCongr",
+    "Mathlib.Tactic.FieldSimp",
+    "Mathlib.Tactic.SplitIfs",
+    "Mathlib.Tactic.Ext",
+    "Mathlib.Tactic.Convert"
+  ],
+  "retained_blocks": [
+    {
+      "old_line_start": 17,
+      "old_line_end": 4827,
+      "scope": "24 attributed full source bodies before TreewidthL1.Model"
+    },
+    {
+      "old_line_start": 4847,
+      "old_line_end": 4854,
+      "scope": "HasTreeDecomposition only, from25th attributed source"
+    }
+  ],
+  "adaptations": [
+    "Replaced root Mathlib with16 selected imports, including explicit Fin big operators and three explicit tactic imports.",
+    "Raised heartbeat budget only; no semantic change.",
+    "Omitted unrelated walkLength/shortestPathDistance/HasL1Embedding/MainStatement from final Model body.",
+    "GraphTreewidth imports ported local modules; local proof bodies unchanged.",
+    "24 GraphPinned conditional simplification aliases adapted:9 ite_eq_left\u2192if_pos and15 ite_eq_right\u2192if_neg.",
+    "bias_sq_le_weighted_energy adds congrArg (fun x :Real =>x^2) before finite-sum congruence for the4.33 convert goal.",
+    "Deprecated Data.Real.Sqrt import replaced by canonical Analysis.Real.Sqrt.",
+    "All three ports use autoImplicit false, checked for GraphPinnedExpanderFamily."
+  ],
+  "files": {
+    "GraphPinnedExpanderFamily.lean": "9a86d05570d6a1461e3e422c32dd1010b177d410b259e23f85104dec8dcf7bfc",
+    "GraphFiniteMassSelection.lean": "4e4b235c8349af534ebc348a19f21f1be7211c124354b9cbb44f88a68d1dd948",
+    "GraphTreewidth.lean": "8558ebecc2027fba15277c3af262932b4e7a267514810a5bc2fedf1bbadb76eb"
+  },
+  "verification": {
+    "GraphPinnedExpanderFamily.lean": {
+      "record": "logs/20261030T190600038370Z_e5bd9083fece_anthropic_lean.json",
+      "source_sha256": "9a86d05570d6a1461e3e422c32dd1010b177d410b259e23f85104dec8dcf7bfc",
+      "object_sha256": "c9c7578bdc74529d68c688862f2e1ebf35c9e370725e74a3f6f7e7c2fae1dc77",
+      "exit_code": 0,
+      "source_stable": true,
+      "standard_axiom_reports": 4
+    },
+    "GraphFiniteMassSelection.lean": {
+      "record": "logs/20261030T190841745726Z_86b3430a517a_anthropic_lean.json",
+      "source_sha256": "4e4b235c8349af534ebc348a19f21f1be7211c124354b9cbb44f88a68d1dd948",
+      "object_sha256": "fe6f8daa5bf66b79b898138aae6369aff94956b7248f53b2d0683f5794aee59e",
+      "exit_code": 0,
+      "source_stable": true,
+      "standard_axiom_reports": 1
+    },
+    "GraphTreewidth.lean": {
+      "record": "logs/20261030T190916546239Z_2e11ed815a7c_anthropic_lean.json",
+      "source_sha256": "8558ebecc2027fba15277c3af262932b4e7a267514810a5bc2fedf1bbadb76eb",
+      "object_sha256": "c8254f3c730bd8238e8aa51228adb11b5b29a011932697f3252e695c3c42da00",
+      "exit_code": 0,
+      "source_stable": true,
+      "standard_axiom_reports": 8
+    }
+  },
+  "cache_records": [
+    "logs/20261030T185311470217Z_0ef6a03c4416_anthropic_cache.json",
+    "logs/20261030T185744788513Z_05821d9c295c_anthropic_cache.json"
+  ],
+  "development_failures": [
+    {
+      "record": "logs/20261030T185707418054Z_b3da9cb7ac87_anthropic_lean.json",
+      "reason": "Missing Data.Real.Sqrt interface; stopped before source elaboration."
+    },
+    {
+      "record": "logs/20261030T190127260172Z_4d0176207446_anthropic_lean.json",
+      "reason": "4.34 conditional alias names absent, Fin big-operators import missing, and decoder convert goal needed explicit square congruence; failed reports are not verification evidence."
+    }
+  ],
+  "adaptation_diff": "GraphPortAdaptations.diff",
+  "adaptation_diff_sha256": "e3e77d788d606b3e17f0e31df421b225ef680f184f7e38ddfa378d53f449f3c2"
+}

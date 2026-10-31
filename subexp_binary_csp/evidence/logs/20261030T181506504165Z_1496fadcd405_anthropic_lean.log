@@ -1,0 +1,6 @@
+COMMAND: ['/Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/toolchain/lean-4.33.1-darwin_aarch64/bin/lake', 'env', 'lean', '-o', '.lake/build/lib/lean/Downstream/ProviderMetadata.olean', 'Downstream/ProviderMetadata.lean']
+CWD: /Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/external/anthropic_formal_math/eth
+'CSPConsequence.ProviderMetadata.boundP_unary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.ProviderMetadata.boundB_unary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.ProviderMetadata.procs_keeps' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.ProviderMetadata.len_of' depends on axioms: [propext, Classical.choice, Quot.sound]

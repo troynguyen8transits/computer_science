@@ -1,0 +1,282 @@
+--- frozen4.34.1/Research/PinnedExpanderFamily.lean
++++ sourceport4.33.1/Downstream/GraphPinnedExpanderFamily.lean
+@@ -1,18 +1,31 @@
+-import Mathlib
+-
+-/-!
+-Pinned OAI source reuse, authorized by the user. The original module bodies
+-are copied below from openai/math commit
+-7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a (Apache-2.0).
+-Only imports are consolidated; one section per original file preserves local
+-open commands, variables, and instances. This avoids 21 repeated loads of the
+-root Mathlib import on this host. Original namespaces and proofs are retained.
+-See external/pinned_expanders/source_manifest.json for individual source hashes.
+-The appended weighted-tree separator sources and tree-decomposition definition
+-are also attributed below. This unit establishes graph foundations, not a CSP
+-runtime or a treewidth lower bound. Its current build and endpoint dependency audit must be checked.
+--/
+-
++import Mathlib.Algebra.Order.BigOperators.Expect
++import Mathlib.Algebra.BigOperators.Fin
++import Mathlib.Analysis.Real.Sqrt
++import Mathlib.Data.Nat.Log
++import Mathlib.Combinatorics.SimpleGraph.Acyclic
++import Mathlib.Combinatorics.SimpleGraph.DeleteEdges
++import Mathlib.Combinatorics.SimpleGraph.Finite
++import Mathlib.Tactic.Linarith
++import Mathlib.Tactic.Ring
++import Mathlib.Tactic.NormNum
++import Mathlib.Tactic.Positivity
++import Mathlib.Tactic.GCongr
++import Mathlib.Tactic.FieldSimp
++import Mathlib.Tactic.SplitIfs
++import Mathlib.Tactic.Ext
++import Mathlib.Tactic.Convert
++
++set_option autoImplicit false
++set_option maxHeartbeats 2000000
++
++/-! Source port of the pinned OpenAI/math expander and weighted-tree proofs,
++commit 7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a, Apache-2.0.
++Every original source block retains its attribution below. The old root Mathlib
++import is replaced by selected imports. TreewidthL1.Model contributes only its
++HasTreeDecomposition definition; unrelated metric/L1 declarations are omitted.
++See GraphPortManifest.json for exact copied source ranges and hashes.
++Verification status belongs to GraphPortManifest.json; preparation alone is
++not evidence of a successful Lean 4.33.1 check. -/
+ 
+ /- Source: OAI.Combinatorics.IndependentSets.PCP.ConstraintGraph; pinned OAI proof, Apache-2.0. -/
+ section PinnedSource0
+@@ -693,10 +706,10 @@
+   by_cases h : s = t
+   · subst t
+     simp
+-  · rw [ite_eq_right h]
++  · rw [if_neg h]
+     obtain ⟨i, hi⟩ := Function.ne_iff.mp h
+     apply Finset.prod_eq_zero (Finset.mem_univ i)
+-    exact ite_eq_right hi
++    exact if_neg hi
+ 
+ theorem walsh_orthogonality {I : Type*} [Fintype I] [DecidableEq I]
+     (s t : Cube I) :
+@@ -1287,6 +1300,7 @@
+   rw [sign_parseval, mul_one] at h
+   convert h using 1
+   congr 1
++  apply congrArg (fun x : Real => x^2)
+   apply Finset.sum_congr rfl
+   intro b _
+   ring
+@@ -1652,7 +1666,7 @@
+     have hD : (parity s (flipAt j f) ^^ (flipAt j f) i) =
+         !(parity s f ^^ f i) := by
+       rw [parity_flipAt s j f hj]
+-      simp only [flipAt, ite_eq_right hij]
++      simp only [flipAt, if_neg hij]
+       cases hf : parity s f <;> cases hfi : f i <;> simp
+     rw [hD]
+     exact four_truth_lower _ _ _
+@@ -2439,9 +2453,9 @@
+   apply Finset.sum_congr rfl
+   intro s _
+   by_cases hs : Supported S s
+-  · simp only [ite_eq_left hs]
++  · simp only [if_pos hs]
+     rw [walsh_depends s x y (fun i hi => h i (hs i hi))]
+-  · simp only [ite_eq_right hs, zero_mul]
++  · simp only [if_neg hs, zero_mul]
+ 
+ lemma truncate_error {n : ℕ} (S : Finset (Fin n)) (f : Cube n → ℝ) :
+     mean (fun x => (f x - truncate S f x)^2) =
+@@ -2551,10 +2565,10 @@
+       apply Finset.sum_le_sum
+       intro s _
+       by_cases hs : k < degree s
+-      · simp only [ite_eq_left hs]
++      · simp only [if_pos hs]
+         have hk : (k+1:ℝ) ≤ degree s := by exact_mod_cast hs
+         nlinarith [sq_nonneg (fourier f s)]
+-      · simp only [ite_eq_right hs, zero_mul]
++      · simp only [if_neg hs, zero_mul]
+         positivity
+     _ = ∑ i, mean (fun x => diff i f x^2) := weighted_fourier_energy f
+     _ ≤ ∑ i, influence f i := Finset.sum_le_sum (fun i _ => diff_square_le_influence f hf i)
+@@ -2566,8 +2580,8 @@
+   apply Finset.sum_le_sum
+   intro s _
+   by_cases hs : degree s ≤ k
+-  · simpa only [ite_eq_left hs] using low_degree_coefficient (diff i f) s hs
+-  · simp only [ite_eq_right hs]
++  · simpa only [if_pos hs] using low_degree_coefficient (diff i f) s hs
++  · simp only [if_neg hs]
+     positivity
+ 
+ lemma low_degree_outside {n : ℕ} (f : Cube n → ℝ) (hf : ∀ x, |f x| ≤ 1)
+@@ -2583,13 +2597,13 @@
+         if degree s ≤ k then (fourier (diff i f) s)^2 else 0) := by
+       split_ifs <;> positivity
+     by_cases hs : degree s ≤ k ∧ ¬Supported S s
+-    · simp only [ite_eq_left hs]
++    · simp only [if_pos hs]
+       obtain ⟨i, hi, hni⟩ : ∃ i, bit s i = true ∧ i ∉ S := by
+         obtain ⟨i, hi⟩ := not_forall.mp hs.2
+         exact ⟨i, (Classical.not_imp.mp hi).1, (Classical.not_imp.mp hi).2⟩
+       have hb := Finset.single_le_sum (fun j _ => hn j) (Finset.mem_univ i)
+-      simpa only [ite_eq_right hni, ite_eq_left hs.1, fourier_diff, hi, ↓reduceIte] using hb
+-    · simp only [ite_eq_right hs]
++      simpa only [if_neg hni, if_pos hs.1, fourier_diff, hi, ↓reduceIte] using hb
++    · simp only [if_neg hs]
+       exact Finset.sum_nonneg (fun i _ => hn i)
+   have hb := Finset.sum_le_sum (fun s (_ : s ∈ (Finset.univ : Finset (Cube n))) => hpoint s)
+   rw [Finset.sum_comm] at hb
+@@ -2598,9 +2612,9 @@
+   apply Finset.sum_le_sum
+   intro i _
+   by_cases hi : i ∈ S
+-  · simp only [ite_eq_left hi, Finset.sum_const_zero]
++  · simp only [if_pos hi, Finset.sum_const_zero]
+     exact mul_nonneg (mul_nonneg (by positivity) hθ) (influence_nonneg f i)
+-  · simp only [ite_eq_right hi]
++  · simp only [if_neg hi]
+     have hsmall : influence f i ≤ θ^2 := by
+       have hh : ¬θ^2 < influence f i := by
+         intro hlt
+@@ -3805,10 +3819,10 @@
+     (𝔼 g : Generators n m, badFrequency g s) ≤ 2 * (2 / 3 : ℝ) ^ m := by
+   classical
+   by_cases hs : s = zeroFrequency
+-  · simp only [badFrequency, ite_eq_left hs, Finset.expect_const_zero]
++  · simp only [badFrequency, if_pos hs, Finset.expect_const_zero]
+     positivity
+   · have hs' : s ≠ (fun _ => false) := hs
+-    simp only [badFrequency, ite_eq_right hs]
++    simp only [badFrequency, if_neg hs]
+     rw [CayleySampling.expect_parity_samples s hs'
+       (fun w : Fin (4 * m) → Bool => if CayleyTailCount.badWord m w then (1 : ℝ) else 0)]
+     exact CayleyTailCount.twoTail_probability m (by simp)
+@@ -3840,7 +3854,7 @@
+     intro hbad
+     have hsingle : badFrequency g s ≤ badMass g :=
+       Finset.single_le_sum (fun t _ => badFrequency_nonnegative g t) (Finset.mem_univ s)
+-    simp only [badFrequency, ite_eq_right hs, ite_eq_left hbad] at hsingle
++    simp only [badFrequency, if_neg hs, if_pos hbad] at hsingle
+     exact (not_le_of_gt hg) hsingle
+   unfold eigenvalue
+   simp_rw [← AssignmentTester.bitSign_parity]
+@@ -4543,20 +4557,20 @@
+ 
+ theorem paddedSize_of_pos {k : Nat} (hk : 0 < k) :
+     paddedSize k = ExpanderFamily.size k := by
+-  simp only [paddedSize, ite_eq_right (Nat.ne_of_gt hk)]
++  simp only [paddedSize, if_neg (Nat.ne_of_gt hk)]
+ 
+ theorem le_paddedSize (k : Nat) : k ≤ paddedSize k := by
+   by_cases hk : k = 0
+   · subst k
+     simp
+-  · rw [paddedSize, ite_eq_right hk]
++  · rw [paddedSize, if_neg hk]
+     exact ExpanderFamily.le_size k
+ 
+ theorem paddedSize_le_mul (k : Nat) : paddedSize k ≤ ExpanderFamily.growth * k := by
+   by_cases hk : k = 0
+   · subst k
+     simp
+-  · rw [paddedSize, ite_eq_right hk]
++  · rw [paddedSize, if_neg hk]
+     exact ExpanderFamily.size_le_mul (Nat.pos_of_ne_zero hk)
+ 
+ def paddedCloudEquiv (G : ConstraintGraph V E A) (dummy : V → Type*) (v : V) :
+@@ -4641,10 +4655,10 @@
+     intro x _
+     rcases hG.dist_eq_dist_add_one_of_adj x hadj with h | h
+     · have hx : G.dist x w < G.dist x v := by omega
+-      rw [ite_eq_left hx,h,Nat.cast_add,Nat.cast_one]
++      rw [if_pos hx,h,Nat.cast_add,Nat.cast_one]
+       ring
+     · have hx : ¬G.dist x w < G.dist x v := by omega
+-      rw [ite_eq_right hx,h,Nat.cast_add,Nat.cast_one]
++      rw [if_neg hx,h,Nat.cast_add,Nat.cast_one]
+       ring
+   have hle := hmin w (Finset.mem_univ w)
+   linarith
+@@ -4825,24 +4839,11 @@
+ 
+ end PinnedTreeSource2
+ 
+-/- Source: OAI.Combinatorics.TreewidthL1.Model; pinned OAI proof, Apache-2.0. -/
+-section PinnedTreeSource3
+-
+-namespace OAI
+-
+-namespace BoundedTreewidthL1
+-
++/- Source: OAI.Combinatorics.TreewidthL1.Model; only the exact finite
++bag-decomposition definition is retained, pinned OAI source, Apache-2.0. -/
++namespace OAI.BoundedTreewidthL1
+ universe u_1
+-
+ variable {V : Type u_1} (G : SimpleGraph V)
+-
+-/-- Sum of the given positive real edge lengths along a graph walk. -/
+-def walkLength (ℓ : G.edgeSet → ℝ) : {u v : V} → G.Walk u v → ℝ
+-  | _, _, .nil => 0
+-  | u, _, .cons (v := v) h p => ℓ ⟨s(u, v), h⟩ + walkLength ℓ p
+-
+-noncomputable def shortestPathDistance (ℓ : G.edgeSet → ℝ) (u v : V) : ℝ :=
+-  sInf {r : ℝ | ∃ p : G.Walk u v, p.IsPath ∧ walkLength G ℓ p = r}
+ 
+ def HasTreeDecomposition [DecidableEq V] (k : ℕ) : Prop :=
+   ∃ n : ℕ, ∃ T : SimpleGraph (Fin n), ∃ bag : Fin n → Finset V,
+@@ -4852,25 +4853,6 @@
+     (∀ v : V, (T.induce {t | v ∈ bag t}).Connected) ∧
+     (∀ t, (bag t).card ≤ k)
+ 
+-/-- A map to genuine finite-dimensional real ℓ₁, not just a cut pseudometric. -/
+-def HasL1Embedding (ℓ : G.edgeSet → ℝ) (C : ℝ) : Prop :=
+-  ∃ m : ℕ, ∃ F : V → PiLp (1 : ENNReal) (fun _ : Fin m => ℝ),
+-    ∀ u v : V,
+-      shortestPathDistance G ℓ u v ≤ ‖F u - F v‖ ∧
+-      ‖F u - F v‖ ≤ C * shortestPathDistance G ℓ u v
+-
+-def MainStatement : Prop :=
+-  ∀ k : ℕ, 2 ≤ k → ∃ C : ℝ, 1 ≤ C ∧
+-    ∀ (V : Type) [Fintype V] [DecidableEq V] [Nonempty V]
+-      (G : SimpleGraph V),
+-      G.Connected → HasTreeDecomposition G k →
+-      ∀ ℓ : G.edgeSet → ℝ, (∀ e, 0 < ℓ e) → HasL1Embedding G ℓ C
+-
+-end BoundedTreewidthL1
+-
+-end OAI
+-
+-
+-end PinnedTreeSource3
++end OAI.BoundedTreewidthL1
+ 
+ #print axioms OAI.HyperbolicObstruction.PlanarRecursion.weighted_tree_component_separator
+--- frozen4.34.1/Research/FiniteMassSelection.lean
++++ sourceport4.33.1/Downstream/GraphFiniteMassSelection.lean
+@@ -1,6 +1,8 @@
+ import Mathlib.Algebra.Order.BigOperators.Group.Finset
+ import Mathlib.Data.Real.Basic
+ import Mathlib.Tactic.Linarith
++
++set_option autoImplicit false
+ 
+ /-! Choose a collection of bounded-mass components whose total lies in a
+ prescribed interval. This is a finite graph-separator helper. -/
+--- frozen4.34.1/Research/ExpanderTreewidth.lean
++++ sourceport4.33.1/Downstream/GraphTreewidth.lean
+@@ -1,5 +1,8 @@
+-import Research.PinnedExpanderFamily
+-import Research.FiniteMassSelection
++import Downstream.GraphPinnedExpanderFamily
++import Downstream.GraphFiniteMassSelection
++
++set_option autoImplicit false
++set_option maxHeartbeats 2000000
+ 
+ /-! Separator and linear bag-width arguments for the actual OAI expander family.
+ The three local derivation sections are consolidated to avoid repeated root

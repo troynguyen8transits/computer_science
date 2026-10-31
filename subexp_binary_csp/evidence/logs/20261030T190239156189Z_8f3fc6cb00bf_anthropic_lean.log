@@ -1,0 +1,11 @@
+COMMAND: ['/Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/toolchain/lean-4.33.1-darwin_aarch64/bin/lake', 'env', 'lean', '-o', '.lake/build/lib/lean/Downstream/BitInputRoundtrip.olean', 'Downstream/BitInputRoundtrip.lean']
+CWD: /Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/external/anthropic_formal_math/eth
+Downstream/BitInputRoundtrip.lean:52:43: warning: This simp argument is unused:
+  skip_frame
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [header, rest, encode, readUnits_frame]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'CSPConsequence.BitInputCodec.decode_encode_paramsOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.BitInputCodec.encode_paramsOf_length' depends on axioms: [propext, Quot.sound]

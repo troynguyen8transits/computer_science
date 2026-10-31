@@ -1,0 +1,17 @@
+{
+  "title": "A Sublinear Treewidth Exponent for Binary Constraint Satisfaction",
+  "author": "Troy Nguyen",
+  "location": "Bothell, Washington, USA",
+  "model_contributor": "GPT 6.1 Sol (OpenAI)",
+  "provenance": "Troy Nguyen elicited the discovery from GPT 6.1 Sol and directed the investigation.",
+  "claim_kind": "Algorithmic upper bound contradicting a conjectured lower bound",
+  "pdf_pages": 16,
+  "references": 9,
+  "proof_sources_modified": false,
+  "formal_endpoint": "CSPConsequence.MarxConjecture.counterexample",
+  "files": {
+    "paper.tex": "517a8c54baecdc00379d3fda93d4dfef8cdbf90635cf7d7631d4833d28e208b2",
+    "paper.pdf": "90cd7ff7b850a8a71637785630b63d2eeff58ac38114b73263caa446148dc782",
+    "references.bib": "fe61347196d6ae7fa19df1fe5cf5ef52925d7841e328826439c5b8beee927c87"
+  }
+}

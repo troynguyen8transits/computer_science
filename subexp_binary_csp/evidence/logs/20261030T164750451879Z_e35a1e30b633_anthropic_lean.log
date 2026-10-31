@@ -1,0 +1,20 @@
+COMMAND: ['/Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/toolchain/lean-4.33.1-darwin_aarch64/bin/lake', 'env', 'lean', '-o', '.lake/build/lib/lean/Downstream/FiniteInput.olean', 'Downstream/FiniteInput.lean']
+CWD: /Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/external/anthropic_formal_math/eth
+Downstream/FiniteInput.lean:47:54: warning: This simp argument is unused:
+  List.getElem?_ofFn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [edgeAt, tabulate, List.getD_eq_getElem?_getD, a.isLt, v.isLt]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Downstream/FiniteInput.lean:52:58: warning: This simp argument is unused:
+  List.getElem?_ofFn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [relationAt, tabulate, List.getD_eq_getElem?_getD, a.isLt, v.isLt, x.isLt, y.isLt]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'CSPConsequence.FiniteInput.edgeAt_tabulate' depends on axioms: [propext]
+'CSPConsequence.FiniteInput.relationAt_tabulate' depends on axioms: [propext]
+'CSPConsequence.FiniteInput.edgeAt_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.FiniteInput.relationAt_polyT' depends on axioms: [propext, Classical.choice, Quot.sound]

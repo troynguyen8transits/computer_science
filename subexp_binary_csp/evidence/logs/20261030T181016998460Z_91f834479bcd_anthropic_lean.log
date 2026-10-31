@@ -1,0 +1,21 @@
+COMMAND: ['/Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/toolchain/lean-4.33.1-darwin_aarch64/bin/lake', 'env', 'lean', '-o', '.lake/build/lib/lean/Downstream/LabelRefinement.olean', 'Downstream/LabelRefinement.lean']
+CWD: /Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/external/anthropic_formal_math/eth
+Downstream/LabelRefinement.lean:43:10: warning: This simp argument is unused:
+  pairValues
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [paramsOf, edgeAt_tabulate, min_eq_left h, max_eq_right h, min_eq_left hv, max_eq_right hv, balanced,
+    Fin.ext_iff, and_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Downstream/LabelRefinement.lean:47:10: warning: This simp argument is unused:
+  pairValues
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [paramsOf, edgeAt_tabulate, min_eq_right h', max_eq_left h', min_eq_right hv, max_eq_left hv, balanced,
+    Fin.ext_iff, and_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'CSPConsequence.LabelRefinement.crossingPairs_of' depends on axioms: [propext, Quot.sound]
+'CSPConsequence.LabelRefinement.labelValue_of' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.LabelRefinement.labelLegal_of' depends on axioms: [propext, Classical.choice, Quot.sound]

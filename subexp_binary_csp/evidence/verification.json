@@ -1,0 +1,25 @@
+{
+  "native_sparse_end_to_end_verified": true,
+  "literal_conjecture_formal_counterexample_verified": true,
+  "final_theorem": "CSPConsequence.MarxConjecture.counterexample",
+  "negation_theorem": "CSPConsequence.MarxConjecture.not_statement",
+  "lean_version": "4.33.1",
+  "upstream_commit": "16a5ce41304fcdaea4e0be7c132e1c361dc26da5",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "selected_backend_modules": 633,
+  "downstream_modules": 82,
+  "final_source_sha256": "b9068a7df9421be504af71040b977c84c9478043e71aff091a7641264e7f205c",
+  "final_object_sha256": "b6be66fc89ccc809f5926bba4171d8d2865d25f83db4176b3ac9c7909811817f",
+  "final_log": "logs/20261031T045535424001Z_44e683db5a9d_anthropic_lean.log",
+  "final_log_sha256": "52ed7c3feebb056e86410b20dbf28905308decc59a7d68db87be85ce04507235",
+  "final_axiom_reports": {
+    "CSPConsequence.MarxConjecture.counterexample": "propext, Classical.choice, Quot.sound",
+    "CSPConsequence.MarxConjecture.not_statement": "propext, Classical.choice, Quot.sound",
+    "CSPConsequence.MarxConjecture.tail_unbounded": "propext, Classical.choice, Quot.sound"
+  },
+  "scope": "Literal explicit-finite-CSP statement and native runtime; mathematical interpretation reviewed locally.",
+  "publication_novelty_certified": false,
+  "independent_nanoda_recheck": false,
+  "full_external_1050_module_build": false,
+  "polynomial_space_claimed": false
+}

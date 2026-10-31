@@ -1,0 +1,11 @@
+# Local build products and caches
+.DS_Store
+__pycache__/
+*.pyc
+.lake/
+*.olean
+*.ilean
+*.aux
+*.out
+*.synctex.gz
+downstream_replay_logs/

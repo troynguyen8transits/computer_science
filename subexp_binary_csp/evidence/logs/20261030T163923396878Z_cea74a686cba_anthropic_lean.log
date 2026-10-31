@@ -1,0 +1,12 @@
+COMMAND: ['/Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/toolchain/lean-4.33.1-darwin_aarch64/bin/lake', 'env', 'lean', '-o', '.lake/build/lib/lean/Downstream/BitNetwork.olean', 'Downstream/BitNetwork.lean']
+CWD: /Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/external/anthropic_formal_math/eth
+Downstream/BitNetwork.lean:31:64: warning: This simp argument is unused:
+  and_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [legalLabel, encodedStates, List.all_eq_true, mem_words]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'CSPConsequence.BitNetwork.label_capacity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.BitNetwork.value_eq_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.BitNetwork.factor_lt' depends on axioms: [propext, Classical.choice, Quot.sound]

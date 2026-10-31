@@ -1,0 +1,417 @@
+{
+  "lean_version": "4.33.1",
+  "upstream_commit": "16a5ce41304fcdaea4e0be7c132e1c361dc26da5",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "sources": [
+    {
+      "module": "Downstream.AutomaticCounter",
+      "path": "Downstream/AutomaticCounter.lean",
+      "sha256": "44ac74eab8f8841086a50f116d55ef3377dc52a45f815e2d407659e5c3bd34c3"
+    },
+    {
+      "module": "Downstream.BalancedCSP",
+      "path": "Downstream/BalancedCSP.lean",
+      "sha256": "3130e54043f656549afcbea0decdc92e287b5cf8ff3d8df2ad85bb24e502b162"
+    },
+    {
+      "module": "Downstream.BitInputCodec",
+      "path": "Downstream/BitInputCodec.lean",
+      "sha256": "617cf9b5af311faf8400d93687ce76cb7e9657e578e5294f8da2f57b15e037ba"
+    },
+    {
+      "module": "Downstream.BitInputMachine",
+      "path": "Downstream/BitInputMachine.lean",
+      "sha256": "94d39f608df0ac91bb63b4c168074071c344e212827a6784d849313f86ea06dd"
+    },
+    {
+      "module": "Downstream.BitInputRoundtrip",
+      "path": "Downstream/BitInputRoundtrip.lean",
+      "sha256": "29ef01bc80d7fe4a5470bdb866d121651926f5ae206284d2713546324c032039"
+    },
+    {
+      "module": "Downstream.BitInputSizes",
+      "path": "Downstream/BitInputSizes.lean",
+      "sha256": "e912f1909f63a5ed764b71263c9edee573935698a32eea3bf83c49d8355a4dd4"
+    },
+    {
+      "module": "Downstream.BitNetwork",
+      "path": "Downstream/BitNetwork.lean",
+      "sha256": "59b8655a87de1116b97f3ca1488f8f3e7e6352cf12af4afb84c09aea0bb978f7"
+    },
+    {
+      "module": "Downstream.BitNetworkValidity",
+      "path": "Downstream/BitNetworkValidity.lean",
+      "sha256": "36a7522708e1cee38f90c3a75404e37d793757305374befe8bd8c36f3f54fe96"
+    },
+    {
+      "module": "Downstream.BoundedSelection",
+      "path": "Downstream/BoundedSelection.lean",
+      "sha256": "0ee239ff9277e8820156daa4106e42b43879096d60b876aa4904d916a0dedc0e"
+    },
+    {
+      "module": "Downstream.BruteCSPMachine",
+      "path": "Downstream/BruteCSPMachine.lean",
+      "sha256": "60698207b8a2d3de56a2432c5f0f729944377fd493333409b660561bf3c4ab68"
+    },
+    {
+      "module": "Downstream.BruteCSPSemantics",
+      "path": "Downstream/BruteCSPSemantics.lean",
+      "sha256": "1f48d0012ac8a4c9aab2b16817434c5802fb180e08672f9fdd214ead96035804"
+    },
+    {
+      "module": "Downstream.CSPBounds",
+      "path": "Downstream/CSPBounds.lean",
+      "sha256": "878927f5cf87a17871c8ad28e0aca896c5b04bed8d300d911c09a6af1c75bc7d"
+    },
+    {
+      "module": "Downstream.CSPNetwork",
+      "path": "Downstream/CSPNetwork.lean",
+      "sha256": "312ff97cbd2be8995955dabbb6b8384ea6883e6b0d4e6e79e9feaadebede899d"
+    },
+    {
+      "module": "Downstream.CliqueBudget",
+      "path": "Downstream/CliqueBudget.lean",
+      "sha256": "c6473cf78eabe4dff905e4f42c05e91a3a3d7366efb709a037502bb32e215294"
+    },
+    {
+      "module": "Downstream.ConcreteSolver",
+      "path": "Downstream/ConcreteSolver.lean",
+      "sha256": "6d872118db8bae3cd2ea13a36e82f3222f3ea0cb32ec7a5010c9cb3d36051ac0"
+    },
+    {
+      "module": "Downstream.CoreRuntime",
+      "path": "Downstream/CoreRuntime.lean",
+      "sha256": "800aa5201a52d7d3e00b4d89ccedffd9b4c9767434d46fe5c738fafb537813f9"
+    },
+    {
+      "module": "Downstream.CostParameters",
+      "path": "Downstream/CostParameters.lean",
+      "sha256": "db11b71de8bfc3bb42128e80a945f30b9335bc188ac3685b9fd32b15577e16e0"
+    },
+    {
+      "module": "Downstream.CounterExistence",
+      "path": "Downstream/CounterExistence.lean",
+      "sha256": "87915a90faf9aa6580f6de0a5ea69100c182a88e7c48d3343f4cb6e2f0f08214"
+    },
+    {
+      "module": "Downstream.DecoderRefinement",
+      "path": "Downstream/DecoderRefinement.lean",
+      "sha256": "a958fde589ceef1ba7e4fee89b9ddfa12e1ce499c4b39c1cc8fb4100478a0589"
+    },
+    {
+      "module": "Downstream.DegreeGuard",
+      "path": "Downstream/DegreeGuard.lean",
+      "sha256": "4ae70e2a9e79c46d5f8c01cd4504f5d776e505fc4c3ba9ea1922bcf2fde95142"
+    },
+    {
+      "module": "Downstream.DenseCSPTheorem",
+      "path": "Downstream/DenseCSPTheorem.lean",
+      "sha256": "2995bd63c6b495c24edff213a4356757e51bdf50dbcf8a25f275cb16c8f87739"
+    },
+    {
+      "module": "Downstream.DomainCodec",
+      "path": "Downstream/DomainCodec.lean",
+      "sha256": "f972a5a0d76475796e541e8841947f8d141ab77335072c6d98ae816c542a22fa"
+    },
+    {
+      "module": "Downstream.DynamicPreparation",
+      "path": "Downstream/DynamicPreparation.lean",
+      "sha256": "40dd93cef56cd59df27d5cf3eb82fbac2c1c0f674e4c433a38651951f1481944"
+    },
+    {
+      "module": "Downstream.EncodedLabels",
+      "path": "Downstream/EncodedLabels.lean",
+      "sha256": "69f5b2f89480418df44da3852304822e828873a1a10c5dde42c21a8b661ad57d"
+    },
+    {
+      "module": "Downstream.EncodedSettings",
+      "path": "Downstream/EncodedSettings.lean",
+      "sha256": "90cb261b2fd9af66a6c827c7a829f9977745cae0319999346b7189fe1a3fcbab"
+    },
+    {
+      "module": "Downstream.FactorRefinement",
+      "path": "Downstream/FactorRefinement.lean",
+      "sha256": "a0bd9a1a5610536e7b37aaafc2b9c0cfa5332ca0cc905a1948b9ee2fb4319cc3"
+    },
+    {
+      "module": "Downstream.FiniteEncoding",
+      "path": "Downstream/FiniteEncoding.lean",
+      "sha256": "58493930abd80fb8ee3d6f3bbf64d686a9b01a1fa507e88a899cf05e673710a7"
+    },
+    {
+      "module": "Downstream.FiniteInput",
+      "path": "Downstream/FiniteInput.lean",
+      "sha256": "a87bdeb99be77906533a33d0e3883dc2a95225db86cb3040fc50b48780e6ea37"
+    },
+    {
+      "module": "Downstream.FinitePreparation",
+      "path": "Downstream/FinitePreparation.lean",
+      "sha256": "cd448f0eacde4354dbfcef5ac35ea5e86c88a16dad9d3bd585d49f164d66259b"
+    },
+    {
+      "module": "Downstream.GraphFamilyFacts",
+      "path": "Downstream/GraphFamilyFacts.lean",
+      "sha256": "bfcf78eecaed80380f7a9ddf3ca25df4bbcdec75516064fb7ae9657e22e48f93"
+    },
+    {
+      "module": "Downstream.GraphFiniteMassSelection",
+      "path": "Downstream/GraphFiniteMassSelection.lean",
+      "sha256": "4e4b235c8349af534ebc348a19f21f1be7211c124354b9cbb44f88a68d1dd948"
+    },
+    {
+      "module": "Downstream.GraphPinnedExpanderFamily",
+      "path": "Downstream/GraphPinnedExpanderFamily.lean",
+      "sha256": "9a86d05570d6a1461e3e422c32dd1010b177d410b259e23f85104dec8dcf7bfc"
+    },
+    {
+      "module": "Downstream.GraphTreewidth",
+      "path": "Downstream/GraphTreewidth.lean",
+      "sha256": "8558ebecc2027fba15277c3af262932b4e7a267514810a5bc2fedf1bbadb76eb"
+    },
+    {
+      "module": "Downstream.GraphWidthNumber",
+      "path": "Downstream/GraphWidthNumber.lean",
+      "sha256": "1562b6339dff8371b0bccc795428bc368418e9893535c3fce4d4dd6684eb1fa5"
+    },
+    {
+      "module": "Downstream.GraphWidthTransport",
+      "path": "Downstream/GraphWidthTransport.lean",
+      "sha256": "e0c063062b560724242f3b51a9b256f2c685799779bd561f08fd5b63db30588f"
+    },
+    {
+      "module": "Downstream.InverseLevels",
+      "path": "Downstream/InverseLevels.lean",
+      "sha256": "1de8f1162fc51e72e21dd84c5d6b6f74a154265cf5da3661db4acc5db4788181"
+    },
+    {
+      "module": "Downstream.LabelRefinement",
+      "path": "Downstream/LabelRefinement.lean",
+      "sha256": "2feabbfea15557d00bfa4b332ac85b3bd3fed26e38779c429d7cd296dffe345a"
+    },
+    {
+      "module": "Downstream.LevelCounter",
+      "path": "Downstream/LevelCounter.lean",
+      "sha256": "dcd6135323637c30e7877eb7455c7c525b04975f20866719eceac8112b10b774"
+    },
+    {
+      "module": "Downstream.LevelSelection",
+      "path": "Downstream/LevelSelection.lean",
+      "sha256": "cf78812e57ac44a07a0171cefcf68003bdf141f6e0b269d0a43d541e3cd0de3c"
+    },
+    {
+      "module": "Downstream.ListSlices",
+      "path": "Downstream/ListSlices.lean",
+      "sha256": "e09943f04eb8e3f64a5c017f43258ac3a079ecc90b2542447217c98bf8ba1fdb"
+    },
+    {
+      "module": "Downstream.LogCost",
+      "path": "Downstream/LogCost.lean",
+      "sha256": "eb4b9d4f3ce9f2dd7def8e7a7992cb786e64fe4abb96e01e2c090e5c93981f66"
+    },
+    {
+      "module": "Downstream.MarxConjecture",
+      "path": "Downstream/MarxConjecture.lean",
+      "sha256": "b9068a7df9421be504af71040b977c84c9478043e71aff091a7641264e7f205c"
+    },
+    {
+      "module": "Downstream.NativeAbsorption",
+      "path": "Downstream/NativeAbsorption.lean",
+      "sha256": "2e7823578d9f4f579ba58ffcbfc52a58dd8a6f49b82c0ed8ba2f2a5893ca508e"
+    },
+    {
+      "module": "Downstream.NativeFastRuntime",
+      "path": "Downstream/NativeFastRuntime.lean",
+      "sha256": "a29c9d5507f786e8a56e6212df697955be77a110d0919b4681cf1dcf81791aaf"
+    },
+    {
+      "module": "Downstream.NodeRefinement",
+      "path": "Downstream/NodeRefinement.lean",
+      "sha256": "8f56b76518f6efaa9637e2af23a68351903adaebf5fc3e0028de0aa41167842e"
+    },
+    {
+      "module": "Downstream.NumericOverheads",
+      "path": "Downstream/NumericOverheads.lean",
+      "sha256": "3bc769fd5af1407074998fe98fc14582619e5b22fbe67fc65f66d85655211405"
+    },
+    {
+      "module": "Downstream.OperationBound",
+      "path": "Downstream/OperationBound.lean",
+      "sha256": "1727767c5028b6b1b86762d3e50044c01aeff5fdfc884457ed1fc0477acf5cc7"
+    },
+    {
+      "module": "Downstream.OracleElimination",
+      "path": "Downstream/OracleElimination.lean",
+      "sha256": "72c999dd14e5548a6ac5978547db9f940679bde806a79bcd546ad54dd77be3d6"
+    },
+    {
+      "module": "Downstream.PairDecoder",
+      "path": "Downstream/PairDecoder.lean",
+      "sha256": "05644fba74c50e956e083e53d6f2060a696f2c3edc1525cac8e0a2d5b167389b"
+    },
+    {
+      "module": "Downstream.ProviderBasics",
+      "path": "Downstream/ProviderBasics.lean",
+      "sha256": "52a454240792f1593de8291605a277b1c89c965d9f15f7e613d7a50d08f5ba4a"
+    },
+    {
+      "module": "Downstream.ProviderGive",
+      "path": "Downstream/ProviderGive.lean",
+      "sha256": "1a81c004025c09bf24732c6dcb428a5a2f6329a43dba4d4599cfda795564c41b"
+    },
+    {
+      "module": "Downstream.ProviderLabels",
+      "path": "Downstream/ProviderLabels.lean",
+      "sha256": "9d4a0942b32adb43199763f3ad916a083d89f35fdb65682e4c481a4d2bfdfb10"
+    },
+    {
+      "module": "Downstream.ProviderMetadata",
+      "path": "Downstream/ProviderMetadata.lean",
+      "sha256": "e92d1450c6690964d11343cfb308b810725fcd57b5daba849cb07743fb427c7a"
+    },
+    {
+      "module": "Downstream.ProviderParameters",
+      "path": "Downstream/ProviderParameters.lean",
+      "sha256": "b87136f6feea4785d38261a6cd049f5ceb88452aa65266654782d9a0cedab953"
+    },
+    {
+      "module": "Downstream.ProviderTables",
+      "path": "Downstream/ProviderTables.lean",
+      "sha256": "39d091f3c941076720334b6e0b1f9d3334a469828ba0a547611b8a695d4cf301"
+    },
+    {
+      "module": "Downstream.QuerySizes",
+      "path": "Downstream/QuerySizes.lean",
+      "sha256": "eb0274c6f16dc0b489b1f6018889a6b9fbe53fe505124cf93d2a68b0d4a8bab0"
+    },
+    {
+      "module": "Downstream.RuntimeMetadata",
+      "path": "Downstream/RuntimeMetadata.lean",
+      "sha256": "9ee46c71328654c4caccba3f12aa5387bbd4a2dca5873caf2c5b3646c13db52c"
+    },
+    {
+      "module": "Downstream.SelectedBounds",
+      "path": "Downstream/SelectedBounds.lean",
+      "sha256": "7a05b948c92b2a3e9107794ad3080aba2487e28a63063871a1dc8ccedc4dd07e"
+    },
+    {
+      "module": "Downstream.SparseDecision",
+      "path": "Downstream/SparseDecision.lean",
+      "sha256": "d13e1ebb0a1ebc3a5eb7502750b430f4ea65e42a49a54a9017a0f87c1ebc49c3"
+    },
+    {
+      "module": "Downstream.SparseDecisionRuns",
+      "path": "Downstream/SparseDecisionRuns.lean",
+      "sha256": "fe90fd03b8978e7190d38f8eba83be660dacb6793411af0d6ec0774176745eb4"
+    },
+    {
+      "module": "Downstream.SparseFastRuntime",
+      "path": "Downstream/SparseFastRuntime.lean",
+      "sha256": "25ed6a6afe5145bdda7f151d9d7bd6e94338d1ecbce832e554ac19af7c47e529"
+    },
+    {
+      "module": "Downstream.SparseFieldBits",
+      "path": "Downstream/SparseFieldBits.lean",
+      "sha256": "751f9310144098bac0d8ff8f65e337706c5bb44ca1710fe766362a142981f1ac"
+    },
+    {
+      "module": "Downstream.SparseFields",
+      "path": "Downstream/SparseFields.lean",
+      "sha256": "1b07594bc75ab4a06e5077e342679742c1daec051e960ea0a0b3bc4c75e37da2"
+    },
+    {
+      "module": "Downstream.SparseGraphTransfer",
+      "path": "Downstream/SparseGraphTransfer.lean",
+      "sha256": "9058202b5bccf41fdfaf8cf975038d62b3fd0bf480ed631b61df0ac113cf4ddf"
+    },
+    {
+      "module": "Downstream.SparseIsolates",
+      "path": "Downstream/SparseIsolates.lean",
+      "sha256": "7d98eae81d888aebb9f7b74fa74520a2e008bf81994d8fe47b83c202c41a9061"
+    },
+    {
+      "module": "Downstream.SparseNativeMachine",
+      "path": "Downstream/SparseNativeMachine.lean",
+      "sha256": "66eac797ca04345af5a3d2f925826162eb87f2a87a09cb6e3bebdceb82a2598c"
+    },
+    {
+      "module": "Downstream.SparseNormalization",
+      "path": "Downstream/SparseNormalization.lean",
+      "sha256": "5d8726fe8aed6ba578fb3f834e990777d091d6583f76e34c4b04e86c22e2e084"
+    },
+    {
+      "module": "Downstream.SparseOrdinarySize",
+      "path": "Downstream/SparseOrdinarySize.lean",
+      "sha256": "f08510dfc5b064fa95cf96c8362fc1aa5d60faa56980c7f66e14dd8c0a7b24f9"
+    },
+    {
+      "module": "Downstream.SparsePowerAbsorption",
+      "path": "Downstream/SparsePowerAbsorption.lean",
+      "sha256": "893b42ad57cec5f48ea5a236aa16f50b774a04ca18d3abcd45363de6fa32cba7"
+    },
+    {
+      "module": "Downstream.SparsePreparation",
+      "path": "Downstream/SparsePreparation.lean",
+      "sha256": "0c49375850392cf94fedcf5232b83af8a59f305e2bacedd13316ea8b6037dc67"
+    },
+    {
+      "module": "Downstream.SparseRawBits",
+      "path": "Downstream/SparseRawBits.lean",
+      "sha256": "eb97671ac3f3f43937e10897b9fd3a88bcdbbcb5b10cdc48ed1f2a0ac2fc2a8a"
+    },
+    {
+      "module": "Downstream.SparseRelabelPreparation",
+      "path": "Downstream/SparseRelabelPreparation.lean",
+      "sha256": "4511dd8ae2508d63d9a6b4b9f42941512c14da9a8ff934e82a585ce5540df0ff"
+    },
+    {
+      "module": "Downstream.SparseSizeBounds",
+      "path": "Downstream/SparseSizeBounds.lean",
+      "sha256": "aed1c7393a6e2d8a1a14ff1092a3bcf9c6e3a093f0989eeb190dfcc4b54240e4"
+    },
+    {
+      "module": "Downstream.SparseSmallRuntime",
+      "path": "Downstream/SparseSmallRuntime.lean",
+      "sha256": "7f7a2729ed9891a7a7bd5ca1ea7ef8b64dae49e0d42b0551455e766688872907"
+    },
+    {
+      "module": "Downstream.SparseSupport",
+      "path": "Downstream/SparseSupport.lean",
+      "sha256": "3a5c73af171e6ff3b28acc4c7d2654a66241727aad687774b7265eabda220618"
+    },
+    {
+      "module": "Downstream.SparseSupportDomain",
+      "path": "Downstream/SparseSupportDomain.lean",
+      "sha256": "a9f38dad3a07b2bee3760e3965b4a8f95143a3aafae03c87013874f34cfeaf07"
+    },
+    {
+      "module": "Downstream.SparseUniformRuntime",
+      "path": "Downstream/SparseUniformRuntime.lean",
+      "sha256": "f9befd000beb59e182c5e79cd90f869e3b087924c22ff1074026d68ebdf862da"
+    },
+    {
+      "module": "Downstream.SublinearRate",
+      "path": "Downstream/SublinearRate.lean",
+      "sha256": "f777ebbf9a14ab9c2f0c585c6f2172171ce7d3d332eb21d83f34c639204d1e08"
+    },
+    {
+      "module": "Downstream.TableFormulas",
+      "path": "Downstream/TableFormulas.lean",
+      "sha256": "7989c5f13cd73a3966eca2baf5f3e8ff14abce613eac9c350547611efb246ed7"
+    },
+    {
+      "module": "Downstream.TableRefinement",
+      "path": "Downstream/TableRefinement.lean",
+      "sha256": "c37bec34cab584e3efc42bed233986f2fc2a84ea98dcf52b9f1118dbc402d8b1"
+    },
+    {
+      "module": "Downstream.TotalCounter",
+      "path": "Downstream/TotalCounter.lean",
+      "sha256": "06dfc86edcb8ee93a45aff163baf14d4d9f9ed3685186834908bd3f6d9093053"
+    },
+    {
+      "module": "Downstream.UniformClique",
+      "path": "Downstream/UniformClique.lean",
+      "sha256": "bb181436ed97761a49ac4dd2c1c234d28dcadde844008c112d13ca87b321b2aa"
+    }
+  ]
+}

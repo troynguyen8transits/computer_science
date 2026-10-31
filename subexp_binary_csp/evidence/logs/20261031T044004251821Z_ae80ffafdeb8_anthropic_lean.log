@@ -1,0 +1,14 @@
+COMMAND: ['/Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/toolchain/lean-4.33.1-darwin_aarch64/bin/lake', 'env', 'lean', '-o', '.lake/build/lib/lean/Downstream/GraphWidthNumber.olean', 'Downstream/GraphWidthNumber.lean']
+CWD: /Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/external/anthropic_formal_math/eth
+Downstream/GraphWidthNumber.lean:56:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+'CSPConsequence.GraphWidthNumber.one_bag' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.GraphWidthNumber.bag_eq_tw_add_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.GraphWidthNumber.family_linear' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.GraphWidthNumber.tail_unbounded' depends on axioms: [propext, Classical.choice, Quot.sound]

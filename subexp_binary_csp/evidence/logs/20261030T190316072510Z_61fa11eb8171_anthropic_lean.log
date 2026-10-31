@@ -1,0 +1,33 @@
+COMMAND: ['/Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/toolchain/lean-4.33.1-darwin_aarch64/bin/lake', 'env', 'lean', '-o', '.lake/build/lib/lean/Downstream/CostParameters.olean', 'Downstream/CostParameters.lean']
+CWD: /Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/external/anthropic_formal_math/eth
+Downstream/CostParameters.lean:19:24: warning: This simp argument is unused:
+  mul_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Downstream/CostParameters.lean:48:35: warning: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Downstream/CostParameters.lean:95:18: warning: Variable name `hb` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hb
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Downstream/CostParameters.lean:95:31: warning: Variable name `hΔ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hΔ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'CSPConsequence.CostParameters.total_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.CostParameters.scaled_length' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.CostParameters.length_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.CostParameters.bits_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.CostParameters.factor_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.CostParameters.clique_argument_bound' depends on axioms: [propext, Classical.choice, Quot.sound]

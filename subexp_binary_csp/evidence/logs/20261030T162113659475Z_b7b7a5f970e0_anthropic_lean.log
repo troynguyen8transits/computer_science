@@ -1,0 +1,7 @@
+COMMAND: ['/Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/toolchain/lean-4.33.1-darwin_aarch64/bin/lake', 'env', 'lean', '-o', '.lake/build/lib/lean/Downstream/DomainCodec.olean', 'Downstream/DomainCodec.lean']
+CWD: /Users/troynguyen/Documents/Repos2/eclipse-hunt/investigations/eth_expansion_2026-10-26/formal/external/anthropic_formal_math/eth
+'CSPConsequence.DomainCodec.value_roundtrip' depends on axioms: [propext, Quot.sound]
+'CSPConsequence.DomainCodec.encode_length' depends on axioms: [propext, Quot.sound]
+'CSPConsequence.DomainCodec.decode_encode' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.DomainCodec.encode_legal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CSPConsequence.DomainCodec.encode_decode' depends on axioms: [propext, Quot.sound]

@@ -3,15 +3,15 @@
   "author": "Troy Nguyen",
   "location": "Bothell, Washington, USA",
   "model_contributor": "GPT 6.1 Sol (OpenAI)",
-  "provenance": "Troy Nguyen elicited the discovery from GPT 6.1 Sol and directed the investigation.",
-  "claim_kind": "Algorithmic upper bound contradicting a conjectured lower bound",
+  "provenance": "Troy Nguyen initiated and directed the AI-assisted investigation with GPT 6.1 Sol (OpenAI).",
+  "claim_kind": "Algorithmic upper bound giving a counterexample to a conjecture as stated",
   "pdf_pages": 16,
   "references": 9,
   "proof_sources_modified": false,
   "formal_endpoint": "CSPConsequence.MarxConjecture.counterexample",
   "files": {
-    "paper.tex": "517a8c54baecdc00379d3fda93d4dfef8cdbf90635cf7d7631d4833d28e208b2",
-    "paper.pdf": "90cd7ff7b850a8a71637785630b63d2eeff58ac38114b73263caa446148dc782",
+    "paper.tex": "f91b09a70ad5eb03043bd82a22dad4c859eec1932cb554ed70011079a8044ad7",
+    "paper.pdf": "76d220d3e853ed3dab8c1734e93076e8fef03f0e482effcd7c7424f33fa42969",
     "references.bib": "fe61347196d6ae7fa19df1fe5cf5ef52925d7841e328826439c5b8beee927c87"
   }
 }

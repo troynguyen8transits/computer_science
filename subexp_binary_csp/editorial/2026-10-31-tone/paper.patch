@@ -1,0 +1,60 @@
+--- before/paper.tex
++++ after/paper.tex
+@@ -30,7 +30,7 @@
+ \title[A sublinear treewidth exponent for binary CSP]{A Sublinear Treewidth Exponent\\for Binary Constraint Satisfaction}
+ \author{Troy Nguyen}
+ \address{Bothell, Washington, USA}
+-\thanks{Research provenance. Troy Nguyen of Bothell, Washington elicited the discovery reported here from GPT~6.1~Sol (OpenAI), initiated and directed the investigation, and selected its research objectives. GPT~6.1~Sol developed the downstream mathematical argument, Lean formalization, and manuscript in response to that direction. The imported algorithmic and graph-theoretic foundations are credited in Sections~\ref{sec:prior} and~\ref{sec:provenance}.}
++\thanks{Research provenance. Troy Nguyen of Bothell, Washington initiated and directed this AI-assisted investigation and selected its research objectives. GPT~6.1~Sol developed the downstream mathematical argument, Lean formalization, and manuscript in response to that direction. The imported algorithmic and graph-theoretic foundations are credited in Sections~\ref{sec:prior} and~\ref{sec:provenance}.}
+ \date{October 31, 2026}
+ \subjclass[2020]{68Q25, 68Q17, 68R10, 03B35}
+ \keywords{constraint satisfaction, treewidth, subexponential algorithms, exact counting, exponential time hypothesis, formal verification}
+@@ -40,7 +40,7 @@
+ \[
+  f(G)\lVert I\rVert^{c\tw(G)/\sqrt{\log\tw(G)}}.
+ \]
+-This contradicts the literal formulation of Conjecture~1.4 of Marx (2010). The algorithm follows from a domain-uniform counting bound: for every fixed maximum degree $\Delta$, complete-table instances with $k$ variables and domain size $D\ge2$ can be counted in time $L^{O_\Delta(1)}D^{O_\Delta(k/\sqrt{\log k})}$ for sufficiently large $k$. The constants are independent of $D$ and of the constraint relations. We obtain this bound from the tensor-network recursion of Claude (Anthropic), and use attributed graph foundations from OpenAI to construct the required expander family. Support pruning connects the counting routine to sparse tuple-list inputs without expanding the original domain. The algorithm, its native finite-alphabet machine implementation, and the conjecture counterexample are formalized in Lean~4.
++This gives a counterexample to Conjecture~1.4 of Marx (2010) as stated. The algorithm follows from a domain-uniform counting bound: for every fixed maximum degree $\Delta$, complete-table instances with $k$ variables and domain size $D\ge2$ can be counted in time $L^{O_\Delta(1)}D^{O_\Delta(k/\sqrt{\log k})}$ for sufficiently large $k$. The constants are independent of $D$ and of the constraint relations. We obtain this bound from the tensor-network recursion of Claude (Anthropic), and use attributed graph foundations from OpenAI to construct the required expander family. Support pruning connects the counting routine to sparse tuple-list inputs without expanding the original domain. The algorithm, its native finite-alphabet machine implementation, and the conjecture counterexample are formalized in Lean~4.
+ \end{abstract}
+ \maketitle
+ \setcounter{tocdepth}{1}
+@@ -83,10 +83,10 @@
+ 
+ For fixed $D$, the nonpolynomial factor in~\eqref{eq:counting} is $2^{o(k)}$. For growing $D$, the statement is $D^{o(k)}$ with a uniform exponent: the saving is measured against the $D^k$ assignment space. This uniformity is essential to the treewidth consequence.
+ 
+-Marx's Conjecture~1.4~\cite[p.~88]{Marx10} asserts, in its displayed formulation, that no globally correct binary-CSP algorithm has running time $f(G)\lVert I\rVert^{o(\tw(G))}$ on a graph class of unbounded treewidth, for any graph-dependent factor $f$.
++In the context of strengthening the ETH-conditional lower bound of Theorem~1.3, Marx proposed Conjecture~1.4~\cite[p.~88]{Marx10}. Its displayed statement contains no ETH hypothesis and asserts that no globally correct binary-CSP algorithm has running time $f(G)\lVert I\rVert^{o(\tw(G))}$ on a graph class of unbounded treewidth, for any graph-dependent factor $f$.
+ 
+ \begin{corollary}\label{cor:marx}
+-The literal formulation of Conjecture~1.4 of Marx~\cite{Marx10} is false.
++Theorem~\ref{thm:main} gives a counterexample to Conjecture~1.4 of Marx~\cite{Marx10} as stated.
+ \end{corollary}
+ \begin{proof}
+ As $w\to\infty$,
+@@ -96,7 +96,7 @@
+ Apply Theorem~\ref{thm:main}.
+ \end{proof}
+ 
+-The ETH-conditional Theorem~1.3 of~\cite{Marx10} excludes the smaller exponent $o(w/\log w)$ under ETH. Theorem~\ref{thm:main} concerns the separate conjecture with exponent $o(w)$; it does not contradict that conditional theorem.
++The ETH-conditional Theorem~1.3 of~\cite{Marx10} excludes the smaller exponent $o(w/\log w)$ under ETH. Theorem~\ref{thm:main} concerns the separate conjecture with exponent $o(w)$; the conditional theorem remains valid.
+ 
+ \subsection{Why the domain parameter matters}\label{sec:uniformity}
+ 
+@@ -678,7 +678,7 @@
+ \texttt{MarxConjecture.}\allowbreak\texttt{counterexample}
+  & The native sparse-input algorithm and graph-class witness of Theorem~\ref{thm:main}.\\[3pt]
+ \texttt{MarxConjecture.}\allowbreak\texttt{not\_statement}
+- & Negation of the explicitly formalized literal conjecture.\\
++ & Negation of the formalized conjecture statement.\\
+ \bottomrule
+ \end{tabular}
+ \end{center}
+@@ -697,7 +697,7 @@
+ 
+ \subsection{Contributions and imported proofs}\label{sec:provenance}
+ 
+-Troy Nguyen, of Bothell, Washington, elicited the discovery from GPT~6.1~Sol (OpenAI) through a sustained investigation of consequences of the ETH refutations. Nguyen set the objective of identifying a contrary algorithm for a major complexity conjecture and directed the search toward a complete formal verification. GPT~6.1~Sol developed the bounded-degree, domain-uniform CSP argument, the sparse-input and native-runtime transfers, the graph and treewidth connection, and the downstream Lean development and exposition.
++Troy Nguyen, of Bothell, Washington, initiated and directed an AI-assisted investigation of consequences of the recent ETH refutations, with a focus on binary CSP and formal verification. Nguyen selected the research objectives and directed the development. GPT~6.1~Sol developed the bounded-degree, domain-uniform CSP argument, the sparse-input and native-runtime transfers, the graph and treewidth connection, and the downstream Lean development and exposition.
+ 
+ The quantitative counting recursion, clique-level bounds, grouping routine, and native simulation infrastructure are reused from Claude (Anthropic)~\cite{ClaudeETH,AnthropicLean}. The spectral expander construction and weighted-tree foundations are reused from the OpenAI mathematics repository~\cite{OpenAIGraph}. The original source attributions are retained above the imported graph blocks, and a manifest records their copied ranges and compatibility changes. These imports are algorithmic and proof dependencies of the result, rather than claims of independent rediscovery.
+ 

@@ -3,13 +3,33 @@
   "files": [
     {
       "path": "README.md",
-      "bytes": 4269,
-      "sha256": "ab92cd192d784b1532435bab1d69fd8d41441fe90a50217b337242527ffc1bae"
+      "bytes": 3940,
+      "sha256": "c573967bd6297087a46c27d92d57a4d34e41b3aa8971282a94ee4702edae25c4"
     },
     {
       "path": "STATEMENT_GUIDE.md",
       "bytes": 2882,
       "sha256": "95ea44ca0256cde0a8e3ca11291cb59d25a79defe7692012ace7ffa802a6baae"
+    },
+    {
+      "path": "editorial/2026-10-31-tone/README.md",
+      "bytes": 2732,
+      "sha256": "05650152aa4965ef0fb9243b7c8f5bd62277df9e062cf522e006bc103c9f76a2"
+    },
+    {
+      "path": "editorial/2026-10-31-tone/before-paper.pdf",
+      "bytes": 177576,
+      "sha256": "90cd7ff7b850a8a71637785630b63d2eeff58ac38114b73263caa446148dc782"
+    },
+    {
+      "path": "editorial/2026-10-31-tone/before-paper.tex",
+      "bytes": 59328,
+      "sha256": "517a8c54baecdc00379d3fda93d4dfef8cdbf90635cf7d7631d4833d28e208b2"
+    },
+    {
+      "path": "editorial/2026-10-31-tone/paper.patch",
+      "bytes": 6921,
+      "sha256": "b08286d5dc05ef2d1f5d980d35ed9f07b92eff9384e149eb13eb0619427ffd60"
     },
     {
       "path": "evidence/README.md",
@@ -1333,18 +1353,18 @@
     },
     {
       "path": "manuscript_manifest.json",
-      "bytes": 804,
-      "sha256": "28494b1e9f766bd121bc764ffb80f1da518ad53e250294e60859a584ce4ba87d"
+      "bytes": 822,
+      "sha256": "b5001f397cf9f898f8a71eca180c221b183da7ae9b3dd38a1562ae06ab83a89b"
     },
     {
       "path": "paper.pdf",
-      "bytes": 177576,
-      "sha256": "90cd7ff7b850a8a71637785630b63d2eeff58ac38114b73263caa446148dc782"
+      "bytes": 177616,
+      "sha256": "76d220d3e853ed3dab8c1734e93076e8fef03f0e482effcd7c7424f33fa42969"
     },
     {
       "path": "paper.tex",
-      "bytes": 59328,
-      "sha256": "517a8c54baecdc00379d3fda93d4dfef8cdbf90635cf7d7631d4833d28e208b2"
+      "bytes": 59329,
+      "sha256": "f91b09a70ad5eb03043bd82a22dad4c859eec1932cb554ed70011079a8044ad7"
     },
     {
       "path": "references.bib",

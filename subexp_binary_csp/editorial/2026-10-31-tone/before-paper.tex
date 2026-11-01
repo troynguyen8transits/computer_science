@@ -1,0 +1,823 @@
+\documentclass[11pt,reqno]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amssymb,mathtools,booktabs,array,geometry}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\geometry{margin=1in}
+\setlength{\emergencystretch}{3em}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\tw}{\operatorname{tw}}
+\newcommand{\SAT}{\operatorname{SAT}}
+\newcommand{\bits}{\operatorname{bits}}
+\newcommand{\len}{\operatorname{len}}
+\newcommand{\enc}{\operatorname{enc}}
+\newcommand{\poly}{\operatorname{poly}}
+\newcommand{\CSP}{\operatorname{CSP}}
+\newcommand{\size}{\operatorname{size}}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\R}{\mathbb R}
+\newcommand{\ind}[1]{\mathbf 1_{\{#1\}}}
+\DeclareMathOperator{\supp}{supp}
+\title[A sublinear treewidth exponent for binary CSP]{A Sublinear Treewidth Exponent\\for Binary Constraint Satisfaction}
+\author{Troy Nguyen}
+\address{Bothell, Washington, USA}
+\thanks{Research provenance. Troy Nguyen of Bothell, Washington elicited the discovery reported here from GPT~6.1~Sol (OpenAI), initiated and directed the investigation, and selected its research objectives. GPT~6.1~Sol developed the downstream mathematical argument, Lean formalization, and manuscript in response to that direction. The imported algorithmic and graph-theoretic foundations are credited in Sections~\ref{sec:prior} and~\ref{sec:provenance}.}
+\date{October 31, 2026}
+\subjclass[2020]{68Q25, 68Q17, 68R10, 03B35}
+\keywords{constraint satisfaction, treewidth, subexponential algorithms, exact counting, exponential time hypothesis, formal verification}
+\begin{document}
+\begin{abstract}
+We give a deterministic algorithm for binary constraint satisfaction whose exponent in the input size is sublinear in treewidth on a class of graphs with unbounded treewidth. There are a class $\mathcal G$ of graphs of bounded maximum degree, a constant $c$, and a function $f$ such that one algorithm correctly decides every binary CSP instance and, on instances $I$ with primal graph $G\in\mathcal G$, runs in time
+\[
+ f(G)\lVert I\rVert^{c\tw(G)/\sqrt{\log\tw(G)}}.
+\]
+This contradicts the literal formulation of Conjecture~1.4 of Marx (2010). The algorithm follows from a domain-uniform counting bound: for every fixed maximum degree $\Delta$, complete-table instances with $k$ variables and domain size $D\ge2$ can be counted in time $L^{O_\Delta(1)}D^{O_\Delta(k/\sqrt{\log k})}$ for sufficiently large $k$. The constants are independent of $D$ and of the constraint relations. We obtain this bound from the tensor-network recursion of Claude (Anthropic), and use attributed graph foundations from OpenAI to construct the required expander family. Support pruning connects the counting routine to sparse tuple-list inputs without expanding the original domain. The algorithm, its native finite-alphabet machine implementation, and the conjecture counterexample are formalized in Lean~4.
+\end{abstract}
+\maketitle
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+\section{Introduction}
+
+The Exponential Time Hypothesis (ETH) asserts that deciding $3$-SAT on $n$ variables requires time $2^{\Omega(n)}$~\cite{IP01}. It has served as a common source of running-time lower bounds for parameterized and exact algorithms. The refutations of ETH by OpenAI and by Claude (Anthropic), accompanied by Lean developments, change that setting~\cite{OpenAIETH,OpenAILean,ClaudeETH,AnthropicLean}. A substantial part of exact and parameterized complexity must consequently be reassessed. A conditional lower bound remains a valid implication, but its role as an explanation of algorithmic optimality changes when its premise fails. Questions previously approached through reductions from satisfiability must now be examined through the algorithms themselves: which running-time bounds can be attained, and which structural parameters continue to govern them?
+
+Constraint satisfaction is a natural place to begin. It encompasses graph coloring and the evaluation of conjunctive database queries~\cite{KS13}. A binary CSP asks for an assignment of values to variables subject to arbitrary relations on pairs of variables. The primal graph records which variables occur together in a constraint. If this graph has treewidth $w$, dynamic programming gives a running time with a domain exponent of order $w$~\cite{Freuder90}. Whether that exponent can be substantially reduced has been a central question in the structural complexity of CSP.
+
+We show that a sublinear exponent is attainable on a class of graphs with unbounded treewidth. The domain is unrestricted: its size may grow with the number of variables, and the constraint relations may vary arbitrarily from instance to instance. The underlying improvement is an upper bound for exact counting that is uniform in the domain size. Combining it with a family of bounded-degree expanders gives a counterexample to a conjectured treewidth lower bound.
+
+Throughout, $\log$ denotes the natural logarithm. We use $k$ for the number of CSP variables, $D$ for the domain cardinality, and $w$ for treewidth. The degree bound $\Delta$ is fixed before the input is given. Running times count steps of a deterministic finite-alphabet machine. The distinction between the complete-table length $L$ and the sparse instance size $\lVert I\rVert$ is specified in Section~\ref{sec:inputs}.
+
+\subsection{Main results}
+
+\begin{theorem}\label{thm:main}
+There exist an isomorphism-closed class $\mathcal G$ of finite simple graphs, a constant $c\ge0$, a function $f:\mathcal G\to\R_{\ge0}$, and one deterministic algorithm $\mathcal A$ with the following properties.
+\begin{enumerate}
+\item The class $\mathcal G$ has bounded maximum degree and unbounded treewidth; every graph in $\mathcal G$ has treewidth at least two.
+\item The algorithm $\mathcal A$ correctly decides every valid binary CSP instance.
+\item For every instance $I$ whose primal graph $G$ belongs to $\mathcal G$, the running time is at most
+\begin{equation}\label{eq:main}
+ f(G)\lVert I\rVert^{c w/\sqrt{\log w}},\qquad w=\tw(G).
+\end{equation}
+\end{enumerate}
+The graph-dependent factor is independent of the domain and the constraint relations.
+\end{theorem}
+
+The quantitative input to this theorem is the following counting result. A complete-table instance specifies an edge mask and the binary relation table for each ordered pair of distinct variables; its exact format is given below.
+
+\begin{theorem}\label{thm:counting}
+For every integer $\Delta\ge1$, there exist a single deterministic counting algorithm, constants $A_\Delta,C_\Delta\ge0$, and nonnegative integers $p_\Delta,k_\Delta$ such that the algorithm correctly counts the satisfying assignments of every complete-table binary CSP instance. If the instance has $k\ge k_\Delta$ variables, domain cardinality $D\ge2$, maximum primal degree at most $\Delta$, and canonical input length $L$, its running time is at most
+\begin{equation}\label{eq:counting}
+ A_\Delta L^{p_\Delta}D^{C_\Delta k/\sqrt{\log k}}.
+\end{equation}
+All constants and the algorithm are chosen before $k$, $D$, and the instance.
+\end{theorem}
+
+For fixed $D$, the nonpolynomial factor in~\eqref{eq:counting} is $2^{o(k)}$. For growing $D$, the statement is $D^{o(k)}$ with a uniform exponent: the saving is measured against the $D^k$ assignment space. This uniformity is essential to the treewidth consequence.
+
+Marx's Conjecture~1.4~\cite[p.~88]{Marx10} asserts, in its displayed formulation, that no globally correct binary-CSP algorithm has running time $f(G)\lVert I\rVert^{o(\tw(G))}$ on a graph class of unbounded treewidth, for any graph-dependent factor $f$.
+
+\begin{corollary}\label{cor:marx}
+The literal formulation of Conjecture~1.4 of Marx~\cite{Marx10} is false.
+\end{corollary}
+\begin{proof}
+As $w\to\infty$,
+\[
+ \frac{c w/\sqrt{\log w}}{w}=\frac{c}{\sqrt{\log w}}\longrightarrow0.
+\]
+Apply Theorem~\ref{thm:main}.
+\end{proof}
+
+The ETH-conditional Theorem~1.3 of~\cite{Marx10} excludes the smaller exponent $o(w/\log w)$ under ETH. Theorem~\ref{thm:main} concerns the separate conjecture with exponent $o(w)$; it does not contradict that conditional theorem.
+
+\subsection{Why the domain parameter matters}\label{sec:uniformity}
+
+For a fixed domain and fixed arity, subexponential CSP algorithms are closely tied to the failure of ETH~\cite{KS13}. The growing-domain problem requires a stronger uniformity statement. Representing a domain value by $\lceil\log_2D\rceil$ bits uses only $O(k\log D)$ assignment bits, but an arbitrary binary relation need not have a short $3$-CNF description on those bits.
+
+For example, a direct encoding forbids each disallowed pair by a clause of length $O(\log D)$. Converting all these clauses to width three can introduce $O(D^2\log D)$ auxiliary variables per relation. A subexponential $3$-SAT algorithm applied after this conversion does not by itself establish a bound of the form~\eqref{eq:counting} uniformly in $D$. A reduction from $3$-SAT to CSP establishes hardness in the opposite direction and supplies no such algorithm.
+
+Our argument works with the tensor-network counting routine directly. The data of the relations are accessed through polynomial-time procedures, while the network capacities depend on $\log D$. This separates the cost of reading and evaluating the input from the exponential cost of searching its assignments.
+
+\subsection{Prior work and source dependencies}\label{sec:prior}
+
+The algorithmic starting point is the exact signed tensor-network recursion of Claude (Anthropic)~\cite{ClaudeETH,AnthropicLean}. Its sums of products are already presented as weighted binary counting CSPs. We use its quantitative clique routine and grouping bounds; the general identification of pairwise counting with tensor-network evaluation is part of that prior work.
+
+OpenAI independently gives subexponential exact counting algorithms for fixed-width satisfiability~\cite{OpenAIETH}. We also reuse graph-theoretic proofs from the OpenAI mathematics repository~\cite{OpenAIGraph}: the spectral expander family and weighted-tree separator foundations. The graph sources are imported by source port, with their original attribution retained. These graph dependencies are distinct from the imported Anthropic counting routine.
+
+The results proved here connect that routine to arbitrary-domain bounded-degree binary CSPs, retain uniform constants through native simulation, and transfer the bound to sparse inputs and the precise treewidth conjecture. The downstream development contains the explicit encoders, concrete relation procedures, cost estimates, global fallback, and finite graph and treewidth transfers used in the proof. Section~\ref{sec:formal} identifies the checked endpoints and the exact source revisions.
+
+More precisely, the counting engine and its grouping theorem are imported results. The application here supplies a factorized network for an arbitrary binary relation, bounds its setting lengths and row capacities in terms of $\Delta\bits(D)$, and implements its queries without enumerating the grouped state spaces. Choosing the imported clique level as a function of $k$ then yields constants uniform in $D$. The sparse representation and graph transfers are further steps needed to obtain the statement of Conjecture~1.4. These are consequences and adaptations of the imported machinery, rather than an independent subexponential counting engine. Formal verification establishes the stated dependency chain; it does not establish priority over other possible applications of that machinery.
+
+\section{Instances, encodings, and machine model}\label{sec:inputs}
+
+\subsection{Binary CSPs}
+A sparse instance consists of $k\in\N$ declared variables, a domain $[D]=\{0,\ldots,D-1\}$, and a list of constraints
+\[
+ c=(a_c,b_c,R_c),\qquad a_c,b_c\in[k],\qquad R_c\subseteq[D]^2.
+\]
+Each relation is represented by an explicit list of allowed pairs. Repeated constraints and repeated tuple entries are permitted. A constraint with $a_c=b_c$ requires $(z(a_c),z(a_c))\in R_c$ and hence acts as a unary constraint. A valid instance has all scope indices below $k$. Values listed outside $[D]$ are immaterial to satisfaction and are discarded when the support is computed.
+
+An assignment $z:[k]\to[D]$ satisfies the instance if
+\[
+ (z(a_c),z(b_c))\in R_c
+ \quad\text{for every listed constraint }c.
+\]
+The primal graph is the simple graph on $[k]$ with an edge between two distinct variables precisely when some constraint has that scope, in either order. Its degree counts distinct neighbors, independently of the number of repeated constraints.
+
+For the counting theorem, a complete-table instance is a simple graph on $[k]$ together with a relation $R_{ab}\subseteq[D]^2$ for each edge $\{a,b\}$, oriented by $a<b$. Its solution count is
+\begin{equation}\label{eq:partition}
+ Z(I)=\sum_{z:[k]\to[D]}
+ \prod_{\substack{a<b\\\{a,b\}\in E(G)}}
+ \ind{(z(a),z(b))\in R_{ab}}.
+\end{equation}
+The empty-domain count is one when $k=0$ and zero otherwise. Self-constraints in the sparse input are handled by the normalization of Section~\ref{sec:sparse}; no diagonal edge test is silently added to~\eqref{eq:partition}.
+
+\subsection{Input size}
+
+Let $m$ be the number of constraints and $t$ the total number of listed tuples. Form a list $F$ of natural-number fields consisting of the domain cardinality, the three scope fields $(a_c,b_c,|R_c|)$ for each constraint, and the two coordinates of each listed tuple. Thus
+\[
+ n_F:=|F|=1+3m+2t.
+\]
+Let $\bits(x)$ be the binary length of $x$, with $\bits(0)=0$. We use the explicit field-size measure
+\begin{equation}\label{eq:ordinary-size}
+ N:=\lVert I\rVert
+   =k+m+t+n_F+\sum_{x\in F}\bits(x)+1.
+\end{equation}
+It charges the declared variables, list structure, and binary data. The use of zero bits for the natural number zero affects this size by at most the already charged number of fields.
+
+The native sparse serialization writes the fields at the common width
+\[
+ B_F=1+\sum_{x\in F}\bits(x).
+\]
+Five terminated unary headers specify $k,B_F,m,t,n_F$, followed by the $n_F$ binary fields. Its physical bit length is
+\begin{equation}\label{eq:sparse-code-length}
+ \ell=k+B_F+m+t+n_F+5+B_Fn_F.
+\end{equation}
+This encoding has a total decoder and an exact round trip on every canonical instance. Both encoding and decoding are polynomial-time procedures.
+
+\begin{lemma}\label{lem:encoding}
+For every sparse instance,
+\begin{equation}\label{eq:encoding-bound}
+ \ell\le(N+5)^2\le36N^2.
+\end{equation}
+Consequently, if $r\ge0$ and $2r\le h$, then for every $A\ge0$,
+\begin{equation}\label{eq:power-transfer}
+ A\ell^r\le A36^r N^h.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Equation~\eqref{eq:ordinary-size} gives $N=k+m+t+n_F+B_F$. In particular, $B_F,n_F\le N$ and $N\ge1$. Equation~\eqref{eq:sparse-code-length} therefore implies $\ell\le N+5+N^2\le(N+5)^2$. Since $N+5\le6N$, the second inequality follows. Raising to $r$ and using $N\ge1$ proves~\eqref{eq:power-transfer}.
+\end{proof}
+
+The complete-table encoding has unary headers for $k,D$ and three reserved parameter fields, followed by $k^2$ edge bits and $k^2D^2$ relation bits. The reserved fields are zero on the original input; the algorithm computes its grouping and clique parameters internally. Its canonical length is
+\begin{equation}\label{eq:dense-length}
+ L=k+D+5+k^2+k^2D^2.
+\end{equation}
+If the internally prepared fields are $g,b,K$, the corresponding length is
+\begin{equation}\label{eq:prepared-length}
+ E=k+D+g+b+K+5+k^2+k^2D^2.
+\end{equation}
+
+\subsection{Native computation}
+The formal implementation uses Mathlib's finite-program deterministic stack-machine model, with a fixed finite number of stacks and finite alphabet on every stack. For a fixed machine, each program block performs a bounded number of stack operations. Integers and lists are encoded explicitly; arithmetic on an unbounded integer is not a unit-cost primitive.
+
+We first construct a stepped program whose initialization, transition, and output procedures have polynomial-time implementation certificates. The imported native simulation supplies one machine and an integer $q$, fixed before the input, such that a run using $T$ abstract steps and state size at most $S$ gives a native run within
+\begin{equation}\label{eq:host}
+ q(T+1)(\ell+S+1)^q
+\end{equation}
+steps on a bit input of length $\ell$. The state-size term is retained throughout the argument.
+
+\section{The imported counting routine}\label{sec:engine}
+
+We record the interface used from the Anthropic formalization~\cite{AnthropicLean}. This isolates the algorithmic dependency from the CSP construction and estimates proved below.
+
+\subsection{Network data and admissibility}\label{sec:network-contract}
+
+A network on $g$ nodes has, for each node $a$, a setting length $\ell_a$, a set $S_a\subseteq\{0,1\}^{\ell_a}$, and an integer weight $W_a:S_a\to\Z$. Each pair of distinct nodes has an integer interaction $\Psi_{ab}:S_a\times S_b\to\Z$, a nonnegative integer capacity $c_{ab}$, and integer factors $f_{ab}(z,\theta)$, where $z\in S_a$ and $\theta\in\{0,1\}^{c_{ab}}$. The capacities are symmetric. With positive integer parameters $P,B$, the required conditions are
+\begin{align}
+ \ell_a&\le P,& \sum_{b\ne a}c_{ab}&\le P,\label{eq:net-row}\\
+ \Psi_{ba}(z',z)&=\Psi_{ab}(z,z'),&
+ \Psi_{ab}(z,z')&=\sum_{\theta\in\{0,1\}^{c_{ab}}}
+                  f_{ab}(z,\theta)f_{ba}(z',\theta),\label{eq:net-factor}\\
+ |W_a(z)|&<2^B,& |\Psi_{ab}(z,z')|&<2^B,\qquad |f_{ab}(z,\theta)|<2^B.\label{eq:net-magnitude}
+\end{align}
+The conditions involving two nodes are imposed for $a\ne b$, and all conditions on settings are imposed on the indicated legal settings. Diagonal capacities play no role. The network value and total capacity are
+\begin{equation}\label{eq:net-value}
+ Z(\mathcal N)=\sum_{z\in\prod_a S_a}
+       \prod_a W_a(z_a)\prod_{a<b}\Psi_{ab}(z_a,z_b),
+ \qquad U=\sum_a\sum_{b\ne a}c_{ab}.
+\end{equation}
+In particular, $U$ counts ordered pairs, so each shared capacity is counted twice.
+
+The algorithm is given the setting lengths and capacities, together with four procedures: membership in $S_a$, evaluation of $W_a$, evaluation of $\Psi_{ab}$, and evaluation of $f_{ab}$. Their correctness is required for all queries in the domains above, with membership tested on strings of length $\ell_a$. Their execution time and state size must be bounded. In the stepped-program interface used here each query is one abstract transition whose implementation is separately certified polynomial-time; the native simulation charges that implementation through~\eqref{eq:host}. Setting lengths and capacities have certified unary implementations. Thus admissibility includes both the mathematical identities and concrete access procedures, not only bounds on the number of settings. These requirements are respectively \texttt{Net.Is}, \texttt{Procs.Give}, and \texttt{Procs.Keeps} in the imported development.
+
+\subsection{Quantitative recursion and grouping}
+
+\begin{proposition}[Imported recursion interface]\label{prop:backend}
+There are integers $C_0,C_1\ge0$, a constant $A_0\ge0$, a strictly increasing sequence of integers $K_j\ge2$, and rates $e_j\ge0$, with
+\begin{equation}\label{eq:levels}
+ K_{j+1}\le K_j^{10},\qquad
+ e_j\le\frac{A_0}{\sqrt{\log_2K_j}}.
+\end{equation}
+The levels admit a uniform polynomial-time bounded computation. At level $j$, the clique routine evaluates a network with $K_j$ nodes, settings consisting of $K_j-1$ blocks of $\lambda$ bits at each node, and interactions requiring agreement of the two copies of each shared block. Its integer local tables have magnitude below $2^{B'}$. Its abstract operation and state-size budget is
+\begin{equation}\label{eq:clique-budget}
+ \mathcal T=
+ \left\lceil
+  2^{e_jK_j^2\lambda}
+  \bigl(K_j(\lambda+B')\bigr)^{C_0K_j^2}
+ \right\rceil.
+\end{equation}
+For a network satisfying Section~\ref{sec:network-contract} on $g=3K_j^8$ nodes with parameters $P,B$ and total capacity $U$, grouping reduces evaluation to that clique routine using parameters
+\begin{equation}\label{eq:clique-parameters}
+ \lambda=\left\lceil\frac{U+gP/K_j}{K_j^2}\right\rceil,
+ \qquad
+ B'=\left\lceil\frac{2gP}{K_j}\right\rceil+g^2B,
+\end{equation}
+and the resulting abstract operation bound is
+\begin{equation}\label{eq:grouping}
+ T\le
+ \left(K_j^g+\mathcal T\,2^{2gP/K_j}\right)
+ \bigl(g(P+B)\bigr)^{C_1}.
+\end{equation}
+The same program is used at every level.
+\end{proposition}
+
+The interfaces above are supplied by the imported recursion and grouping theorems. In the downstream program, the grouping size is converted to its level by a certified adapter, and every table query is replaced by a concrete polynomial-time procedure on the input. The replacement gives a run in at most $3T$ abstract steps. Its state bound has the form
+\begin{equation}\label{eq:state-shape}
+ S\le F_\Delta E^{a_\Delta}+\mathcal T,
+\end{equation}
+where $F_\Delta,a_\Delta$ are fixed independently of $k$ and $D$; we establish the required input-size estimate in the next section. Thus~\eqref{eq:grouping} is applied to an implemented relation provider, with the cost of its finite procedures included in native simulation.
+
+\section{A counting bound uniform in the domain}\label{sec:counting}
+
+\subsection{Balanced groups and concrete tables}
+
+Let $I$ be a complete-table instance with maximum degree at most $\Delta$. Put $b=\bits(D)$; for $D\ge2$, we have $b\ge1$ and $D\le2^b$. A value in $[D]$ is represented by a $b$-bit word, with words representing values outside the domain rejected.
+
+Partition the $k$ variables into $g$ groups $V_G$ by their residues modulo $g$. Every group has size at most
+\[
+ s=\lfloor k/g\rfloor+1.
+\]
+A setting of group $G$ is a concatenation, in increasing variable order, of one $b$-bit block per variable in $V_G$. The set $S_G$ consists exactly of words whose blocks decode to values in $[D]$; hence $\ell_G=b|V_G|$. Write $x_a$ for the value of variable $a$ in a setting. For an edge with $a<v$, put
+\[
+ r_{av}(x,y)=\ind{(x,y)\in R_{av}}.
+\]
+The local weight and the interaction between distinct groups are
+\begin{align}
+ W_G(x)&=\prod_{\substack{a<v,\ \{a,v\}\in E(I)\\a,v\in V_G}}r_{av}(x_a,x_v),\label{eq:csp-local}\\
+ \Psi_{GH}(x,y)&=\prod_{\substack{a<v,\ \{a,v\}\in E(I)\\
+             \text{one endpoint in }V_G,\ \text{one in }V_H}}
+                    r_{av}(z_a,z_v),\label{eq:csp-interaction}
+\end{align}
+where $z$ agrees with $x$ on $V_G$ and with $y$ on $V_H$. Empty products are one. This definition makes $\Psi_{GH}(x,y)=\Psi_{HG}(y,x)$.
+
+For each unordered pair of groups, list its crossing edges once, ordering endpoints by group and then ordering the resulting pairs lexicographically. Use this same list in both orientations. If it has $m_{GH}$ edges, set $c_{GH}=b m_{GH}$. A label $\theta$ is a word of $c_{GH}$ bits with one block $t_e$ per crossing edge $e$. It is legal when every block represents a value of $[D]$. The interpretation of $t_e$ is always the value of the smaller \emph{original variable}, irrespective of group order. For $e=\{a,v\}$ with $a<v$, its contribution to the factor at either endpoint is
+\begin{equation}\label{eq:csp-endpoint-factor}
+ \phi_{a,e}(x_a,t_e)=\ind{x_a=t_e},\qquad
+ \phi_{v,e}(x_v,t_e)=r_{av}(t_e,x_v).
+\end{equation}
+For the endpoint $u$ of $e$ in $V_G$, define
+\begin{equation}\label{eq:csp-group-factor}
+ f_{GH}(x,\theta)=\ind{\theta\text{ is legal}}
+              \prod_{e\text{ crossing }G,H}\phi_{u,e}(x_u,t_e).
+\end{equation}
+When there are no crossing edges, the label is the empty word and the factor is one. Nonedges carry no domain labels and introduce no multiplicity.
+
+\begin{lemma}[Factorization and value]\label{lem:factor-value}
+The factors in~\eqref{eq:csp-group-factor} satisfy~\eqref{eq:net-factor}, and the network value in~\eqref{eq:net-value} equals $Z(I)$.
+\end{lemma}
+\begin{proof}
+Fix legal settings $x,y$ of two distinct groups. Labels with an illegal block contribute zero. Legal labels are in bijection with independent choices $t_e\in[D]$ on the crossing edges. Distributing the finite sum over these choices gives
+\[
+ \sum_{\theta\in\{0,1\}^{c_{GH}}}f_{GH}(x,\theta)f_{HG}(y,\theta)
+ =\prod_{\substack{e=\{a,v\}\text{ crossing }G,H\\a<v}}
+     \left(\sum_{t\in[D]}\ind{z_a=t}\,r_{av}(t,z_v)\right)
+ =\Psi_{GH}(x,y).
+\]
+The last equality follows because exactly one term survives in each inner sum. This is a factorization through $b$ bits per crossing edge and does not require a special constraint language or a low-rank relation table.
+
+A collection of legal group settings is in bijection with an assignment $[k]\to[D]$. Every original edge occurs exactly once, either in a local weight or in an interaction between two groups. The summand in~\eqref{eq:net-value} is consequently the indicator that the assignment satisfies all constraints. Summing proves the value identity. The corresponding formal results are \texttt{BitNetwork.factor\_lt} and \texttt{BitNetwork.value\_eq\_count}; the semantic merge is \texttt{Instance.coarsened\_count}.
+\end{proof}
+
+For example, in a two-variable instance with one edge $a<v$ and relation $R_{av}\subseteq[D]^2$, place the variables in separate groups. The factors are $\ind{x=t}$ and $r_{av}(t,y)$, so their sum over legal $b$-bit labels is $r_{av}(x,y)$, for an arbitrary table $R_{av}$. Invalid labels contribute zero. The resulting network value is $|R_{av}|$.
+
+The row-capacity and entry parameters used by the concrete provider are
+\begin{equation}\label{eq:provider}
+ P=\Delta b s,\qquad B=s+s^2+1.
+\end{equation}
+The entry parameter is retained as stated, including its dependence on $s$. All required table values are evaluated by scans, products, and indexed accesses to the original finite tables. The procedures manipulate the labels of the current query; they do not materialize the entire table of grouped assignments.
+
+\begin{lemma}\label{lem:volume}
+If $1\le g\le k$, the grouped network satisfies the imported network contract with parameters~\eqref{eq:provider}, and its total capacity $U$ obeys
+\begin{equation}\label{eq:volume}
+ gP\le2\Delta bk,\qquad U\le2\Delta bk.
+\end{equation}
+Its value is $Z(I)$. The concrete query procedures are polynomial-time in the encoded input and current query.
+\end{lemma}
+\begin{proof}
+A group setting has length $b|V_G|\le bs\le P$, since $\Delta\ge1$. Each crossing edge needs $b$ label bits and each variable has at most $\Delta$ neighbors, so $\sum_{H\ne G}c_{GH}\le\Delta b|V_G|\le P$. The capacities are symmetric. All local weights, interactions, and factors in~\eqref{eq:csp-local}--\eqref{eq:csp-group-factor} are zero or one, so their magnitudes are strictly below $2^B$. Both $P$ and $B$ are positive. Lemma~\ref{lem:factor-value} supplies the remaining factorization and value requirements. These are the conditions checked by \texttt{BitNetwork.is\_valid}. Summing the row bounds gives $U\le gP$. Finally,
+\[
+ g(\lfloor k/g\rfloor+1)\le k+g\le2k.
+\]
+Membership checks inspect the setting length and the decoded blocks. The other procedures evaluate the displayed products by scans and indexed accesses to the input tables, rejecting illegal labels before evaluation. They enumerate neither $[D]$ nor all group settings. For $g\le k$, the setting and label lengths and the numbers of factors are polynomial in $k$ and $b$; table lookup is polynomial in the complete-table input length. The formal provider satisfies the mathematical and execution contracts by \texttt{ProviderGive.isNetwork}, with polynomial implementation certificates in \texttt{ProviderMetadata.procs\_keeps}. The abstract query budget is one step, with its actual native implementation charged through~\eqref{eq:host}.
+\end{proof}
+
+\subsection{Choosing the clique level}
+
+For $k\ge K_0^{32}$, select the largest $j$ with $K_j^{32}\le k$, and put
+\begin{equation}\label{eq:selection}
+ K=K_j,\qquad g=3K^8.
+\end{equation}
+Strict increase of the levels guarantees that this selection is finite. The selected level satisfies
+\begin{equation}\label{eq:window}
+ K^{32}\le k<K^{320}.
+\end{equation}
+Indeed, maximality gives $k<K_{j+1}^{32}$, and~\eqref{eq:levels} gives $K_{j+1}^{32}\le K^{320}$. In particular, $K\le k$, $K^2\le k$, and $g\le k$.
+
+The selection is implemented using the bounded level computer, with a unary cutoff determined by $k$. This avoids evaluating an unbounded next level as an intermediate value. Once $K$ is obtained, the group count and domain width are computed by fixed polynomial-time procedures.
+
+\begin{lemma}\label{lem:parameters}
+For the parameters in~\eqref{eq:provider}--\eqref{eq:window}, the actual clique arguments in~\eqref{eq:clique-parameters} satisfy
+\begin{align}
+ K^2\lambda&\le5\Delta bk,\label{eq:lambda-bound}\\
+ \lambda&\le5\Delta bk,\qquad B'\le12\Delta bk^4,\label{eq:entry-bound}\\
+ K(\lambda+B')&\le17\Delta bk^5.\label{eq:argument-bound}
+\end{align}
+\end{lemma}
+\begin{proof}
+Using the ceiling bound and~\eqref{eq:volume},
+\[
+ K^2\lambda\le U+gP/K+K^2
+ \le2\Delta bk+2\Delta bk+\Delta bk.
+\]
+Here $K^2\le k$ and $\Delta b\ge1$. This proves~\eqref{eq:lambda-bound} and the first part of~\eqref{eq:entry-bound}. Since $s\le k+1$, we have $B\le7k^2$. Thus
+\[
+ B'\le2gP/K+1+g^2B
+ \le4\Delta bk+1+7k^4
+ \le12\Delta bk^4.
+\]
+Multiplying the sum of the two bounds by $K\le k$ proves~\eqref{eq:argument-bound}.
+\end{proof}
+
+\subsection{Uniform absorption of the overheads}
+
+Write
+\begin{equation}\label{eq:rate-R}
+ R=\frac{bk}{\sqrt{\log k}}.
+\end{equation}
+The next elementary estimates hold for every $b\ge1$. This is where uniformity in the domain parameter enters the cost analysis.
+
+\begin{lemma}\label{lem:overheads}
+Suppose $K\ge2$, $b\ge1$, and $K^{32}\le k\le K^{320}$. Then
+\begin{align}
+ \sqrt{\log k}&\le18K,\label{eq:sqrt-bound}\\
+ 3K^8\log K&\le54R,\label{eq:search-bound}\\
+ \frac1K&\le\frac{18}{\sqrt{\log k}},\label{eq:inverse-bound}\\
+ K^2(\log k+\log b+1)&\le5796R.\label{eq:poly-bound}
+\end{align}
+Moreover $R\ge1$.
+\end{lemma}
+\begin{proof}
+The upper bound on $k$ gives $\log k\le320\log K\le320K$, which implies~\eqref{eq:sqrt-bound}. Multiplying its left side by $3K^8\log K$, using $\log K\le K$ and $K^{10}\le k$, gives~\eqref{eq:search-bound}. Equation~\eqref{eq:inverse-bound} is a rearrangement of~\eqref{eq:sqrt-bound}.
+
+For~\eqref{eq:poly-bound}, use $\log k\le320K$ and $\log b\le b$ to obtain
+\[
+ \log k+\log b+1\le322bK.
+\]
+After multiplying by $K^2\sqrt{\log k}$, the resulting expression is at most
+\[
+ K^2(322bK)(18K)=5796bK^4\le5796bk.
+\]
+Finally $\log k\le k-1\le k^2$ for $k\ge2$, so $\sqrt{\log k}\le k$ and $R\ge1$.
+\end{proof}
+
+\begin{lemma}\label{lem:budget}
+There is a constant $c_0$, independent of $k$ and $b$, such that the integer clique budget of~\eqref{eq:clique-budget} satisfies
+\begin{equation}\label{eq:budget-absorbed}
+ \mathcal T\le\exp(c_0R).
+\end{equation}
+The constant may depend on $\Delta$ and the fixed imported routine.
+\end{lemma}
+\begin{proof}
+Let $X$ be the expression inside the ceiling in~\eqref{eq:clique-budget}. The level window implies
+\[
+ \sqrt{\log k}\le18\sqrt{\log_2K},
+ \qquad e_j\le\frac{18A_0}{\sqrt{\log k}}.
+\]
+Consequently,
+\[
+ e_jK^2\lambda\log2\le90A_0\Delta(\log2)R.
+\]
+By~\eqref{eq:argument-bound},
+\[
+ \log\bigl(K(\lambda+B')\bigr)
+ \le c_\Delta(\log k+\log b+1),
+ \qquad c_\Delta=\log17+\log\Delta+6.
+\]
+Equation~\eqref{eq:poly-bound} now gives
+\[
+ \log X
+ \le\bigl(90A_0\Delta\log2+5796C_0c_\Delta\bigr)R.
+\]
+All factors defining $X$ are at least one. Hence $\lceil X\rceil\le2X$, and the additive $\log2$ in its logarithm is absorbed using $R\ge1$.
+\end{proof}
+
+The remaining exponential factor in~\eqref{eq:grouping} is bounded by
+\begin{equation}\label{eq:entry-exponent}
+ \frac{2gP}{K}\le\frac{4\Delta bk}{K}\le72\Delta R.
+\end{equation}
+Also $\log(K^g)=3K^8\log K\le54R$. Combining these bounds with Lemma~\ref{lem:budget}, the sum in~\eqref{eq:grouping} is at most $\exp(c_1R)$ for a fixed $c_1$. Since $g,b,K,k\le E$,
+\[
+ g(P+B)\le(2\Delta+7)E^3.
+\]
+The actual counter therefore has bounds
+\begin{align}
+ T&\le F_1E^{3C_1}\exp(c_1R),\label{eq:abstract-time}\\
+ S&\le F_2E^{3C_1+2}+\exp(c_0R),\label{eq:abstract-space}
+\end{align}
+with fixed constants $F_1,F_2$. The second estimate includes the encoded context, query words, and grouping state in~\eqref{eq:state-shape}. In particular, the state bound is used as an input to native simulation rather than omitted from the time analysis.
+
+\subsection{Native time and global correctness}
+
+The program first checks the size and degree conditions of the fast branch. If they fail, it uses exact enumeration. The enumeration ranges over fixed-width words, rejects illegal domain values, and sums the indicators in~\eqref{eq:partition}. For $D\le1$ it uses width zero, with an explicit empty-domain case. Thus the chosen counter is correct on every canonical complete-table input, including inputs outside the fast branch.
+
+On the fast branch, substitute~\eqref{eq:abstract-time} and~\eqref{eq:abstract-space} into~\eqref{eq:host}, with the constant-factor step replacement and guard state included. For fixed $q$, the result is at most
+\begin{equation}\label{eq:native-exp}
+ A E^p\exp(cR)
+\end{equation}
+for constants $A,p,c$ fixed before $k,D,I$. To see the absorption explicitly, write $a=3C_1+2$. Since $E\ge1$ and $c_0\ge0$,
+\[
+ E+S+O(1)\le O(F_2+1)E^a\exp(c_0R).
+\]
+Raising to $q$ changes the exponential coefficient by $qc_0$ and the polynomial degree by $aq$. All such changes are independent of $D$.
+
+The prepared length satisfies $E\le4L$: the original length is~\eqref{eq:dense-length}, and the additional fields satisfy $g,K\le k$ and $b\le D$. Finally, for $D\ge2$,
+\[
+ b=\lfloor\log_2D\rfloor+1\le2\log_2D,
+\]
+so
+\[
+ \exp\left(\frac{cbk}{\sqrt{\log k}}\right)
+ \le D^{(2c/\log2)k/\sqrt{\log k}}.
+\]
+This proves Theorem~\ref{thm:counting}. The rate is sublinear because $(\sqrt{\log k})^{-1}\to0$.
+
+\section{Sparse inputs and the original domain}\label{sec:sparse}
+
+The original domain cardinality is a binary field of the sparse instance. Constructing all $D^2$ relation entries before inspecting the tuple lists would not be polynomial-time in that input. We first restrict to the values supported by the listed tuples.
+
+\subsection{Support pruning}
+
+Let $S_I\subseteq[D]$ be the set of in-domain values that appear as a coordinate of some listed tuple, and put $M=|S_I|$. Since there are $t$ tuples,
+\begin{equation}\label{eq:support-size}
+ M\le2t.
+\end{equation}
+Compute the deduplicated list of these values and use its positions as the new domain $[M]$. Denote the decoding injection by $d:[M]\to[D]$.
+
+\begin{lemma}\label{lem:support}
+If the constraint list is nonempty, the original sparse instance is satisfiable if and only if it has a satisfying assignment taking all its values in $S_I$.
+\end{lemma}
+\begin{proof}
+Only the forward implication requires proof. In a satisfying assignment, the value of every variable occurring in a constraint appears in a satisfying tuple and hence belongs to $S_I$. A satisfied constraint supplies at least one value in $S_I$. Assign that value to every variable that occurs in no constraint. Satisfaction is unchanged.
+\end{proof}
+
+This argument applies even when some variables are isolated in the primal graph. Such a variable may still carry self-constraints, which must be retained when the sparse relations are normalized.
+
+\subsection{Normalization with isolated variables}
+
+For each variable $a$, let $U_a\subseteq[M]$ be the set of values satisfying all self-constraints at $a$, after decoding by $d$. For each distinct pair $a,b$ that occurs as a scope, form the relation on $[M]^2$ obtained by intersecting all constraints with that scope, with coordinates reversed where necessary, and requiring the two endpoint values to lie in $U_a,U_b$. Let $J$ be the complete-table instance with these relations. Its primal graph is exactly that of the sparse instance: an edge is retained even when its normalized relation is empty or universal.
+
+Define
+\[
+ Q(I):\quad U_a\ne\varnothing
+ \quad\text{for every isolated vertex }a.
+\]
+
+\begin{lemma}\label{lem:normalization}
+For every scope-valid sparse instance with a nonempty constraint list,
+\begin{equation}\label{eq:decision-normalization}
+ \SAT(I)\quad\Longleftrightarrow\quad Q(I)\ \text{and}\ Z(J)>0.
+\end{equation}
+All data defining $J$ and the test $Q(I)$ are polynomial-time computable from the sparse input.
+\end{lemma}
+\begin{proof}
+Use Lemma~\ref{lem:support} to restrict to $[M]$. Every satisfying assignment yields a solution of $J$ and a witness that each isolated $U_a$ is nonempty. Conversely, take a solution of $J$. At an incident vertex, the edge relations already enforce its self-constraints. At an isolated vertex, choose any value in $U_a$ using $Q(I)$. This change affects no binary edge. The resulting assignment satisfies every original constraint.
+
+The support has size at most $2t$. All unary tests, relation intersections and coordinate reversals are finite scans of the tuple lists. Filling the $k^2M^2$ relation array after pruning is therefore polynomial-time. The implemented procedures compute these scans and their indices directly.
+\end{proof}
+
+For an empty constraint list, the answer is true precisely when $k=0$ or $D>0$. For a nonempty list, the decision program checks $Q(I)$ and, if it holds, runs the total dense counter on $J$ and tests whether its count is positive. This defines one globally correct sparse decision algorithm. The test of $Q(I)$ is unnecessary on nonisolated graphs, where it is vacuously true, but is required for global correctness.
+
+\subsection{Runtime on the sparse representation}
+
+\begin{lemma}\label{lem:dense-expansion}
+Let $\ell$ be the native sparse bit length. After support pruning, the prepared complete-table length satisfies
+\begin{equation}\label{eq:dense-expansion}
+ E\le17\ell^4
+\end{equation}
+whenever the selected fields satisfy $g,K\le k$ and $b\le M$.
+\end{lemma}
+\begin{proof}
+The unary variable header gives $k\le\ell$, and the tuple-count header together with~\eqref{eq:support-size} gives $M\le2\ell$. By~\eqref{eq:prepared-length},
+\[
+ E\le3k+2M+5+k^2+k^2M^2.
+\]
+Using $\ell\ge1$ bounds the right side by $17\ell^4$.
+\end{proof}
+
+For $M\ge2$, apply the estimates of Section~\ref{sec:counting} to $J$. In the native simulation use $E+\ell$ as the common input-size bound; this also covers sparse inputs whose original domain field is much longer than the reduced tables. Lemma~\ref{lem:dense-expansion} gives $E+\ell\le18\ell^4$. Therefore there are fixed constants $F,a\ge0$ and an integer $p\ge0$, depending only on $\Delta$, such that the runtime on sufficiently large bounded-degree nonisolated instances is at most
+\begin{equation}\label{eq:sparse-M}
+ F\ell^p M^{\beta(k)},\qquad
+ \beta(k)=\frac{ak}{\sqrt{\log k}}.
+\end{equation}
+The initialization and all sparse decoding and normalization procedures are included in this native bound.
+
+Since $M\le2t\le2\ell$, equation~\eqref{eq:sparse-M} is at most
+\begin{equation}\label{eq:raw-uniform}
+ F2^{\beta(k)}\ell^{p+\beta(k)}.
+\end{equation}
+For $M=0$ or $M=1$, the dense fallback enumerates zero-bit words in a constant number of abstract steps, with polynomial state size. Its native time is polynomial in $\ell$. Enlarging $F$ and $p$, but retaining their independence of the instance and the original domain, includes both cases in~\eqref{eq:raw-uniform}.
+
+\begin{proposition}\label{prop:sparse-bound}
+For every fixed $\Delta\ge1$, one globally correct sparse decision algorithm has, on sufficiently large instances of maximum degree at most $\Delta$ and with no isolated vertices, running time at most
+\begin{equation}\label{eq:ordinary-bound}
+ F_\Delta(k)N^{2p+2\beta(k)},\qquad
+ F_\Delta(k)=F36^p72^{\beta(k)},\qquad N=\lVert I\rVert.
+\end{equation}
+The constants $F,p,a$ are fixed before $k$, the original domain cardinality, and all relation data.
+\end{proposition}
+\begin{proof}
+Apply Lemma~\ref{lem:encoding} to~\eqref{eq:raw-uniform} with exponent $p+\beta(k)$. Its multiplicative factor becomes $F2^{\beta(k)}36^{p+\beta(k)}=F36^p72^{\beta(k)}$.
+\end{proof}
+
+\section{Expanders and a sublinear treewidth exponent}\label{sec:graphs}
+
+We use the attributed spectral family in the OpenAI graph development~\cite{OpenAIGraph}. There is a fixed finite nonempty port set $\mathcal D$ and a family of finite regular port graphs with symmetric transition operator $P$, spectral parameter at most $1/2$, and cardinalities $N_n=r^{n+1}$ for a fixed integer $r>1$. Let $H_n$ be the underlying simple graph: loops are discarded and parallel ports give a single edge. Then
+\begin{equation}\label{eq:degree-family}
+ \max\deg(H_n)\le|\mathcal D|.
+\end{equation}
+The relevant separator estimate follows directly from the spectral certificate, so the passage to simple graphs does not require them to remain regular.
+
+The imported construction chooses a finite base graph from a proved existence theorem and then iterates the graph operations. We use only the existence of this family with its stated certificates. No effective selection of the base graph, or algorithm for recognizing the resulting class, is claimed or needed in Theorem~\ref{thm:main}: the CSP algorithm is globally correct and its fast branch tests the size and degree conditions, not membership in the family.
+
+\subsection{A linear lower bound on bag size}
+
+\begin{lemma}\label{lem:spectral-separator}
+Let $A,S$ be vertex sets in a member of the port family. Suppose every transition from a vertex of $A$ to a vertex outside $A$ ends in $S$. Put $\alpha=|A|/N$ and $\sigma=|S|/N$, where $N$ is the number of vertices. Then
+\begin{equation}\label{eq:spectral-separator}
+ \frac12\alpha(1-\alpha)\le\sigma.
+\end{equation}
+In particular, if $1/4\le\alpha\le3/4$, then $|S|\ge N/16$.
+\end{lemma}
+\begin{proof}
+Write $f=\ind{v\in A}$ and use the uniform mean and inner product. The spectral certificate gives
+\[
+ \langle f,Pf\rangle
+ \le\alpha^2+\tfrac12(\alpha-\alpha^2).
+\]
+The escaping mass $\alpha-\langle f,Pf\rangle$ is bounded above by $\sigma$, since every escaping transition ends in $S$ and the transition operator preserves the uniform mean. Rearrangement gives~\eqref{eq:spectral-separator}. For $\alpha\in[1/4,3/4]$, its left side is at least $3/32$, which is greater than $1/16$.
+\end{proof}
+
+\begin{lemma}\label{lem:no-isolates}
+Every $H_n$ has no isolated vertices.
+\end{lemma}
+\begin{proof}
+Since $N_n>1$, the density of a singleton is strictly between zero and one. If its vertex were isolated in $H_n$, every port transition from that vertex would return to it. Apply~\eqref{eq:spectral-separator} with that singleton as $A$ and $S=\varnothing$, obtaining a contradiction.
+\end{proof}
+
+\begin{lemma}\label{lem:bag}
+Every tree decomposition of $H_n$ with maximum bag cardinality $q$ satisfies
+\begin{equation}\label{eq:bag}
+ N_n/16\le q.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Assign each graph vertex to one bag containing it and give each decomposition-tree node the number of vertices assigned to it as weight. A weighted centroid of the tree has every component of its deletion of weight at most $N_n/2$. Let $S$ be its bag.
+
+For a graph vertex outside $S$, all bags containing that vertex lie in a single component of the deleted tree, by the connectedness condition in a tree decomposition. Adjacent graph vertices outside $S$ have a common bag, so they receive the same component label. Thus each component of $H_n-S$ has at most $N_n/2$ vertices.
+
+If $|S|\ge N_n/16$, the conclusion follows. Otherwise the components outside $S$ have total size greater than $15N_n/16$. Accumulate components until their union $A$ first has size at least $N_n/4$. The last component added has size at most $N_n/2$, so $|A|\le3N_n/4$. Every edge from $A$ to its complement ends in $S$, and the same holds for port transitions. Lemma~\ref{lem:spectral-separator} gives $|S|\ge N_n/16$, a contradiction.
+\end{proof}
+
+For a nonempty finite graph, the minimum possible maximum bag cardinality is $\tw(G)+1$. Existence follows from the one-bag decomposition, and the minimum is attained over the natural numbers. Consequently,
+\begin{equation}\label{eq:width-family}
+ N_n\le16\bigl(\tw(H_n)+1\bigr),
+ \qquad \tw(H_n)\le N_n.
+\end{equation}
+In particular, the family has unbounded treewidth, and every tail defined by a cardinality threshold still has unbounded treewidth. Treewidth, degree and nonisolation are preserved by graph isomorphisms.
+
+\subsection{Proof of the main theorem}
+
+Set $\Delta=|\mathcal D|$ and choose the globally correct sparse algorithm of Proposition~\ref{prop:sparse-bound}. Let $k_\Delta$ be its fixed size threshold. Define $\mathcal G$ to consist of all graphs isomorphic to some $H_n$ with
+\begin{equation}\label{eq:tail}
+ N_n\ge\max\{64,k_\Delta\}.
+\end{equation}
+Equations~\eqref{eq:degree-family} and~\eqref{eq:width-family} prove that this class has bounded maximum degree and unbounded treewidth. Lemma~\ref{lem:no-isolates} supplies the hypothesis needed for the fast sparse bound.
+
+Let $I$ have primal graph $G\in\mathcal G$, and write $k=|V(G)|$, $w=\tw(G)$. From~\eqref{eq:width-family} and~\eqref{eq:tail},
+\begin{equation}\label{eq:comparison}
+ 2\le w\le k\le32w.
+\end{equation}
+For $p,a\ge0$, these inequalities imply
+\begin{equation}\label{eq:exponent-transfer}
+ p+\frac{ak}{\sqrt{\log k}}
+ \le(p+32a)\frac{w}{\sqrt{\log w}}.
+\end{equation}
+Indeed, the denominator increases with $k$, the numerator satisfies $k\le32w$, and $1\le w/\sqrt{\log w}$ absorbs the constant $p$.
+
+Choose
+\[
+ c=2(p+32a),\qquad
+ f(G)=F36^p72^{\beta(|V(G)|)},
+\]
+with the constants of Proposition~\ref{prop:sparse-bound}. Equation~\eqref{eq:exponent-transfer} bounds $2p+2\beta(k)$ by $cw/\sqrt{\log w}$. Proposition~\ref{prop:sparse-bound} and $N\ge1$ therefore give
+\[
+ \operatorname{time}_{\mathcal A}(I)
+ \le f(G)N^{c w/\sqrt{\log w}}.
+\]
+The factor $f(G)$ depends only on the graph cardinality and the fixed algorithm constants. Global correctness was established before restricting the runtime analysis to $\mathcal G$. This proves Theorem~\ref{thm:main}.
+
+The algorithm does not need a tree decomposition or a test for membership in $\mathcal G$. It reads the CSP, computes the support, checks the degree and size conditions for the fast routine, and uses the total fallback when necessary. The graph family and its treewidth enter the proof of the running-time bound.
+
+\section{Formal verification and provenance}\label{sec:formal}
+
+The closed formal statement constructs a native machine, a graph class, a graph-dependent multiplicative factor, and an exponent function $h$ satisfying
+\[
+ h=o(w),\qquad
+ \operatorname{time}(I)\le f(G)\lVert I\rVert^{h(\tw(G))}.
+\]
+Correctness is quantified over every scope-valid sparse binary CSP instance. The runtime condition is quantified over all such instances whose primal graphs lie in the constructed class. The machine and constants are chosen before the input. No fast-solver hypothesis appears in the final theorem.
+
+The development uses one version of Lean for both the counting algorithm and the graph argument. The required OpenAI graph sources were ported from source and checked under Lean~4.33.1, using the same pinned dependencies as the counting routine.
+
+\subsection{Checked endpoints}
+
+All downstream modules lie in the namespace \texttt{CSPConsequence}. The central endpoints are:
+\begin{center}
+\small
+\begin{tabular}{@{}p{0.44\textwidth}p{0.51\textwidth}@{}}
+\toprule
+Endpoint & Mathematical content\\
+\midrule
+\texttt{DenseCSPTheorem.}\allowbreak\texttt{exists\_counter}
+ & Globally correct native exact counting with the domain-uniform bound of Theorem~\ref{thm:counting}.\\[3pt]
+\texttt{SparseNativeMachine.}\allowbreak\texttt{exists\_native}
+ & One finite-alphabet native decision machine correct on every valid sparse input.\\[3pt]
+\texttt{SparseUniformRuntime.}\allowbreak\texttt{fast\_for\_host}
+ & The sparse runtime estimate for all supported domain sizes, including zero and one.\\[3pt]
+\texttt{GraphWidthNumber.}\allowbreak\texttt{tail\_unbounded}
+ & Unbounded numerical treewidth after any cardinality cutoff.\\[3pt]
+\texttt{MarxConjecture.}\allowbreak\texttt{counterexample}
+ & The native sparse-input algorithm and graph-class witness of Theorem~\ref{thm:main}.\\[3pt]
+\texttt{MarxConjecture.}\allowbreak\texttt{not\_statement}
+ & Negation of the explicitly formalized literal conjecture.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The proposition \texttt{MarxConjecture.Counterexample} packages unbounded treewidth, a little-$o$ exponent, finite machine alphabets, global correctness, and the runtime inequality. Bounded degree, isomorphism closure, the lower cutoff on treewidth, and the displayed formula for the exponent are properties of the witnesses in the proof of \texttt{counterexample}, obtained from the graph-family and exponent-transfer lemmas. The theorem \texttt{not\_statement} is the immediate logical consequence of this construction; the comparison with the historical conjecture rests on the stated definitions and input representation.
+
+The last two endpoints have kernel dependency reports containing only
+\[
+ \texttt{propext},\qquad
+ \texttt{Classical.choice},\qquad
+ \texttt{Quot.sound}.
+\]
+The retained verification covers 82 downstream modules, with 269 printed standard-axiom reports, and the selected imported counting closure of 633 upstream modules. It records stable source hashes before and after each successful whole-file check, object hashes, compiler exit status and log hashes. Failed development runs are excluded from these receipts.
+
+The Anthropic ETH formalization~\cite{AnthropicLean} separates its statements in \texttt{MainResults.lean} from their proofs in \texttt{Solution.lean}. In particular, \texttt{MainResults.ethIsFalse} proves the stated ETH refutation. For the present result we import the quantitative counting and grouping endpoints directly. Our local verification concerns their selected dependency closure and the new CSP theorem; it is not a replay of every module in the upstream ETH repository. The corresponding OpenAI native exact-counting and satisfiability endpoint is recorded in its separate Lean development~\cite{OpenAILean}.
+
+\subsection{Contributions and imported proofs}\label{sec:provenance}
+
+Troy Nguyen, of Bothell, Washington, elicited the discovery from GPT~6.1~Sol (OpenAI) through a sustained investigation of consequences of the ETH refutations. Nguyen set the objective of identifying a contrary algorithm for a major complexity conjecture and directed the search toward a complete formal verification. GPT~6.1~Sol developed the bounded-degree, domain-uniform CSP argument, the sparse-input and native-runtime transfers, the graph and treewidth connection, and the downstream Lean development and exposition.
+
+The quantitative counting recursion, clique-level bounds, grouping routine, and native simulation infrastructure are reused from Claude (Anthropic)~\cite{ClaudeETH,AnthropicLean}. The spectral expander construction and weighted-tree foundations are reused from the OpenAI mathematics repository~\cite{OpenAIGraph}. The original source attributions are retained above the imported graph blocks, and a manifest records their copied ranges and compatibility changes. These imports are algorithmic and proof dependencies of the result, rather than claims of independent rediscovery.
+
+\subsection{Scope of the result}
+
+The degree bound is fixed. Theorem~\ref{thm:main} exhibits a particular class of unbounded treewidth; it does not supply the same exponent on every graph class. The domain and all relation data remain unrestricted within the stated input representation. The native runtime includes parsing and normalization. The state-size estimates are used to prove the time bound, and no polynomial-space bound is asserted.
+
+The mathematical statements have complete Lean proofs under the recorded imports. The source-level cross-references in Appendix~B allow the conjecture counterexample to be compared directly with its machine model, CSP semantics, input-size measure, and graph class.
+
+\appendix
+\section{Dependency revisions and reproduction}\label{app:reproduce}
+
+The algorithmic dependency is pinned to the Anthropic revision
+\begin{quote}\small\ttfamily
+16a5ce41304fcdaea4e0be7c132e1c361dc26da5.
+\end{quote}
+The graph source port is pinned to the OpenAI mathematics revision
+\begin{quote}\small\ttfamily
+7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a.
+\end{quote}
+The development uses official Lean~4.33.1, revision
+\begin{quote}\small\ttfamily
+819816b2e0a3bf405af45ae5c7af2491d8f5bee6,
+\end{quote}
+and mathlib revision
+\begin{quote}\small\ttfamily
+0df444a360eaa60ab8c11dca51a86af692955474.
+\end{quote}
+
+The selected algorithmic endpoints are
+\begin{quote}\small\ttfamily
+CountedInstance.theRecursionMeetsTheHypothesis,\\
+ExplicitCost.recursionSolves,\\
+ExplicitCost.groupingExplicit,\\
+ExplicitCost.groupingPoly,\\
+GeneralPieces.PartA.K\_lt\_le.
+\end{quote}
+Their theorem statements supply the effective level family and actual counting routine. The adapter and provider modules replace table queries with certified finite procedures before native compilation.
+
+The companion source overlay contains the 82 checked downstream Lean modules, the source manifest, successful verification receipts, the graph port manifest and adaptation diff, and a sequential replay script. The script checks source hashes, orders downstream imports, recompiles each supplied module, and rejects failed compilations, holes and unexpected axiom reports. The supplied dependency lockfile is retained during reproduction. Complete instructions are in the artifact's \texttt{README.md}.
+
+The selected 633-module upstream closure is sufficient for the imported counting endpoints. No independent second-kernel replay or full replay of all 1050 upstream modules is included in the verification claim.
+
+\section{Map from the proof to the formal development}
+
+The following groups identify where the mathematical constructions are verified. Source and object hashes, rather than filenames alone, identify the retained checked versions.
+
+\begingroup\raggedright\small
+\paragraph{CSP semantics and the concrete network.}
+\texttt{CSPNetwork}, \texttt{BalancedCSP}, \texttt{DomainCodec}, \texttt{FiniteEncoding}, \texttt{EncodedSettings}, \texttt{EncodedLabels}, \texttt{BitNetwork} and \texttt{BitNetworkValidity} establish the assignment codecs, balanced grouping, network contracts and exact value. The concrete query and factor refinements are assembled in \texttt{ProviderGive}; \texttt{OracleElimination} replaces the query interface by implemented procedures.
+
+\paragraph{The uniform counting bound.}
+\texttt{LevelSelection} and \texttt{BoundedSelection} implement the choice of level; \texttt{UniformClique} and \texttt{CounterExistence} connect it to the imported routine. \texttt{SelectedBounds}, \texttt{NumericOverheads}, \texttt{LogCost}, \texttt{CliqueBudget}, \texttt{RuntimeMetadata}, \texttt{OperationBound} and \texttt{CoreRuntime} establish the parameter, time and state estimates. \texttt{TotalCounter}, \texttt{NativeFastRuntime}, \texttt{SublinearRate} and \texttt{DenseCSPTheorem} give global correctness, the native bound and its domain-power form.
+
+\paragraph{The original sparse input.}
+\texttt{SparseSupport}, \texttt{SparseSupportDomain}, \texttt{SparseRelabelPreparation} and \texttt{SparseIsolates} prove the support and normalization results. \texttt{SparseFields}, \texttt{SparseFieldBits} and \texttt{SparseRawBits} implement the codec and its round trip. \texttt{SparseSizeBounds} and \texttt{SparseOrdinarySize} establish the size conversion. \texttt{SparseDecision}, \texttt{SparseDecisionRuns}, \texttt{SparseNativeMachine}, \texttt{SparseFastRuntime}, \texttt{SparseSmallRuntime}, \texttt{SparsePowerAbsorption} and \texttt{SparseUniformRuntime} assemble the globally correct native decision algorithm and the estimate covering every reduced domain size.
+
+\paragraph{The graph class and conjecture.}
+\texttt{GraphPinnedExpanderFamily} contains the attributed source port. \texttt{GraphFiniteMassSelection}, \texttt{GraphTreewidth} and \texttt{GraphFamilyFacts} establish the separator, degree and nonisolation facts. \texttt{GraphWidthNumber}, \texttt{GraphWidthTransport} and \texttt{SparseGraphTransfer} connect numerical treewidth and primal graphs to the actual family. \texttt{MarxConjecture} constructs all witnesses of the final theorem and proves the negation of the formalized conjecture.
+
+\par\endgroup
+
+\begin{thebibliography}{9}
+\raggedright
+
+\bibitem{ClaudeETH}
+Claude (Anthropic),
+\emph{A $2^{o(n)}$ time algorithm for $3$-SAT},
+preprint, October 2026, version~1, October~27, 2026.
+\url{https://hexagonmath.org/2610.00577v1}.
+
+\bibitem{Freuder90}
+Eugene C.~Freuder,
+\emph{Complexity of k-tree structured constraint satisfaction problems},
+Proceedings of the Eighth National Conference on Artificial Intelligence (AAAI), 1990, pp.~4--9.
+\href{https://www.aiinternational.org/Papers/AAAI/1990/AAAI90-001.pdf}{Proceedings paper}.
+
+\bibitem{IP01}
+Russell Impagliazzo and Ramamohan Paturi,
+\emph{On the complexity of $k$-SAT},
+Journal of Computer and System Sciences \textbf{62} (2001), no.~2, 367--375.
+\href{https://doi.org/10.1006/jcss.2000.1727}{doi:10.1006/jcss.2000.1727}.
+
+\bibitem{KS13}
+Iyad Kanj and Stefan Szeider,
+\emph{On the subexponential time complexity of CSP},
+Proceedings of the Twenty-Seventh AAAI Conference on Artificial Intelligence, 2013, pp.~459--465.
+\href{https://cdn.aaai.org/ojs/8609/8609-13-12137-1-2-20201228.pdf}{Proceedings paper}.
+
+\bibitem{Marx10}
+D\'aniel Marx,
+\emph{Can you beat treewidth?},
+Theory of Computing \textbf{6} (2010), 85--112.
+\href{https://doi.org/10.4086/toc.2010.v006a005}{doi:10.4086/toc.2010.v006a005}.
+
+\bibitem{OpenAIETH}
+OpenAI,
+\emph{The Exponential Time Hypothesis is false},
+preprint and accompanying Lean development, October~25, 2026.
+\href{https://github.com/openai/math/tree/main/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026}{OpenAI Math Release preprint}.
+
+\bibitem{OpenAILean}
+OpenAI,
+\emph{Native exact-counting and satisfiability verification},
+Lean~4 formalization accompanying the ETH refutation, revision
+\texttt{7ef5c0c}, 2026.
+\href{https://github.com/openai/math/blob/7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a/lean/OAI/Algorithms/SubexponentialSAT/SqrtLogSpace/Final.lean}{\texttt{SqrtLogSpace/Final.lean}}.
+
+\bibitem{AnthropicLean}
+Anthropic,
+\emph{Formalization accompanying ``A $2^{o(n)}$ time algorithm for $3$-SAT''},
+Lean~4 source repository, revision \texttt{16a5ce4}, 2026.
+\href{https://github.com/anthropics/formal-math/tree/16a5ce41304fcdaea4e0be7c132e1c361dc26da5/eth}{Pinned source repository}.
+
+\bibitem{OpenAIGraph}
+OpenAI,
+\emph{Spectral expander and weighted-tree proof foundations},
+OpenAI mathematics repository, revision \texttt{7ef5c0c}, 2026.
+\href{https://github.com/openai/math/tree/7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a}{Pinned source repository}.
+The companion \texttt{GraphPortManifest.json} records the exact source blocks and their adaptations.
+
+\end{thebibliography}
+\end{document}

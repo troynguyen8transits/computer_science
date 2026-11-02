@@ -10,12 +10,12 @@ The resulting algorithm correctly decides every valid binary CSP instance.
 On a bounded-degree graph class of unbounded treewidth, its running time is
 
 $$
-f(G)\,\lVert I\rVert^{c\,\operatorname{tw}(G)/\sqrt{\log\operatorname{tw}(G)}}.
+f(G)\,\|I\|^{c w/\sqrt{\log w}}.
 $$
 
-Here $G$ is the primal graph, and $f(G)$ depends only on the graph, independently
-of the domain size and constraint relations. Since the exponent is
-$o(\operatorname{tw}(G))$, this gives a counterexample to Conjecture 1.4 of
+Here $G$ is the primal graph and $w$ is its treewidth. The factor $f(G)$ depends
+only on the graph, independently of the domain size and constraint relations.
+Since the exponent is $o(w)$, this gives a counterexample to Conjecture 1.4 of
 Marx's *Can You Beat Treewidth?* as stated. His ETH-conditional Theorem 1.3
 remains valid.
 
